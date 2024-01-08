@@ -326,6 +326,14 @@
     [
       "cb819000-1954-426e-958e-510a70bc03c7",
       ""
+    ],
+    [
+      "d7ecd09d-57c9-4727-9d1c-94f2cbee46ae",
+      "Display"
+    ],
+    [
+      "055527a3-d8c6-47d9-8315-81e666beed9f",
+      "Analog Front End"
     ]
   ],
   "text_variables": {}
