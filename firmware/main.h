@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define CS_PIN 5
 #define SCK_PIN 2
 #define MOSI_PIN 3 // MASTER OUT SLAVE IN 
 #define MISO_PIN 4// MASTER IN SLAVE OUT

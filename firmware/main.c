@@ -3,6 +3,7 @@
 #include "hardware/spi.h"
 
 #include "main.h"
+#include "MCP3561.h"
 
 int main(void)
 {
@@ -10,10 +11,11 @@ int main(void)
     
     setup_SPI();
     setup_IO();
-     
+    
     while(1)
     {
-
+        setup_MCP3561();
+        sleep_ms(500);
     }
 
     return 1;
