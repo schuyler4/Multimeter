@@ -6,4 +6,3 @@ respects.
 
 
 
-Maximum Input Voltage: 200V
