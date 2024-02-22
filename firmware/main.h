@@ -7,6 +7,14 @@
 #define MISO_PIN 4// MASTER IN SLAVE OUT
 #define CHIP_SELECT_PIN 5
 
+#define DIGIT1_PIN 21
+#define DIGIT2_PIN 22
+#define DIGIT3_PIN 26
+#define DIGIT4_PIN 27
+
+#define SHIFT_REGISTER_CLK_PIN 19
+#define SHIFT_REGISTER_DATA_PIN 20
+
 #define SPI_SCK_FREQ 2000000
 
 void setup_SPI(void);
