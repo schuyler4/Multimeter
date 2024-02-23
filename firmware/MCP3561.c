@@ -39,27 +39,28 @@ void setup_MCP3561(void)
     // Put the ADC into conversion mode
     uint8_t register_data = (ADC_CONVERSION_MODE << ADC_CONVERSION_MODE_POSITION);
     MCP3561_write(&command, &register_data); 
+    sleep_us(10);
     // Select the internal clock without outputting it to the clock pin
-    register_data = (CLOCK_SELECTION << CLOCK_SELECTION_POSITION);
+    register_data = (CLOCK_SELECTION << CLOCK_SELECTION_POSITION) | (ADC_CONVERSION_MODE << ADC_CONVERSION_MODE_POSITION) | (REFERENCE_ENABLE << REFERENCE_OFFSET);
     MCP3561_write(&command, &register_data);
     
+    /*
     command = CONFIG3_WRITE;
     register_data = (CONTINUES_CONVERSION_MODE << CONVERSION_MODE_POSITION);
     MCP3561_write(&command, &register_data);
+    */
 }
 
 uint32_t MCP3561_read_code(void)
 {
-    uint8_t command = READ_COMMAND;    
-    uint8_t adc_data[ADC_DATA_BYTE_COUNT];
+    uint8_t command[ADC_DATA_BYTE_COUNT +1] = {READ_COMMAND, 0, 0, 0, 0};    
+    uint8_t adc_data[ADC_DATA_BYTE_COUNT + 1];
     uint32_t combined_data = 0;
     chip_select_low();
-    spi_write_blocking(spi0, &command, 1);
-    command = 0;
+    spi_write_read_blocking(spi0, command, adc_data, ADC_DATA_BYTE_COUNT+1); 
     uint8_t i;
     for(i = 0; i < ADC_DATA_BYTE_COUNT; i++)
     {
-        spi_write_read_blocking(spi0, &command, adc_data + i, 1);
         printf("%d", *(adc_data + i));
         combined_data |= (uint32_t)((*(adc_data + i) << i*8));
     }
@@ -75,5 +76,11 @@ uint8_t MCP3561_read_register(void)
     spi_write_read_blocking(spi0, &command, &result, 1); 
     spi_read_blocking(spi0, command, &result, 1);    
     chip_select_high();
+    command = IRQ_READ_COMMAND;
+    chip_select_low();
+    spi_write_read_blocking(spi0, &command, &result, 1); 
+    spi_read_blocking(spi0, command, &result, 1);    
+    chip_select_high();
+    
     return result;
 }
