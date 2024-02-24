@@ -18,10 +18,10 @@ int main(void)
     
     while(1)
     {
-        //uint32_t code = MCP3561_read_code();
-        //printf("%d\n", code);
-        uint8_t reg = MCP3561_read_register();
-        printf("%d\n", reg);
+        ///sample_MCP3561();
+        uint32_t code = MCP3561_read_code();
+        printf("%d\n", code);
+        //uint8_t reg = MCP3561_read_register();
         sleep_ms(500);
     }
 

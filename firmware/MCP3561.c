@@ -44,38 +44,67 @@ void setup_MCP3561(void)
     register_data = (CLOCK_SELECTION << CLOCK_SELECTION_POSITION) | (ADC_CONVERSION_MODE << ADC_CONVERSION_MODE_POSITION) | (REFERENCE_ENABLE << REFERENCE_OFFSET);
     MCP3561_write(&command, &register_data);
     
-    /*
+    uint8_t read_command = IRQ_READ_COMMAND;
+    uint8_t read_result;
+    chip_select_low();
+    spi_write_read_blocking(spi0, &read_command, &read_result, 1); 
+    spi_read_blocking(spi0, read_command, &read_result, 1);    
+    chip_select_high();
+    
+    command = IRQ_WRITE;
+    register_data = (IRQ_MODE << IRQ_MODE_OFFSET) | read_result;
+    
+    MCP3561_write(&command, &register_data);
+    sleep_us(10);
     command = CONFIG3_WRITE;
     register_data = (CONTINUES_CONVERSION_MODE << CONVERSION_MODE_POSITION);
     MCP3561_write(&command, &register_data);
-    */
+
+    read_command = CONFIG1_READ;
+    chip_select_low();
+    spi_write_read_blocking(spi0, &read_command, &read_result, 1); 
+    spi_read_blocking(spi0, read_command, &read_result, 1);
+    chip_select_high();
+    
+    command = CONFIG1_WRITE;
+    register_data = (CLOCK_PRESCALLER_VALUE << CLOCK_PRESCALLER_POSITION) | read_result; 
+    
+    MCP3561_write(&command, &register_data);
+}
+
+void sample_MCP3561(void)
+{
+    uint8_t command = SAMPLE_COMMAND;
+    uint8_t zero = 0x00;
+    MCP3561_write(&command, &zero);
 }
 
 uint32_t MCP3561_read_code(void)
 {
-    uint8_t command[ADC_DATA_BYTE_COUNT +1] = {READ_COMMAND, 0, 0, 0, 0};    
+    uint8_t command[ADC_DATA_BYTE_COUNT + 1] = {READ_COMMAND, 0, 0, 0};    
     uint8_t adc_data[ADC_DATA_BYTE_COUNT + 1];
     uint32_t combined_data = 0;
     chip_select_low();
     spi_write_read_blocking(spi0, command, adc_data, ADC_DATA_BYTE_COUNT+1); 
-    uint8_t i;
-    for(i = 0; i < ADC_DATA_BYTE_COUNT; i++)
-    {
-        printf("%d", *(adc_data + i));
-        combined_data |= (uint32_t)((*(adc_data + i) << i*8));
-    }
     chip_select_high();
-    return combined_data; 
+    printf("%d\n", adc_data[0]);
+    printf("%d\n", adc_data[1]);
+    printf("%d\n", adc_data[2]);
+    printf("%d\n", adc_data[3]);
+    printf("\n");
+    return (adc_data[1] << 16) | (adc_data[2] << 8) | adc_data[3]; 
 }
 
 uint8_t MCP3561_read_register(void)
 {
     uint8_t command = CONFIG0_READ;
     uint8_t result;
+
     chip_select_low();
     spi_write_read_blocking(spi0, &command, &result, 1); 
     spi_read_blocking(spi0, command, &result, 1);    
     chip_select_high();
+
     command = IRQ_READ_COMMAND;
     chip_select_low();
     spi_write_read_blocking(spi0, &command, &result, 1); 
