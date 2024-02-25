@@ -6,6 +6,8 @@
 
 #include "main.h"
 #include "MCP3561.h"
+#include "calcs.h"
+#include "display_driver.h"
 
 int main(void)
 {
@@ -18,10 +20,11 @@ int main(void)
     
     while(1)
     {
-        ///sample_MCP3561();
         uint32_t code = MCP3561_read_code();
         printf("%d\n", code);
-        //uint8_t reg = MCP3561_read_register();
+        float voltage = get_measurement_voltage(code);
+        printf("%f\n", voltage);
+        turn_on_digit(1);
         sleep_ms(500);
     }
 
@@ -45,6 +48,9 @@ void setup_IO(void)
     gpio_init(DIGIT2_PIN);
     gpio_init(DIGIT3_PIN);
     gpio_init(DIGIT4_PIN);
+
+    gpio_init(SHIFT_REGISTER_CLOCK_PIN);
+    gpio_init(SHIFT_REGISTER_DATA_PIN);
     
     gpio_set_dir(CS_PIN, GPIO_OUT);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
@@ -54,6 +60,9 @@ void setup_IO(void)
     gpio_set_dir(DIGIT3_PIN, GPIO_OUT);
     gpio_set_dir(DIGIT4_PIN, GPIO_OUT);
     
+    gpio_set_dir(SHIFT_REGISTER_CLOCK_PIN, GPIO_OUT);
+    gpio_set_dir(SHIFT_REGISTER_DATA_PIN, GPIO_OUT);
+    
     gpio_put(CS_PIN, 1);
     gpio_put(PICO_DEFAULT_LED_PIN, 1);    
     
@@ -61,5 +70,7 @@ void setup_IO(void)
     gpio_put(DIGIT2_PIN, 0);
     gpio_put(DIGIT3_PIN, 0);
     gpio_put(DIGIT4_PIN, 0);
-}
 
+    gpio_put(SHIFT_REGISTER_CLOCK_PIN, 0);
+    gpio_put(SHIFT_REGISTER_DATA_PIN, 0);
+}

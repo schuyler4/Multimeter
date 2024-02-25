@@ -12,6 +12,8 @@ pico_sdk_init()
 add_executable(${PROJECT_NAME}
     main.c
     MCP3561.c
+    calcs.c
+    display_driver.c
 )
 # create map/bin/hex/uf2 files.
 pico_add_extra_outputs(${PROJECT_NAME})
