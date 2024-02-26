@@ -19,7 +19,8 @@ static uint8_t DIGITS[] = {
     0x6F
 };
 
-void write_digit(uint8_t number);
+void write_digit(uint8_t number, uint8_t decimal_point);
 void turn_on_digit(uint8_t digit);
+void display_double(double number);
 
 #endif

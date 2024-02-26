@@ -20,12 +20,15 @@ int main(void)
     
     while(1)
     {
+        /*
         uint32_t code = MCP3561_read_code();
         printf("%d\n", code);
         float voltage = get_measurement_voltage(code);
         printf("%f\n", voltage);
         turn_on_digit(1);
         sleep_ms(500);
+        */
+        display_double(1.234);
     }
 
     return 1;
