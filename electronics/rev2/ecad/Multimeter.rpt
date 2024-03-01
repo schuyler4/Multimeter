@@ -1,10 +1,9 @@
-** Drc report for Multimeter.kicad_pcb **
-** Created on 2024-02-29T19:02:50-0700 **
+ERC report (2024-02-29T19:49:26-0700, Encoding UTF8)
 
-** Found 0 DRC violations **
+***** Sheet /
 
-** Found 0 unconnected pads **
+***** Sheet /Display/
 
-** Found 0 Footprint errors **
+***** Sheet /Analog Front End/
 
-** End of Report **
+ ** ERC messages: 0  Errors 0  Warnings 0
