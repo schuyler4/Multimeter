@@ -90,3 +90,8 @@ void display_double(double number)
         digit++;
     }
 }
+
+void negative_sign(uint8_t enabled)
+{
+    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, enabled);
+}

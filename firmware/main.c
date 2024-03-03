@@ -20,15 +20,10 @@ int main(void)
     
     while(1)
     {
-        /*
-        uint32_t code = MCP3561_read_code();
-        printf("%d\n", code);
-        float voltage = get_measurement_voltage(code);
-        printf("%f\n", voltage);
-        turn_on_digit(1);
+        Signed_Voltage reading = average_voltage_reading(); 
+        negative_sign(reading.sign); 
+        printf("%f\n", reading.magnitude);
         sleep_ms(500);
-        */
-        display_double(1.234);
     }
 
     return 1;
@@ -54,6 +49,11 @@ void setup_IO(void)
 
     gpio_init(SHIFT_REGISTER_CLOCK_PIN);
     gpio_init(SHIFT_REGISTER_DATA_PIN);
+
+    gpio_init(PICO_PIN);
+    gpio_init(NANO_PIN);
+    gpio_init(MICRO_PIN);
+    gpio_init(LOW_OHM_AND_NEGATIVE_PIN);
     
     gpio_set_dir(CS_PIN, GPIO_OUT);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
@@ -65,6 +65,11 @@ void setup_IO(void)
     
     gpio_set_dir(SHIFT_REGISTER_CLOCK_PIN, GPIO_OUT);
     gpio_set_dir(SHIFT_REGISTER_DATA_PIN, GPIO_OUT);
+
+    gpio_set_dir(PICO_PIN, GPIO_OUT);
+    gpio_set_dir(NANO_PIN, GPIO_OUT);
+    gpio_set_dir(MICRO_PIN, GPIO_OUT);
+    gpio_set_dir(LOW_OHM_AND_NEGATIVE_PIN, GPIO_OUT);
     
     gpio_put(CS_PIN, 1);
     gpio_put(PICO_DEFAULT_LED_PIN, 1);    
@@ -76,4 +81,41 @@ void setup_IO(void)
 
     gpio_put(SHIFT_REGISTER_CLOCK_PIN, 0);
     gpio_put(SHIFT_REGISTER_DATA_PIN, 0);
+    
+    gpio_put(PICO_PIN, 0);
+    gpio_put(NANO_PIN, 0);
+    gpio_put(MICRO_PIN, 0);
+    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+}
+
+Signed_Voltage average_voltage_reading(void)
+{
+    double average_voltage_magnitude = 0;
+    uint8_t i;
+    for(i = 0; i < AVERAGE_READING_COUNT; i++)
+    {
+        uint32_t code = MCP3561_read_code();
+        printf("%d\n", code);
+        Signed_Voltage voltage = get_measurement_voltage(code);
+        if(voltage.sign)
+        {
+            average_voltage_magnitude -= voltage.magnitude; 
+        }
+        else
+        {
+            average_voltage_magnitude += voltage.magnitude;
+        }
+    }
+    average_voltage_magnitude = average_voltage_magnitude / AVERAGE_READING_COUNT;
+    Signed_Voltage average_voltage; 
+    if(average_voltage_magnitude < 0)
+    {
+        average_voltage.sign = 1;
+    }
+    else
+    {
+        average_voltage.sign = 0;
+    }
+    average_voltage.magnitude = average_voltage_magnitude;
+    return average_voltage;
 }

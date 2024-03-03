@@ -22,5 +22,6 @@ static uint8_t DIGITS[] = {
 void write_digit(uint8_t number, uint8_t decimal_point);
 void turn_on_digit(uint8_t digit);
 void display_double(double number);
+void negative_sign(uint8_t enabled);
 
 #endif
