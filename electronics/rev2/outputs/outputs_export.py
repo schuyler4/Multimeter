@@ -2,15 +2,17 @@
 
 import subprocess
 import os
+from os import listdir
 
 PROJECT_NAME = 'Multimeter'
-LAYER_LIST = 'B.Cu, B.Mask, Edge.Cuts, F.Cu, F.Mask, F.Silkscreen'
+LAYER_LIST = ['B_Cu', 'B_Mask', 'B_Silkscreen', 'Edge_Cuts', 'F_Cu', 'F_Mask', 'F_Silkscreen', 'drl'] 
 
 PCB_PATH = f'../ecad/{PROJECT_NAME}.kicad_pcb'
 SCHEMATIC_PATH = f'../ecad/{PROJECT_NAME}.kicad_sch'
 GERBERS_PATH = './gerbers'
 
 DRILL_FILE = f'./{PROJECT_NAME}.drl'
+BOM_FIELDS = 'Reference,Value,${QUANTITY},Digikey,Part #,Price'
 
 def error_check_pass():
     pcb_conditions = ['Found 0 DRC violations', 'Found 0 unconnected pads', 'Found 0 Footprint errors'] 
@@ -35,6 +37,16 @@ def error_check_pass():
     return True
 
 
+def filter_gerbers():
+    for file in listdir(GERBERS_PATH):
+        layer_found = False
+        for layer in LAYER_LIST:
+            if(layer in file):
+                layer_found = True
+        if(not layer_found):
+            subprocess.run([f'rm {GERBERS_PATH}/{file}'], shell=True)
+
+
 def export():
     # Export the Schematic
     subprocess.run([f'kicad-cli sch export pdf -n -t my_theme2 {SCHEMATIC_PATH}'], shell=True)      
@@ -47,12 +59,12 @@ def export():
     # Export the gerber drill file
     subprocess.run([f'kicad-cli pcb export drill {PCB_PATH}'], shell=True)
     # There seems to be a bug where -o does not work for drill
-    subprocess.run([f'mv {DRILL_FILE} {GERBERS_PATH}/${PROJECT_NAME}.drl'], shell=True)
+    subprocess.run([f'mv {DRILL_FILE} {GERBERS_PATH}/{PROJECT_NAME}.drl'], shell=True)
     # Export the rest of the gerbers
-    subprocess.run([f'kicad-cli pcb export gerbers --ev -o {GERBERS_PATH} -l {LAYER_LIST} {PCB_PATH}'], shell=True)
+    subprocess.run([f'kicad-cli pcb export gerbers --ev -o {GERBERS_PATH} {PCB_PATH}'], shell=True)
+    filter_gerbers()
      
 
-if(__name__ == '__main__'):
+if __name__ == '__main__':
     if(error_check_pass()):
         export()
-

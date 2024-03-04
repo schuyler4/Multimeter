@@ -3,9 +3,11 @@
 	(generator "eeschema")
 	(generator_version "8.0")
 	(uuid "17a40791-5fc9-40ae-93a7-72a72dc12765")
-	(paper "A4")
+	(paper "A")
 	(title_block
 		(title "Multimeter Analog Front End")
+		(date "2024-03-03")
+		(rev "1")
 	)
 	(lib_symbols
 		(symbol "Connector:TestPoint_Alt"
@@ -3645,6 +3647,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "YAG1763CT-ND"
+			(at 88.9 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RT0805BRD0710KL"
+			(at 88.9 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.16"
+			(at 88.9 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "10deb841-6550-448f-9310-657133234ef5")
 		)
@@ -3807,7 +3836,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
 			(at 201.93 147.32 0)
 			(effects
 				(font
@@ -3816,7 +3845,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RMCF0805FT10K0"
+		(property "Part #" "RC0805FR-0710KL"
 			(at 201.93 147.32 0)
 			(effects
 				(font
@@ -4488,7 +4517,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "P10KDACT-ND"
+		(property "Digikey Part #" "YAG1763CT-ND"
 			(at 157.48 72.39 0)
 			(effects
 				(font
@@ -4497,7 +4526,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "ERA-6AEB103V"
+		(property "Part #" "RT0805BRD0710KL"
 			(at 157.48 72.39 0)
 			(effects
 				(font
@@ -4506,7 +4535,7 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" "0.32"
+		(property "Unit Price" "0.16"
 			(at 157.48 72.39 0)
 			(effects
 				(font
@@ -4585,7 +4614,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
 			(at 213.36 39.37 0)
 			(effects
 				(font
@@ -4594,7 +4623,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RMCF0805FT10K0"
+		(property "Part #" "RC0805FR-0710KL"
 			(at 213.36 39.37 0)
 			(effects
 				(font
@@ -4671,6 +4700,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 87.63 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
+			(at 87.63 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RC0805FR-0710KL"
+			(at 87.63 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 87.63 58.42 0)
 			(effects
 				(font
@@ -4815,7 +4871,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
 			(at 201.93 137.16 0)
 			(effects
 				(font
@@ -4824,7 +4880,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RMCF0805FT10K0"
+		(property "Part #" "RC0805FR-0710KL"
 			(at 201.93 137.16 0)
 			(effects
 				(font
@@ -5042,7 +5098,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "P10KDACT-ND"
+		(property "Digikey Part #" "YAG1763CT-ND"
 			(at 120.65 100.33 0)
 			(effects
 				(font
@@ -5051,7 +5107,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "ERA-6AEB103V"
+		(property "Part #" "RT0805BRD0710KL"
 			(at 120.65 100.33 0)
 			(effects
 				(font
@@ -5060,7 +5116,7 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" "0.32"
+		(property "Unit Price" "0.16"
 			(at 120.65 100.33 0)
 			(effects
 				(font
@@ -5382,6 +5438,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "CWI359-ND"
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "GF-161-0005"
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "1.97"
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "e6ee58b2-f0e6-4bdd-b2c5-f4b6b27d76e4")
 		)
@@ -5488,7 +5571,7 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" ""
+		(property "Unit Price" "0.13"
 			(at 92.71 30.48 0)
 			(effects
 				(font
@@ -7458,7 +7541,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "P10KDACT-ND"
+		(property "Digikey Part #" "YAG1763CT-ND"
 			(at 157.48 82.55 0)
 			(effects
 				(font
@@ -7467,7 +7550,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "ERA-6AEB103V"
+		(property "Part #" "RT0805BRD0710KL"
 			(at 157.48 82.55 0)
 			(effects
 				(font
@@ -7476,7 +7559,7 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" "0.32"
+		(property "Unit Price" "0.16"
 			(at 157.48 82.55 0)
 			(effects
 				(font

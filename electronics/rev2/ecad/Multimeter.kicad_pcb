@@ -9760,7 +9760,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R42"
-			(at -3.4 0.1 360)
+			(at -3.4 0.1 0)
 			(layer "F.SilkS")
 			(uuid "42cd67f3-c617-498e-8520-b50d13d14bef")
 			(effects
@@ -9771,7 +9771,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 0 1.65 360)
+			(at 0 1.65 0)
 			(layer "F.Fab")
 			(uuid "1393b0c4-bb82-40f6-83be-8dcc0ac1d667")
 			(effects
@@ -9818,7 +9818,7 @@
 			)
 		)
 		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "16297a11-0af2-4060-9e91-b6e2b1de6abf")
@@ -9830,7 +9830,7 @@
 			)
 		)
 		(property "Part #" "RMCF0805FT10K0"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f7e3b13e-2019-42dd-b598-f8e5766a2437")
@@ -9842,7 +9842,7 @@
 			)
 		)
 		(property "Unit Price" "0.1"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0ca5cd54-997b-43a1-afe7-b1c886c99794")
@@ -9956,7 +9956,7 @@
 			(uuid "0be35032-dca5-4167-a1e2-9962463fb775")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "92f529ed-d4a5-4234-8dfc-e663ac5f60d2")
 			(effects
@@ -12265,7 +12265,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 0 1.65 270)
+			(at 0 1.65 -90)
 			(layer "F.Fab")
 			(uuid "6d526b9a-3d6e-40cd-ab00-ac03e75b09ef")
 			(effects
@@ -12414,7 +12414,7 @@
 			(uuid "f1d97af9-3867-40fa-90a9-b9aa707618f5")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 270)
+			(at 0 0 -90)
 			(layer "F.Fab")
 			(uuid "75c7fcfb-b27f-4694-979e-44bd9ad6d49e")
 			(effects
@@ -19594,7 +19594,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 0 1.65 270)
+			(at 0 1.65 -90)
 			(layer "F.Fab")
 			(uuid "42816882-3d00-4d1a-b449-130858f116ec")
 			(effects
@@ -19743,7 +19743,7 @@
 			(uuid "c4b10de5-a347-4215-96a0-3b4896804e67")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 270)
+			(at 0 0 -90)
 			(layer "F.Fab")
 			(uuid "3ed8bcbe-9267-4528-a8ae-6dd95b6de353")
 			(effects

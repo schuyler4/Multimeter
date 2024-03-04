@@ -6,6 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "Multimeter")
+		(date "2024-03-03")
 		(rev "1")
 	)
 	(lib_symbols
@@ -4137,6 +4138,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
+			(at 166.37 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RC0805FR-0710KL"
+			(at 166.37 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 166.37 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e1c12993-f685-4f87-ad25-efb74ba1bf76")
 		)
@@ -4790,6 +4818,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
+			(at 176.53 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RC0805FR-0710KL"
+			(at 176.53 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 176.53 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3f8d73d3-cc73-4704-8d78-a138d20a85bc")
 		)
@@ -5020,7 +5075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+		(property "Digikey Part #" "311-10.0KCRCT-ND"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -5029,7 +5084,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RMCF0805FT10K0"
+		(property "Part #" "RC0805FR-0710KL"
 			(at 77.47 40.64 0)
 			(effects
 				(font
