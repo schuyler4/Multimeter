@@ -87,11 +87,6 @@ uint32_t MCP3561_read_code(void)
     chip_select_low();
     spi_write_read_blocking(spi0, command, adc_data, ADC_DATA_BYTE_COUNT+1); 
     chip_select_high();
-    printf("%d\n", adc_data[0]);
-    printf("%d\n", adc_data[1]);
-    printf("%d\n", adc_data[2]);
-    printf("%d\n", adc_data[3]);
-    printf("\n");
     return (adc_data[1] << 16) | (adc_data[2] << 8) | adc_data[3]; 
 }
 

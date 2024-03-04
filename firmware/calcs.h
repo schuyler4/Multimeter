@@ -1,8 +1,9 @@
 #ifndef CALCS_H
 #define CALCS_H
 
-#define VOLTAGE_REFERANCE 2.316
+#define VOLTAGE_REFERANCE 2.35
 #define MEASUREMENT_BIAS VOLTAGE_REFERANCE/2
+#define ADC_BITS 23
 #define ADC_STEPS 8388608 
 
 #define DIVIDER_UPPER_RESISTOR 511000
@@ -12,7 +13,7 @@
 #define COMPONENT_VOLTAGE_REFERANCE 2.5
 
 #define SIGN_MASK 0x800000
-#define MAGNITUDE_MASK 0x7FFFFF
+#define BIT_MASK_24 0xFFFFFF
 
 typedef struct 
 {
@@ -20,7 +21,7 @@ typedef struct
     uint8_t sign;
 } Signed_Voltage;
 
-Signed_Voltage get_measurement_voltage(int adc_code);
-double get_resistance(int adc_code);
+Signed_Voltage get_measurement_voltage(uint32_t adc_code);
+double get_resistance(uint32_t adc_code);
 
 #endif

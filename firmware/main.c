@@ -1,4 +1,15 @@
+//
+// FILENAME: main.c
+//
+// DESCRIPTION: This is main file for Multimeter firmware. It contains the 
+// logic for voltage and resistance measurement at a high level. Additionaly, 
+// it contains peripheral setup.
+//
+// Written by Marek Newton
+// 
+
 #include <stdio.h>
+#include <stdint.h>
 
 #include "pico/stdlib.h"
 
@@ -20,9 +31,14 @@ int main(void)
     
     while(1)
     {
+        /*
         Signed_Voltage reading = average_voltage_reading(); 
         negative_sign(reading.sign); 
         printf("%f\n", reading.magnitude);
+        */
+
+        double resistance_reading = average_resistance_reading();
+        printf("%f\n", resistance_reading);
         sleep_ms(500);
     }
 
@@ -95,7 +111,6 @@ Signed_Voltage average_voltage_reading(void)
     for(i = 0; i < AVERAGE_READING_COUNT; i++)
     {
         uint32_t code = MCP3561_read_code();
-        printf("%d\n", code);
         Signed_Voltage voltage = get_measurement_voltage(code);
         if(voltage.sign)
         {
@@ -118,4 +133,16 @@ Signed_Voltage average_voltage_reading(void)
     }
     average_voltage.magnitude = average_voltage_magnitude;
     return average_voltage;
+}
+
+double average_resistance_reading(void)
+{
+    double resistance_reading = 0;
+    uint8_t i;
+    for(i = 0; i < AVERAGE_READING_COUNT; i++)
+    {
+        uint32_t code = MCP3561_read_code();  
+        resistance_reading += get_resistance(code); 
+    }  
+    return resistance_reading/AVERAGE_READING_COUNT;
 }
