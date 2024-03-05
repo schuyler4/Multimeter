@@ -18,6 +18,8 @@
 #define MISO_PIN 4 // MASTER IN SLAVE OUT
 #define CHIP_SELECT_PIN 5
 
+#define DATA_INTERUPT_PIN 6
+
 #define SHIFT_REGISTER_CLOCK_PIN 19 
 #define SHIFT_REGISTER_DATA_PIN 20 
 
@@ -35,9 +37,16 @@
 
 #define AVERAGE_READING_COUNT 100
 
+typedef enum
+{
+    Voltage,
+    Resistance, 
+    Capacitance
+} Mode;
+
 void setup_SPI(void);
 void setup_IO(void);
-Signed_Voltage average_voltage_reading(void);
-double average_resistance_reading(void);
+Signed_Voltage average_voltage(void);
+double average_resistance(void);
 
 #endif

@@ -20,6 +20,12 @@
 #include "calcs.h"
 #include "display_driver.h"
 
+static double average_resistance_reading = 0;
+static double resistance_reading = 0;
+static uint8_t resistance_reading_count = 0;
+
+static Mode mode = Resistance;
+
 int main(void)
 {
     stdio_init_all();
@@ -31,25 +37,47 @@ int main(void)
     
     while(1)
     {
-        /*
-        Signed_Voltage reading = average_voltage_reading(); 
-        negative_sign(reading.sign); 
-        printf("%f\n", reading.magnitude);
-        */
-
-        double resistance_reading = average_resistance_reading();
-        if(out_of_range_condition(resistance_reading))
-        {
-            printf("OL\n");
+        if(mode == Voltage)
+        { 
+            Signed_Voltage reading = average_voltage_reading(); 
+            negative_sign(reading.sign); 
+            printf("%f\n", reading.magnitude);
         }
-        else
+        else if(mode == Resistance)
         {
-            printf("%f\n", resistance_reading);
+            if(out_of_range_condition(resistance_reading))
+            {
+                printf("OL\n");
+            }
+            else
+            {
+                printf("%f\n", resistance_reading);
+            }
+            low_ohm(low_ohm_condition(resistance_reading));
         }
-        low_ohm(low_ohm_condition(resistance_reading));
     }
 
     return 1;
+}
+
+static void adc_data_callback(uint gpio, uint32_t events)
+{
+    if(mode == Resistance)
+    {
+        uint32_t code = MCP3561_read_code();
+        average_resistance_reading += get_resistance(code); 
+        resistance_reading_count++; 
+        if(resistance_reading_count == AVERAGE_READING_COUNT)
+        {
+            resistance_reading_count = 0;    
+            average_resistance_reading = 0;
+            resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
+        }
+    }
+    else if(mode == Voltage)
+    {
+
+    }
 }
 
 void setup_SPI(void)
@@ -109,9 +137,15 @@ void setup_IO(void)
     gpio_put(NANO_PIN, 0);
     gpio_put(MICRO_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+
+    gpio_set_irq_enabled_with_callback(
+        DATA_INTERUPT_PIN, 
+        GPIO_IRQ_EDGE_RISE, 
+        true, 
+        *adc_data_callback);
 }
 
-Signed_Voltage average_voltage_reading(void)
+Signed_Voltage average_voltage(void)
 {
     double average_voltage_magnitude = 0;
     uint8_t i;
@@ -142,7 +176,7 @@ Signed_Voltage average_voltage_reading(void)
     return average_voltage;
 }
 
-double average_resistance_reading(void)
+double average_resistance(void)
 {
     double resistance_reading = 0;
     uint8_t i;
