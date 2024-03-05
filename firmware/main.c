@@ -38,8 +38,15 @@ int main(void)
         */
 
         double resistance_reading = average_resistance_reading();
-        printf("%f\n", resistance_reading);
-        sleep_ms(500);
+        if(out_of_range_condition(resistance_reading))
+        {
+            printf("OL\n");
+        }
+        else
+        {
+            printf("%f\n", resistance_reading);
+        }
+        low_ohm(low_ohm_condition(resistance_reading));
     }
 
     return 1;
