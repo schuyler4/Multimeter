@@ -1,8 +1,24 @@
-This is a multimeter design. It differs from standard multimters in several
+<h2>Multimeter</h2>
+<p>
+This is attempt at making a multimeter. It differs from standard multimeters in several
 respects. 
-1) Only the most used modes are actully included: V, Ohms, Capacitance
-2) Powered by a USB cable, no changing batteries. 
-3) Generally a different user interface because of 1 and 2.
-
-
-
+</p>
+<ol>
+<li>Only the most used modes are actually included: VDC, Ohms, (Capacitance)</li>
+<li>Powered by a USB cable, no changing batteries.</li> 
+<li>Generally a different user interface because of 1 and 2.</li>
+</ol>
+<p align="center">
+<img src="./picture.png" alt="picture" width=400/>
+</p>
+<h3>Status</h3>
+<p>
+Currently I am getting somewhat accurate readings of voltage and resistance. The 
+display does not work on the first revision, and the second revision is not yet
+done.
+</p>
+<h3>Specs</h3>
+<ul>
+<li>Max Measurement Voltage: 60V</li>
+<li>Max Measurement Resistance: 50kΩ</li>
+</ul>

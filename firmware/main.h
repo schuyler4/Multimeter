@@ -46,7 +46,5 @@ typedef enum
 
 void setup_SPI(void);
 void setup_IO(void);
-Signed_Voltage average_voltage(void);
-double average_resistance(void);
 
 #endif

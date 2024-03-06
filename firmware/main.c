@@ -24,9 +24,13 @@ static double average_resistance_reading = 0;
 static double resistance_reading = 0;
 static uint8_t resistance_reading_count = 0;
 
+static double average_voltage_reading = 0;
+static double voltage_reading = 0;
+static uint8_t voltage_reading_count = 0;
+
 static Mode mode = Voltage;
 
-uint32_t code;
+static uint32_t code;
 
 int main(void)
 {
@@ -77,7 +81,22 @@ void adc_data_callback(uint gpio, uint32_t events)
     }
     else if(mode == Voltage)
     {
-
+        Signed_Voltage voltage = get_measurement_voltage(code); 
+        if(voltage.sign)
+        {
+            average_voltage_reading -= voltage.magnitude;
+        }
+        else
+        {
+            average_voltage_reading += voltage.magnitude;
+        }
+        voltage_reading_count++;
+        if(voltage_reading_count == AVERAGE_READING_COUNT)
+        {
+            voltage_reading = average_voltage_reading/AVERAGE_READING_COUNT;
+            voltage_reading_count = 0;
+            average_voltage_reading = 0;
+        }
     }
 }
 
@@ -87,7 +106,9 @@ void setup_SPI(void)
     gpio_set_function(MOSI_PIN, GPIO_FUNC_SPI);
     gpio_set_function(MISO_PIN, GPIO_FUNC_SPI);
     gpio_set_function(SCK_PIN, GPIO_FUNC_SPI);
-} void setup_IO(void)
+} 
+
+void setup_IO(void)
 {
     gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_init(CS_PIN);
@@ -147,3 +168,5 @@ void setup_SPI(void)
         true, 
         *adc_data_callback);
 }
+
+
