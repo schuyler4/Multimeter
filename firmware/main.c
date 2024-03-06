@@ -26,6 +26,8 @@ static uint8_t resistance_reading_count = 0;
 
 static Mode mode = Voltage;
 
+uint32_t code;
+
 int main(void)
 {
     stdio_init_all();
@@ -39,31 +41,29 @@ int main(void)
     {
         if(mode == Voltage)
         { 
-            Signed_Voltage reading = average_voltage(); 
-            negative_sign(reading.sign); 
-            printf("%f\n", reading.magnitude);
+            Signed_Voltage voltage = get_measurement_voltage(code); 
+            printf("Voltage: %f\n", voltage.magnitude);
         }
         else if(mode == Resistance)
         {
-            if(out_of_range_condition(resistance_reading))
+            if(out_of_range_condition(resistance_reading)) 
             {
                 printf("OL\n");
             }
             else
             {
-                printf("%f\n", average_resistance());
+                printf("%f\n", resistance_reading);
             }
             low_ohm(low_ohm_condition(resistance_reading));
         }
-        sleep_ms(500);
     }
 
     return 1;
 }
 
-static void adc_data_callback(uint gpio, uint32_t events)
+void adc_data_callback(uint gpio, uint32_t events)
 {
-    uint32_t code = MCP3561_read_code();
+    code = MCP3561_read_code();
     if(mode == Resistance)
     {
         average_resistance_reading += get_resistance(code); 
@@ -87,9 +87,7 @@ void setup_SPI(void)
     gpio_set_function(MOSI_PIN, GPIO_FUNC_SPI);
     gpio_set_function(MISO_PIN, GPIO_FUNC_SPI);
     gpio_set_function(SCK_PIN, GPIO_FUNC_SPI);
-}
-
-void setup_IO(void)
+} void setup_IO(void)
 {
     gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_init(CS_PIN);
@@ -106,6 +104,8 @@ void setup_IO(void)
     gpio_init(NANO_PIN);
     gpio_init(MICRO_PIN);
     gpio_init(LOW_OHM_AND_NEGATIVE_PIN);
+
+    gpio_init(DATA_INTERUPT_PIN);
     
     gpio_set_dir(CS_PIN, GPIO_OUT);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
@@ -122,6 +122,8 @@ void setup_IO(void)
     gpio_set_dir(NANO_PIN, GPIO_OUT);
     gpio_set_dir(MICRO_PIN, GPIO_OUT);
     gpio_set_dir(LOW_OHM_AND_NEGATIVE_PIN, GPIO_OUT);
+
+    gpio_set_dir(DATA_INTERUPT_PIN, GPIO_IN);
     
     gpio_put(CS_PIN, 1);
     gpio_put(PICO_DEFAULT_LED_PIN, 1);    
@@ -141,50 +143,7 @@ void setup_IO(void)
 
     gpio_set_irq_enabled_with_callback(
         DATA_INTERUPT_PIN, 
-        GPIO_IRQ_EDGE_RISE, 
+        GPIO_IRQ_EDGE_FALL, 
         true, 
         *adc_data_callback);
-}
-
-Signed_Voltage average_voltage(void)
-{
-    double average_voltage_magnitude = 0;
-    uint8_t i;
-    for(i = 0; i < AVERAGE_READING_COUNT; i++)
-    {
-        uint32_t code = MCP3561_read_code();
-        Signed_Voltage voltage = get_measurement_voltage(code);
-        if(voltage.sign)
-        {
-            average_voltage_magnitude -= voltage.magnitude; 
-        }
-        else
-        {
-            average_voltage_magnitude += voltage.magnitude;
-        }
-    }
-    average_voltage_magnitude = average_voltage_magnitude / AVERAGE_READING_COUNT;
-    Signed_Voltage average_voltage; 
-    if(average_voltage_magnitude < 0)
-    {
-        average_voltage.sign = 1;
-    }
-    else
-    {
-        average_voltage.sign = 0;
-    }
-    average_voltage.magnitude = average_voltage_magnitude;
-    return average_voltage;
-}
-
-double average_resistance(void)
-{
-    double my_resistance_reading = 0;
-    uint8_t i;
-    for(i = 0; i < AVERAGE_READING_COUNT; i++)
-    {
-        uint32_t code = MCP3561_read_code();  
-        my_resistance_reading += get_resistance(code); 
-    }  
-    return my_resistance_reading/AVERAGE_READING_COUNT;
 }

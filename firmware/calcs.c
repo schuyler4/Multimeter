@@ -39,6 +39,7 @@ Signed_Voltage get_measurement_voltage(uint32_t adc_code)
     double diff_voltage = get_adc_diff_voltage(magnitude_adc_code); 
     double I = diff_voltage/DIVIDER_LOWER_RESISTOR;
     voltage.magnitude = I*(DIVIDER_UPPER_RESISTOR+DIVIDER_LOWER_RESISTOR);
+    printf("%f\n", voltage.magnitude);
     return voltage;
 }
 
