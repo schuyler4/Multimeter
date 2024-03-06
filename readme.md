@@ -1,6 +1,6 @@
 <h2>Multimeter</h2>
 <p>
-This is attempt at making a multimeter. It differs from standard multimeters in several
+This is my attempt at making a multimeter. It differs from standard multimeters in several
 respects. 
 </p>
 <ol>
