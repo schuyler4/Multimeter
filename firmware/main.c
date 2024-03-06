@@ -24,7 +24,7 @@ static double average_resistance_reading = 0;
 static double resistance_reading = 0;
 static uint8_t resistance_reading_count = 0;
 
-static Mode mode = Resistance;
+static Mode mode = Voltage;
 
 int main(void)
 {
@@ -39,7 +39,7 @@ int main(void)
     {
         if(mode == Voltage)
         { 
-            Signed_Voltage reading = average_voltage_reading(); 
+            Signed_Voltage reading = average_voltage(); 
             negative_sign(reading.sign); 
             printf("%f\n", reading.magnitude);
         }
@@ -51,10 +51,11 @@ int main(void)
             }
             else
             {
-                printf("%f\n", resistance_reading);
+                printf("%f\n", average_resistance());
             }
             low_ohm(low_ohm_condition(resistance_reading));
         }
+        sleep_ms(500);
     }
 
     return 1;
@@ -62,16 +63,16 @@ int main(void)
 
 static void adc_data_callback(uint gpio, uint32_t events)
 {
+    uint32_t code = MCP3561_read_code();
     if(mode == Resistance)
     {
-        uint32_t code = MCP3561_read_code();
         average_resistance_reading += get_resistance(code); 
         resistance_reading_count++; 
         if(resistance_reading_count == AVERAGE_READING_COUNT)
         {
+            resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
             resistance_reading_count = 0;    
             average_resistance_reading = 0;
-            resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
         }
     }
     else if(mode == Voltage)
@@ -178,12 +179,12 @@ Signed_Voltage average_voltage(void)
 
 double average_resistance(void)
 {
-    double resistance_reading = 0;
+    double my_resistance_reading = 0;
     uint8_t i;
     for(i = 0; i < AVERAGE_READING_COUNT; i++)
     {
         uint32_t code = MCP3561_read_code();  
-        resistance_reading += get_resistance(code); 
+        my_resistance_reading += get_resistance(code); 
     }  
-    return resistance_reading/AVERAGE_READING_COUNT;
+    return my_resistance_reading/AVERAGE_READING_COUNT;
 }
