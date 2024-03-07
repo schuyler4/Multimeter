@@ -28,7 +28,10 @@ static double average_voltage_reading = 0;
 static double voltage_reading = 0;
 static uint8_t voltage_reading_count = 0;
 
-static Mode mode = Voltage;
+static double capacitance_samples[CAPACITANCE_SAMPLE_COUNT];
+static uint8_t capacitance_reading_count = 0;
+
+static Mode mode = Capacitance;
 
 static uint32_t code;
 
@@ -60,6 +63,15 @@ int main(void)
             }
             low_ohm(low_ohm_condition(resistance_reading));
         }
+        else if(mode == Capacitance)
+        {
+            uint8_t i;
+            for(i = 0; i < CAPACITANCE_SAMPLE_COUNT; i++)
+            {
+                printf("%f\n", capacitance_samples[i]);
+            }
+            printf("\n");
+        }
     }
 
     return 1;
@@ -70,33 +82,15 @@ void adc_data_callback(uint gpio, uint32_t events)
     code = MCP3561_read_code();
     if(mode == Resistance)
     {
-        average_resistance_reading += get_resistance(code); 
-        resistance_reading_count++; 
-        if(resistance_reading_count == AVERAGE_READING_COUNT)
-        {
-            resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
-            resistance_reading_count = 0;    
-            average_resistance_reading = 0;
-        }
+        sample_resistance();        
     }
     else if(mode == Voltage)
     {
-        Signed_Voltage voltage = get_measurement_voltage(code); 
-        if(voltage.sign)
-        {
-            average_voltage_reading -= voltage.magnitude;
-        }
-        else
-        {
-            average_voltage_reading += voltage.magnitude;
-        }
-        voltage_reading_count++;
-        if(voltage_reading_count == AVERAGE_READING_COUNT)
-        {
-            voltage_reading = average_voltage_reading/AVERAGE_READING_COUNT;
-            voltage_reading_count = 0;
-            average_voltage_reading = 0;
-        }
+        sample_voltage();    
+    }
+    else if(mode == Capacitance)
+    {
+        sample_capacitance();        
     }
 }
 
@@ -169,4 +163,56 @@ void setup_IO(void)
         *adc_data_callback);
 }
 
+void sample_resistance(void)
+{
+    average_resistance_reading += get_resistance(code); 
+    resistance_reading_count++; 
+    if(resistance_reading_count == AVERAGE_READING_COUNT)
+    {
+        resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
+        resistance_reading_count = 0;    
+        average_resistance_reading = 0;
+    }
+}
 
+void sample_voltage(void)
+{
+    Signed_Voltage voltage = get_measurement_voltage(code); 
+    if(voltage.sign)
+    {
+        average_voltage_reading -= voltage.magnitude;
+    }
+    else
+    {
+        average_voltage_reading += voltage.magnitude;
+    }
+    voltage_reading_count++;
+    if(voltage_reading_count == AVERAGE_READING_COUNT)
+    {
+        voltage_reading = average_voltage_reading/AVERAGE_READING_COUNT;
+        voltage_reading_count = 0;
+        average_voltage_reading = 0;
+    }
+}
+
+uint8_t cap_measurement_triggered = 0;
+
+void sample_capacitance(void)
+{
+    double voltage = get_capacitor_voltage(code); 
+    if(voltage < CAPACITANCE_VOLTAGE_THRESHOLD)
+    {
+        cap_measurement_triggered = 1;
+        printf("Sampled Capacitance %f\n", voltage);
+    } 
+    if(cap_measurement_triggered)
+    {
+        capacitance_samples[capacitance_reading_count] = voltage;                
+        capacitance_reading_count++;  
+        if(capacitance_reading_count >= CAPACITANCE_SAMPLE_COUNT)
+        {
+            cap_measurement_triggered = 0;
+            capacitance_reading_count = 0;
+        }
+    }
+}

@@ -37,6 +37,8 @@
 
 #define AVERAGE_READING_COUNT 100
 
+#define CAPACITANCE_VOLTAGE_THRESHOLD 1
+
 typedef enum
 {
     Voltage,
@@ -46,5 +48,9 @@ typedef enum
 
 void setup_SPI(void);
 void setup_IO(void);
+
+void sample_resistance(void);
+void sample_voltage(void);
+void sample_capacitance(void);
 
 #endif

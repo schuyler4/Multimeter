@@ -31,6 +31,12 @@ static double get_adc_diff_voltage(uint32_t adc_code)
     return (adc_code*VOLTAGE_REFERANCE)/ADC_STEPS;
 }
 
+double get_capacitor_voltage(uint32_t adc_code)
+{
+    uint32_t adc_magnitude_code = get_adc_code_magnitude(adc_code);
+    return get_adc_diff_voltage(adc_magnitude_code);
+}
+
 Signed_Voltage get_measurement_voltage(uint32_t adc_code)
 {
     Signed_Voltage voltage;
@@ -39,7 +45,6 @@ Signed_Voltage get_measurement_voltage(uint32_t adc_code)
     double diff_voltage = get_adc_diff_voltage(magnitude_adc_code); 
     double I = diff_voltage/DIVIDER_LOWER_RESISTOR;
     voltage.magnitude = I*(DIVIDER_UPPER_RESISTOR+DIVIDER_LOWER_RESISTOR);
-    printf("%f\n", voltage.magnitude);
     return voltage;
 }
 

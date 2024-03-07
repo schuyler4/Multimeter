@@ -20,6 +20,8 @@
 #define LOW_OHM_THRESHOLD 10
 #define OUT_OF_RANGE_THRESHOLD 50000
 
+#define CAPACITANCE_SAMPLE_COUNT 4
+
 typedef struct 
 {
     double magnitude;
@@ -28,6 +30,7 @@ typedef struct
 
 Signed_Voltage get_measurement_voltage(uint32_t adc_code);
 double get_resistance(uint32_t adc_code);
+double get_capacitor_voltage(uint32_t adc_code);
 
 uint8_t low_ohm_condition(double resistance);
 uint8_t out_of_range_condition(double resistance);
