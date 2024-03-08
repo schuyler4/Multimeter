@@ -100,3 +100,8 @@ void low_ohm(uint8_t low_ohm_detected)
 {
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, low_ohm_detected);
 }
+
+void cap_triggered(void)
+{
+    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+}

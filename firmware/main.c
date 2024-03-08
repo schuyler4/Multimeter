@@ -30,6 +30,8 @@ static uint8_t voltage_reading_count = 0;
 
 static double capacitance_samples[CAPACITANCE_SAMPLE_COUNT];
 static uint8_t capacitance_reading_count = 0;
+static uint8_t cap_measurement_triggered = 0;
+static volatile uint8_t cap_measurement_recorded;
 
 static Mode mode = Capacitance;
 
@@ -43,6 +45,8 @@ int main(void)
     setup_IO();
     
     setup_MCP3561();
+
+    cap_measurement_recorded = 0;
     
     while(1)
     {
@@ -63,17 +67,16 @@ int main(void)
             }
             low_ohm(low_ohm_condition(resistance_reading));
         }
-        else if(mode == Capacitance)
+        else if(mode == Capacitance && cap_measurement_recorded)
         {
-            uint8_t i;
-            for(i = 0; i < CAPACITANCE_SAMPLE_COUNT; i++)
-            {
-                printf("%f\n", capacitance_samples[i]);
-            }
-            printf("\n");
+            cap_triggered();     
+            double capacitance = get_capacitance(capacitance_samples);
+            printf("%f\n", capacitance); 
+            cap_measurement_recorded = 0;
         }
     }
 
+    // The program should never return.
     return 1;
 }
 
@@ -195,15 +198,15 @@ void sample_voltage(void)
     }
 }
 
-uint8_t cap_measurement_triggered = 0;
-
 void sample_capacitance(void)
 {
     double voltage = get_capacitor_voltage(code); 
     if(voltage < CAPACITANCE_VOLTAGE_THRESHOLD)
     {
         cap_measurement_triggered = 1;
+        cap_measurement_recorded = 1;
         printf("Sampled Capacitance %f\n", voltage);
+        printf("%d\n", cap_measurement_recorded);
     } 
     if(cap_measurement_triggered)
     {

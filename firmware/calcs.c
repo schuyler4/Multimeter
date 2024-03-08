@@ -57,6 +57,21 @@ double get_resistance(uint32_t adc_code)
     return (diff_voltage*COMPONENT_SERIES_RESISTOR)/series_resistor_volt;
 }
 
+// v(t) = Vs*(1-e^(-t/T))
+// v(t)/Vs = 1-e^(-t/T) 
+// -v(t)/Vs + 1 = e^(-t/T) 
+// ln(-v(t)/Vs + 1) = -t/T
+// -T*ln(((-v(t)/Vs) + 1) = t
+// -T*ln((-v2/Vs) + 1) + T*ln((-v1/Vs) + 1) = t2 - t1
+double get_capacitance(double *voltage_points)
+{
+    double v0 = *(voltage_points + 0);
+    double v1 = *(voltage_points + 1);
+    printf("%f\n", v0);
+    printf("%f\n", v1);
+    return (1000*SAMPLE_PERIOD)/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*CAP_RS);
+}
+
 uint8_t low_ohm_condition(double resistance)
 {
     return resistance < LOW_OHM_THRESHOLD; 
@@ -66,4 +81,3 @@ uint8_t out_of_range_condition(double resistance)
 {
     return resistance > OUT_OF_RANGE_THRESHOLD;
 }
-

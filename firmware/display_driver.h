@@ -24,5 +24,6 @@ void turn_on_digit(uint8_t digit);
 void display_double(double number);
 void negative_sign(uint8_t enabled);
 void low_ohm(uint8_t low_ohm_detected);
+void cap_triggered(void);
 
 #endif
