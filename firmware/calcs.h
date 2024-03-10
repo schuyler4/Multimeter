@@ -33,6 +33,9 @@
 #define CAP_VS 1.36
 #define CAP_RS COMPONENT_SERIES_RESISTOR
 
+#define VOLTAGE_CALIBRATION_OFFSET 0.049
+#define RESISTANCE_CALIBRATION_OFFSET 14
+
 typedef struct 
 {
     double magnitude;

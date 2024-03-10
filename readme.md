@@ -9,7 +9,7 @@ respects.
 <li>Generally a different user interface because of 1 and 2.</li>
 </ol>
 <p align="center">
-<img src="./picture.png" alt="picture" width=400/>
+<img src="./picture.png" alt="picture" width=400>
 </p>
 <h3>Status</h3>
 <p>
@@ -21,4 +21,11 @@ done.
 <ul>
 <li>Max Measurement Voltage: 60V</li>
 <li>Max Measurement Resistance: 50kΩ</li>
+<li>
+Accuracy
+<ul>
+<li> Voltage: 1% </li> 
+<li> Resistance (100-40k): 10% </li>
+<li> Capacitance: Order of Magnitude </li>
+</ul>
 </ul>

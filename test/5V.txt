@@ -1,0 +1,541 @@
+VALUE: 4.979
+Voltage: 4.966457
+
+Voltage: 4.966457
+
+Voltage: 4.966457
+
+Voltage: 4.966457
+
+Voltage: 4.966457
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.966831
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.969743
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.973130
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.961528
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.963618
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.981359
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.959092
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.957247
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.976027
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.982829
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.970881
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.971458
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.975191
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.969397
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.977684
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.961802
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.962666
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.969166
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.968590
+
+Voltage: 4.975335
+
+Voltage: 4.975335
+
+Voltage: 4.975335
+
+Voltage: 4.975335
+
+Voltage: 4.975335
+
+Voltage: 4.975335
+
+Voltage: 4.975335
+

@@ -39,6 +39,8 @@
 
 #define CAPACITANCE_VOLTAGE_THRESHOLD 1
 
+#define TEST_SAMPLE_COUNT 100
+
 typedef enum
 {
     Voltage,
