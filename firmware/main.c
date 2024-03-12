@@ -33,7 +33,7 @@ static uint8_t capacitance_reading_count = 0;
 static uint8_t cap_measurement_triggered = 0;
 static volatile uint8_t cap_measurement_recorded;
 
-static Mode mode = Capacitance;
+static Mode mode = Voltage;
 
 static uint32_t code;
 
@@ -54,6 +54,7 @@ int main(void)
         { 
             Signed_Voltage voltage = get_measurement_voltage(code); 
             printf("Voltage: %f\n", voltage.magnitude);
+            display_double(voltage.magnitude);
         }
         else if(mode == Resistance)
         {
@@ -64,6 +65,7 @@ int main(void)
             else
             {
                 printf("%f\n", resistance_reading);
+                display_integer((int)resistance_reading);
             }
             low_ohm(low_ohm_condition(resistance_reading));
         }
@@ -115,15 +117,21 @@ void setup_IO(void)
     gpio_init(DIGIT3_PIN);
     gpio_init(DIGIT4_PIN);
 
-    gpio_init(SHIFT_REGISTER_CLOCK_PIN);
-    gpio_init(SHIFT_REGISTER_DATA_PIN);
-
     gpio_init(PICO_PIN);
     gpio_init(NANO_PIN);
     gpio_init(MICRO_PIN);
     gpio_init(LOW_OHM_AND_NEGATIVE_PIN);
 
     gpio_init(DATA_INTERUPT_PIN);
+
+    gpio_init(SEGMENT_A_PIN);
+    gpio_init(SEGMENT_B_PIN);
+    gpio_init(SEGMENT_C_PIN);
+    gpio_init(SEGMENT_D_PIN);
+    gpio_init(SEGMENT_E_PIN);
+    gpio_init(SEGMENT_F_PIN);
+    gpio_init(SEGMENT_G_PIN);
+    gpio_init(SEGMENT_DP_PIN);
     
     gpio_set_dir(CS_PIN, GPIO_OUT);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
@@ -132,9 +140,6 @@ void setup_IO(void)
     gpio_set_dir(DIGIT2_PIN, GPIO_OUT);
     gpio_set_dir(DIGIT3_PIN, GPIO_OUT);
     gpio_set_dir(DIGIT4_PIN, GPIO_OUT);
-    
-    gpio_set_dir(SHIFT_REGISTER_CLOCK_PIN, GPIO_OUT);
-    gpio_set_dir(SHIFT_REGISTER_DATA_PIN, GPIO_OUT);
 
     gpio_set_dir(PICO_PIN, GPIO_OUT);
     gpio_set_dir(NANO_PIN, GPIO_OUT);
@@ -142,7 +147,25 @@ void setup_IO(void)
     gpio_set_dir(LOW_OHM_AND_NEGATIVE_PIN, GPIO_OUT);
 
     gpio_set_dir(DATA_INTERUPT_PIN, GPIO_IN);
-    
+
+    gpio_set_dir(SEGMENT_A_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_B_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_C_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_D_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_E_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_F_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_G_PIN, GPIO_OUT);
+    gpio_set_dir(SEGMENT_DP_PIN, GPIO_OUT);
+
+    gpio_set_drive_strength(SEGMENT_A_PIN, GPIO_DRIVE_STRENGTH_8MA); 
+    gpio_set_drive_strength(SEGMENT_B_PIN, GPIO_DRIVE_STRENGTH_8MA); 
+    gpio_set_drive_strength(SEGMENT_C_PIN, GPIO_DRIVE_STRENGTH_8MA);
+    gpio_set_drive_strength(SEGMENT_D_PIN, GPIO_DRIVE_STRENGTH_8MA); 
+    gpio_set_drive_strength(SEGMENT_E_PIN, GPIO_DRIVE_STRENGTH_8MA);
+    gpio_set_drive_strength(SEGMENT_F_PIN, GPIO_DRIVE_STRENGTH_8MA);
+    gpio_set_drive_strength(SEGMENT_G_PIN, GPIO_DRIVE_STRENGTH_8MA); 
+    gpio_set_drive_strength(SEGMENT_DP_PIN, GPIO_DRIVE_STRENGTH_8MA);
+     
     gpio_put(CS_PIN, 1);
     gpio_put(PICO_DEFAULT_LED_PIN, 1);    
     
@@ -150,14 +173,20 @@ void setup_IO(void)
     gpio_put(DIGIT2_PIN, 0);
     gpio_put(DIGIT3_PIN, 0);
     gpio_put(DIGIT4_PIN, 0);
-
-    gpio_put(SHIFT_REGISTER_CLOCK_PIN, 0);
-    gpio_put(SHIFT_REGISTER_DATA_PIN, 0);
     
     gpio_put(PICO_PIN, 0);
     gpio_put(NANO_PIN, 0);
     gpio_put(MICRO_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+    
+    gpio_put(SEGMENT_A_PIN, 0);
+    gpio_put(SEGMENT_B_PIN, 0);
+    gpio_put(SEGMENT_C_PIN, 0);
+    gpio_put(SEGMENT_D_PIN, 0);
+    gpio_put(SEGMENT_E_PIN, 0);
+    gpio_put(SEGMENT_F_PIN, 0);
+    gpio_put(SEGMENT_G_PIN, 0);
+    gpio_put(SEGMENT_DP_PIN, 0);
 
     gpio_set_irq_enabled_with_callback(
         DATA_INTERUPT_PIN, 

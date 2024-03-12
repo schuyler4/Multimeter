@@ -3133,7 +3133,7 @@
 		)
 		(uuid "3b6f8486-aeba-4c0b-8abc-950fab49caca")
 	)
-	(text "pico"
+	(text "Capacitance\nTrigger"
 		(exclude_from_sim no)
 		(at 77.47 139.7 0)
 		(effects
@@ -7537,7 +7537,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "311-10.0KCRCT-ND"
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
 			(at 62.23 30.48 0)
 			(effects
 				(font
@@ -7546,7 +7546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RC0805FR-0710KL"
+		(property "Part #" "RMCF0805FT10K0"
 			(at 62.23 30.48 0)
 			(effects
 				(font

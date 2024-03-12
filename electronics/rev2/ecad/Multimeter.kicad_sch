@@ -10,6 +10,108 @@
 		(rev "1")
 	)
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.762) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:R_US"
 			(pin_numbers hide)
 			(pin_names
@@ -2051,6 +2153,12 @@
 		(uuid "9f7eeda9-e264-49b1-866d-0eff3942cb25")
 	)
 	(junction
+		(at 125.73 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a7dce9d7-df9d-4a88-a1b5-0437409f1efc")
+	)
+	(junction
 		(at 163.83 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2147,10 +2255,6 @@
 		(uuid "c579d257-15e3-43ed-ae69-2bf5cad905b8")
 	)
 	(no_connect
-		(at 109.22 88.9)
-		(uuid "c81eebc6-49c5-4f57-a7ad-8089c0165606")
-	)
-	(no_connect
 		(at 160.02 86.36)
 		(uuid "c97cc4b6-3060-4196-8091-f26d086910dd")
 	)
@@ -2208,7 +2312,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 149.86) (xy 100.33 149.86)
+			(xy 168.91 158.75) (xy 100.33 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2348,7 +2452,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 104.14) (xy 167.64 148.59)
+			(xy 167.64 104.14) (xy 167.64 157.48)
 		)
 		(stroke
 			(width 0)
@@ -2498,6 +2602,16 @@
 	)
 	(wire
 		(pts
+			(xy 125.73 138.43) (xy 125.73 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e05633b-f444-4aaa-acb0-b477c98b58d4")
+	)
+	(wire
+		(pts
 			(xy 107.95 114.3) (xy 109.22 114.3)
 		)
 		(stroke
@@ -2518,7 +2632,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 111.76) (xy 171.45 152.4)
+			(xy 171.45 111.76) (xy 171.45 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2578,7 +2692,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 149.86) (xy 100.33 96.52)
+			(xy 100.33 158.75) (xy 100.33 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2608,7 +2722,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 109.22) (xy 170.18 151.13)
+			(xy 170.18 109.22) (xy 170.18 160.02)
 		)
 		(stroke
 			(width 0)
@@ -2648,7 +2762,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 152.4) (xy 97.79 152.4)
+			(xy 171.45 161.29) (xy 97.79 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2688,7 +2802,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 148.59) (xy 101.6 99.06)
+			(xy 101.6 157.48) (xy 101.6 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2788,7 +2902,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 148.59) (xy 101.6 148.59)
+			(xy 167.64 157.48) (xy 101.6 157.48)
 		)
 		(stroke
 			(width 0)
@@ -2798,7 +2912,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 151.13) (xy 99.06 93.98)
+			(xy 99.06 160.02) (xy 99.06 93.98)
 		)
 		(stroke
 			(width 0)
@@ -2898,7 +3012,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 152.4) (xy 97.79 91.44)
+			(xy 97.79 161.29) (xy 97.79 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2938,7 +3052,17 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 151.13) (xy 99.06 151.13)
+			(xy 95.25 88.9) (xy 109.22 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5096059-0505-435a-bf1d-47eec4060ec2")
+	)
+	(wire
+		(pts
+			(xy 170.18 160.02) (xy 99.06 160.02)
 		)
 		(stroke
 			(width 0)
@@ -2988,7 +3112,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 106.68) (xy 168.91 149.86)
+			(xy 168.91 106.68) (xy 168.91 158.75)
 		)
 		(stroke
 			(width 0)
@@ -3044,6 +3168,16 @@
 			(justify left top)
 		)
 		(uuid "98c6da0f-7456-445d-bd09-0bb8a0d7133b")
+	)
+	(text "GND Test Point"
+		(exclude_from_sim no)
+		(at 126.492 153.416 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "428bdcdf-1c61-4b93-9492-09b1bec60989")
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
@@ -3794,6 +3928,100 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 125.73 146.05 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5fef19d0-5532-4043-8f52-5a96ed44081f")
+		(property "Reference" "TP4"
+			(at 128.27 148.0819 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "4952"
+			(at 128.27 150.6219 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_Pin:Pin_D1.2mm_L10.2mm_W2.9mm_FlatFork"
+			(at 120.65 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 120.65 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 125.73 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "36-4952-ND"
+			(at 125.73 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "4952"
+			(at 125.73 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.26"
+			(at 125.73 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "18e6bed7-73e4-4a8d-a8ae-1a880251930a")
+		)
+		(instances
+			(project "Multimeter"
+				(path "/cb819000-1954-426e-958e-510a70bc03c7"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 107.95 115.57 0)
 		(unit 1)
@@ -4138,7 +4366,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "311-10.0KCRCT-ND"
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
 			(at 166.37 88.9 0)
 			(effects
 				(font
@@ -4147,7 +4375,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RC0805FR-0710KL"
+		(property "Part #" "RMCF0805FT10K0"
 			(at 166.37 88.9 0)
 			(effects
 				(font
@@ -4818,7 +5046,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "311-10.0KCRCT-ND"
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
 			(at 176.53 88.9 0)
 			(effects
 				(font
@@ -4827,7 +5055,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RC0805FR-0710KL"
+		(property "Part #" "RMCF0805FT10K0"
 			(at 176.53 88.9 0)
 			(effects
 				(font
@@ -5075,7 +5303,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "311-10.0KCRCT-ND"
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -5084,7 +5312,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "RC0805FR-0710KL"
+		(property "Part #" "RMCF0805FT10K0"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -5206,6 +5434,16 @@
 				(justify right)
 			)
 			(uuid "f618aea7-f01a-4f5b-a46d-10dd5d6f4704")
+		)
+		(pin "RANGE" output
+			(at 95.25 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "7201bc34-f56c-4f26-8469-6b8c4774dbb8")
 		)
 		(instances
 			(project "Multimeter"
