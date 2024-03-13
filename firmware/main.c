@@ -24,9 +24,9 @@ static double average_resistance_reading = 0;
 static double resistance_reading = 0;
 static uint8_t resistance_reading_count = 0;
 
-static double average_voltage_reading = 0;
-static double voltage_reading = 0;
-static uint8_t voltage_reading_count = 0;
+static volatile double average_voltage_reading = 0;
+static volatile double voltage_reading = 0;
+static volatile uint8_t voltage_reading_count = 0;
 
 static double capacitance_samples[CAPACITANCE_SAMPLE_COUNT];
 static uint8_t capacitance_reading_count = 0;
@@ -52,9 +52,8 @@ int main(void)
     {
         if(mode == Voltage)
         { 
-            Signed_Voltage voltage = get_measurement_voltage(code); 
-            printf("Voltage: %f\n", voltage.magnitude);
-            display_double(voltage.magnitude);
+            printf("Voltage: %f\n", voltage_reading);
+            display_double(voltage_reading);
         }
         else if(mode == Resistance)
         {
