@@ -5,7 +5,7 @@ import os
 from os import listdir
 
 PROJECT_NAME = 'Multimeter'
-LAYER_LIST = ['B_Cu', 'B_Mask', 'B_Silkscreen', 'Edge_Cuts', 'F_Cu', 'F_Mask', 'F_Silkscreen', 'drl'] 
+LAYER_LIST = ('B_Cu', 'B_Mask', 'B_Silkscreen', 'Edge_Cuts', 'F_Cu', 'F_Mask', 'F_Silkscreen', 'drl') 
 
 PCB_PATH = f'../ecad/{PROJECT_NAME}.kicad_pcb'
 SCHEMATIC_PATH = f'../ecad/{PROJECT_NAME}.kicad_sch'
@@ -15,7 +15,7 @@ DRILL_FILE = f'./{PROJECT_NAME}.drl'
 BOM_FIELDS = 'Reference,Value,${QUANTITY},Digikey,Part #,Price'
 
 def error_check_pass():
-    pcb_conditions = ['Found 0 DRC violations', 'Found 0 unconnected pads', 'Found 0 Footprint errors'] 
+    PCB_CONDITIONS = ('Found 0 DRC violations', 'Found 0 unconnected pads', 'Found 0 Footprint errors') 
     schematic_condition = 'ERC messages: 0  Errors 0  Warnings 0'
 
     subprocess.run([f'kicad-cli sch erc {SCHEMATIC_PATH}'], shell=True)
@@ -29,7 +29,7 @@ def error_check_pass():
     subprocess.run([f'kicad-cli pcb drc {PCB_PATH}'], shell=True)
     report_file = open('Multimeter.rpt', 'r').read()
 
-    for condition in pcb_conditions:
+    for condition in PCB_CONDITIONS:
         if(not condition in report_file):
             print('PCB DRC Error') 
             return False

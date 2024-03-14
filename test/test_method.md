@@ -1,21 +1,20 @@
 <h2> Multimeter Test Method </h2>
 <h3> Accuracy/Precision Test </h3>
 <p>
-Before running the test, the multimeter is calibrated/adjusted by measuring a Voltage/Resistance/Capacitance reference at
-a single value, and adjusting the calibration parameters to make the error as low as possible. This should minimize 
-systematic error.
+Before running the test, the multimeter is calibrated/adjusted. Instead of calibrating it for real, it is calibrated
+using another multimeter as a reference. This is done by measuring a 5V PSU with the reference multimeter, and adjusting
+the multimeter to match the reading of the reference multimeter.
 </p>
 <p>
-Accuracy and precision is tested by taking measurements of a Voltage/Resistance/Capacitance reference at various values.
-The firmware is put in logging mode, and 100 samples are collected. These 100 samples are then run through
-the test script to find the accuracy and precision. Only accuracy is tested with capacitance, as only
-one sample can be captured at a time.
+Like with the calibration, the testing will just be a comparison to another multimeter. Voltage, Resistance, and Capacitance
+are measured with each multimeter, and the multimeter is compared to the reference multimeter. The measurement components are
+listed below: 
 </p>
-<h3> References </h3>
+<h3> Measurement Sources </h3>
 <ul>
-<li> Voltage Reference: AD584K based voltage reference (2.5V/5.0V (Calibration Value)/7.5V/10V) </li>
-<li> Resistor Reference: (0.1%) THT Resistors (10Ω, 100Ω, 1kΩ (Calibration Value), 10kΩ, 40kΩ) </li>
-<li> Capacitor Reference: (1%) THT Capacitors C0G (0.01uF, 0.1uF (Calibration Value), 1uF, 10uF) </li> 
+<li> Voltage Source: Adjustable Power Supply (0-60V, 5V Steps) 1V Calibration Value </li>
+<li> Resistor: (0.1%) THT Resistors (10Ω, 100Ω, 1kΩ (Calibration Value), 10kΩ, 40kΩ) </li>
+<li> Capacitor: (1%) THT Capacitors C0G (0.01uF, 0.1uF (Calibration Value), 1uF, 10uF) </li> 
 </ul>
 <h3> Preliminary Testing </h3>
 <p>
