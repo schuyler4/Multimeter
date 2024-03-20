@@ -9,13 +9,13 @@ respects.
 <li>Generally a different user interface because of 1 and 2.</li>
 </ol>
 <p align="center">
-<img src="./picture.png" alt="picture" width=400>
+<img src=./pictures/rev1_picture.JPG width=400></img>
 </p>
 <h3>Status</h3>
 <p>
-Currently I am getting somewhat accurate readings of voltage and resistance. The 
-display does not work on the first revision, and the second revision is not yet
-done.
+Currently I am getting somewhat accurate readings of voltage and resistance. 
+I have repurposed the first revision into just a voltmeter. There are problems
+with the switching circuit that I have fixed in the second revision. 
 </p>
 <h3>Specs</h3>
 <ul>
