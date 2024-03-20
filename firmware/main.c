@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <math.h>
 
 #include "pico/stdlib.h"
 
@@ -26,6 +27,7 @@ static uint8_t resistance_reading_count = 0;
 
 static volatile double average_voltage_reading = 0;
 static volatile double voltage_reading = 0;
+static volatile uint8_t voltage_sign = 0;
 static volatile uint8_t voltage_reading_count = 0;
 
 static double capacitance_samples[CAPACITANCE_SAMPLE_COUNT];
@@ -54,6 +56,7 @@ int main(void)
         { 
             printf("Voltage: %f\n", voltage_reading);
             display_double(voltage_reading);
+            negative_sign(voltage_sign);
         }
         else if(mode == Resistance)
         {
@@ -221,6 +224,8 @@ void sample_voltage(void)
     if(voltage_reading_count == AVERAGE_READING_COUNT)
     {
         voltage_reading = average_voltage_reading/AVERAGE_READING_COUNT;
+        voltage_sign = !(voltage_reading >= 0.0); 
+        voltage_reading = fabs(voltage_reading);
         voltage_reading_count = 0;
         average_voltage_reading = 0;
     }
