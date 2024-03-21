@@ -12,7 +12,7 @@
 
 #define SAMPLE_PERIOD 0.00177
 
-#define VOLTAGE_REFERANCE 2.316
+#define VOLTAGE_REFERENCE 2.316
 #define MEASUREMENT_BIAS 1.158 
 #define ADC_BITS 23
 #define ADC_STEPS 8388608 
@@ -21,7 +21,7 @@
 #define DIVIDER_LOWER_RESISTOR 10001
 
 #define COMPONENT_SERIES_RESISTOR 10000
-#define COMPONENT_VOLTAGE_REFERANCE 2.49
+#define COMPONENT_VOLTAGE_REFERENCE 2.49
 
 #define SIGN_MASK 0x800000
 #define BIT_MASK_24 0xFFFFFF
@@ -33,17 +33,9 @@
 #define CAP_VS 1.36
 #define CAP_RS COMPONENT_SERIES_RESISTOR
 
-#define VOLTAGE_CALIBRATION_OFFSET_POSITIVE 0.029
-#define VOLTAGE_CALIBRATION_OFFSET_NEGATIVE 0.00
 #define RESISTANCE_CALIBRATION_OFFSET 14
 
-typedef struct 
-{
-    double magnitude;
-    uint8_t sign;
-} Signed_Voltage;
-
-Signed_Voltage get_measurement_voltage(uint32_t adc_code);
+double get_measurement_voltage(uint32_t adc_code);
 double get_resistance(uint32_t adc_code);
 double get_capacitor_voltage(uint32_t adc_code);
 double get_capacitance(double *voltage_points);

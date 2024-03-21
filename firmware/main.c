@@ -26,7 +26,7 @@ static double resistance_reading = 0;
 static uint8_t resistance_reading_count = 0;
 
 static volatile double average_voltage_reading = 0;
-static volatile double voltage_reading = 0;
+static volatile Signed_Voltage voltage_reading;
 static volatile uint8_t voltage_sign = 0;
 static volatile uint8_t voltage_reading_count = 0;
 
@@ -49,14 +49,17 @@ int main(void)
     setup_MCP3561();
 
     cap_measurement_recorded = 0;
+
+    voltage_reading.magnitude = 0;
+    voltage_reading.sign = 0;
     
     while(1)
     {
         if(mode == Voltage)
         { 
             printf("Voltage: %f\n", voltage_reading);
-            display_double(voltage_reading);
-            negative_sign(voltage_sign);
+            display_double(voltage_reading.magnitude);
+            negative_sign(voltage_reading.sign);
         }
         else if(mode == Resistance)
         {
@@ -211,21 +214,26 @@ void sample_resistance(void)
 
 void sample_voltage(void)
 {
-    Signed_Voltage voltage = get_measurement_voltage(code); 
-    if(voltage.sign)
-    {
-        average_voltage_reading -= voltage.magnitude;
-    }
-    else
-    {
-        average_voltage_reading += voltage.magnitude;
-    }
+    average_voltage_reading += get_measurement_voltage(code); 
     voltage_reading_count++;
     if(voltage_reading_count == AVERAGE_READING_COUNT)
     {
-        voltage_reading = average_voltage_reading/AVERAGE_READING_COUNT;
-        voltage_sign = !(voltage_reading >= 0.0); 
-        voltage_reading = fabs(voltage_reading);
+        voltage_reading.magnitude = average_voltage_reading;
+        voltage_reading.magnitude /= AVERAGE_READING_COUNT;
+        voltage_reading.sign = !(voltage_reading.magnitude >= 0.0); 
+        // The floating point display will not work correctly if 
+        // the sign bit is not removed 
+        voltage_reading.magnitude = fabs(voltage_reading.magnitude);
+        
+        if(voltage_reading.sign)
+        {
+            voltage_reading.magnitude += VOLTAGE_NEGATIVE_CALIBRATION_OFFSET; 
+        }
+        else
+        {
+            voltage_reading.magnitude += VOLTAGE_POSITIVE_CALIBRATION_OFFSET; 
+        }
+
         voltage_reading_count = 0;
         average_voltage_reading = 0;
     }

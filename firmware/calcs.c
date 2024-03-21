@@ -28,7 +28,7 @@ static uint32_t get_adc_code_magnitude(uint32_t adc_code)
 
 static double get_adc_diff_voltage(uint32_t adc_code)
 {
-    return (adc_code*VOLTAGE_REFERANCE)/ADC_STEPS;
+    return (adc_code*VOLTAGE_REFERENCE)/ADC_STEPS;
 }
 
 double get_capacitor_voltage(uint32_t adc_code)
@@ -37,23 +37,19 @@ double get_capacitor_voltage(uint32_t adc_code)
     return get_adc_diff_voltage(adc_magnitude_code);
 }
 
-Signed_Voltage get_measurement_voltage(uint32_t adc_code)
+double get_measurement_voltage(uint32_t adc_code)
 {
-    Signed_Voltage voltage;
-    voltage.sign = (uint8_t)((adc_code & SIGN_MASK) >> ADC_BITS); 
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
-    double diff_voltage = get_adc_diff_voltage(magnitude_adc_code); 
+    double diff_voltage = get_adc_diff_voltage(magnitude_adc_code);
     double I = diff_voltage/DIVIDER_LOWER_RESISTOR;
-    double calculated_magnitude = I*(DIVIDER_UPPER_RESISTOR+DIVIDER_LOWER_RESISTOR);
-    voltage.magnitude = calculated_magnitude + VOLTAGE_CALIBRATION_OFFSET;
-    return voltage;
+    return I*(DIVIDER_UPPER_RESISTOR+DIVIDER_LOWER_RESISTOR); 
 }
 
 double get_resistance(uint32_t adc_code)
 {
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
     double diff_voltage = get_adc_diff_voltage(magnitude_adc_code);
-    double series_resistor_volt = COMPONENT_VOLTAGE_REFERANCE - diff_voltage - MEASUREMENT_BIAS;
+    double series_resistor_volt = COMPONENT_VOLTAGE_REFERENCE - diff_voltage - MEASUREMENT_BIAS;
     double I = series_resistor_volt/COMPONENT_SERIES_RESISTOR;
     double calculated_resistance = (diff_voltage*COMPONENT_SERIES_RESISTOR)/series_resistor_volt; 
     return calculated_resistance + RESISTANCE_CALIBRATION_OFFSET;

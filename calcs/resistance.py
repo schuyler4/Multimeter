@@ -1,3 +1,5 @@
+# This calculation looks at how the ADC code varies with different
+# resistance measurements
 import matplotlib.pyplot as plt
 
 MAX_RESISTANCE = 40000

@@ -45,12 +45,21 @@
 
 #define CAPACITANCE_VOLTAGE_THRESHOLD 1
 
+#define VOLTAGE_POSITIVE_CALIBRATION_OFFSET 0.00
+#define VOLTAGE_NEGATIVE_CALIBRATION_OFFSET 0.00
+
 typedef enum
 {
     Voltage,
     Resistance, 
     Capacitance
 } Mode;
+
+typedef struct 
+{
+    double magnitude;
+    uint8_t sign;
+} Signed_Voltage;
 
 void setup_SPI(void);
 void setup_IO(void);
