@@ -35,7 +35,7 @@ static uint8_t capacitance_reading_count = 0;
 static uint8_t cap_measurement_triggered = 0;
 static volatile uint8_t cap_measurement_recorded;
 
-static Mode mode = Voltage;
+static Mode mode;
 
 static uint32_t code;
 
@@ -55,39 +55,29 @@ int main(void)
     
     while(1)
     {
-        if(mode == Voltage)
-        { 
-            printf("Voltage: %f\n", voltage_reading);
-            display_double(voltage_reading.magnitude);
-            negative_sign(voltage_reading.sign);
-        }
-        else if(mode == Resistance)
-        {
-            if(out_of_range_condition(resistance_reading)) 
-            {
-                printf("OL\n");
-            }
-            else
-            {
-                printf("%f\n", resistance_reading);
-                display_integer((int)resistance_reading);
-            }
-            low_ohm(low_ohm_condition(resistance_reading));
-        }
-        else if(mode == Capacitance && cap_measurement_recorded)
-        {
-            cap_triggered();     
-            double capacitance = get_capacitance(capacitance_samples);
-            printf("%f\n", capacitance); 
-            cap_measurement_recorded = 0;
-        }
+#if REVISION == 1
+        // The first revision is only a volt meter.
+        display_double(voltage_reading.magnitude);
+        negative_sign(voltage_reading.sign);
+#else
+        check_mode();
+        display_reading(); 
+#endif
     }
 
     // The program should never return.
     return 1;
 }
 
-void adc_data_callback(uint gpio, uint32_t events)
+void setup_SPI(void)
+{
+    spi_init(spi0, SPI_SCK_FREQ);
+    gpio_set_function(MOSI_PIN, GPIO_FUNC_SPI);
+    gpio_set_function(MISO_PIN, GPIO_FUNC_SPI);
+    gpio_set_function(SCK_PIN, GPIO_FUNC_SPI);
+} 
+
+static void adc_data_callback(uint gpio, uint32_t events)
 {
     code = MCP3561_read_code();
     if(mode == Resistance)
@@ -103,14 +93,6 @@ void adc_data_callback(uint gpio, uint32_t events)
         sample_capacitance();        
     }
 }
-
-void setup_SPI(void)
-{
-    spi_init(spi0, SPI_SCK_FREQ);
-    gpio_set_function(MOSI_PIN, GPIO_FUNC_SPI);
-    gpio_set_function(MISO_PIN, GPIO_FUNC_SPI);
-    gpio_set_function(SCK_PIN, GPIO_FUNC_SPI);
-} 
 
 void setup_IO(void)
 {
@@ -137,6 +119,12 @@ void setup_IO(void)
     gpio_init(SEGMENT_F_PIN);
     gpio_init(SEGMENT_G_PIN);
     gpio_init(SEGMENT_DP_PIN);
+
+#if REVISION > 1
+    gpio_init(MODE_PIN);
+    gpio_init(COMPONENT_MODE_PIN);
+    gpio_init(RANGE_PIN);
+#endif
     
     gpio_set_dir(CS_PIN, GPIO_OUT);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
@@ -161,6 +149,12 @@ void setup_IO(void)
     gpio_set_dir(SEGMENT_F_PIN, GPIO_OUT);
     gpio_set_dir(SEGMENT_G_PIN, GPIO_OUT);
     gpio_set_dir(SEGMENT_DP_PIN, GPIO_OUT);
+
+#if REVISION > 1
+    gpio_set_dir(MODE_PIN, GPIO_IN);
+    gpio_set_dir(COMPONENT_MODE_PIN, GPIO_IN);
+    gpio_set_dir(RANGE_PIN, GPIO_IN);
+#endif
 
     gpio_set_drive_strength(SEGMENT_A_PIN, GPIO_DRIVE_STRENGTH_8MA); 
     gpio_set_drive_strength(SEGMENT_B_PIN, GPIO_DRIVE_STRENGTH_8MA); 
@@ -200,9 +194,28 @@ void setup_IO(void)
         *adc_data_callback);
 }
 
+void check_mode(void)
+{
+    if(gpio_get(MODE_PIN))
+    {
+        mode = Voltage;       
+    }
+    else
+    {
+        if(gpio_get(COMPONENT_MODE_PIN))
+        {
+            mode = Capacitance;
+        }
+        else
+        {
+            mode = Resistance;
+        }
+    }
+}
+
 void sample_resistance(void)
 {
-    average_resistance_reading += get_resistance(code); 
+    average_resistance_reading += get_resistance(code, gpio_get(RANGE_PIN)); 
     resistance_reading_count++; 
     if(resistance_reading_count == AVERAGE_READING_COUNT)
     {
@@ -220,7 +233,7 @@ void sample_voltage(void)
     {
         voltage_reading.magnitude = average_voltage_reading;
         voltage_reading.magnitude /= AVERAGE_READING_COUNT;
-        voltage_reading.sign = !(voltage_reading.magnitude >= 0.0); 
+        voltage_reading.sign = voltage_reading.magnitude < 0.0; 
         // The floating point display will not work correctly if 
         // the sign bit is not removed 
         voltage_reading.magnitude = fabs(voltage_reading.magnitude);
@@ -241,7 +254,7 @@ void sample_voltage(void)
 
 void sample_capacitance(void)
 {
-    double voltage = get_capacitor_voltage(code); 
+    double voltage = get_capacitor_voltage(code);
     if(voltage < CAPACITANCE_VOLTAGE_THRESHOLD)
     {
         cap_measurement_triggered = 1;
@@ -258,5 +271,34 @@ void sample_capacitance(void)
             cap_measurement_triggered = 0;
             capacitance_reading_count = 0;
         }
+    }
+}
+
+void display_reading(void)
+{
+    if(mode == Voltage)
+    { 
+        display_double(voltage_reading.magnitude);
+        negative_sign(voltage_reading.sign);
+    }
+    else if(mode == Resistance)
+    {
+        if(out_of_range_condition(resistance_reading)) 
+        {
+            printf("OL\n");
+        }
+        else
+        {
+            printf("%f\n", resistance_reading);
+            display_integer((int)resistance_reading);
+        }
+        low_ohm(low_ohm_condition(resistance_reading));
+    }
+    else if(mode == Capacitance && cap_measurement_recorded)
+    {
+        cap_triggered();     
+        double capacitance = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
+        printf("%f\n", capacitance); 
+        cap_measurement_recorded = 0;
     }
 }
