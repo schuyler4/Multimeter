@@ -274,6 +274,23 @@ void sample_capacitance(void)
     }
 }
 
+static void display_resistance(void)
+{
+    if(out_of_range_high_condition(resistance_reading, gpio_get(RANGE_PIN))) 
+    {
+        display_open_circuit();     
+    }
+    else if(out_of_range_low_condition(resistance_reading, gpio_get(RANGE_PIN)))
+    {
+        display_short_circuit();
+    }
+    else
+    {
+        display_double(scale_resistance(resistance_reading));
+        printf("%f\n", resistance_reading);
+    }
+}
+
 void display_reading(void)
 {
     if(mode == Voltage)
@@ -283,22 +300,19 @@ void display_reading(void)
     }
     else if(mode == Resistance)
     {
-        if(out_of_range_condition(resistance_reading)) 
-        {
-            printf("OL\n");
-        }
-        else
-        {
-            printf("%f\n", resistance_reading);
-            display_integer((int)resistance_reading);
-        }
-        low_ohm(low_ohm_condition(resistance_reading));
+        negative_sign(0);
+        display_resistance(); 
     }
     else if(mode == Capacitance && cap_measurement_recorded)
     {
+        negative_sign(0);
         cap_triggered();     
         double capacitance = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
         printf("%f\n", capacitance); 
         cap_measurement_recorded = 0;
+    }
+    else
+    {
+        negative_sign(0);
     }
 }

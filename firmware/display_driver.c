@@ -24,7 +24,16 @@ static void zero_segments(void)
     }
 }
 
-void write_digit(uint8_t number, uint8_t decimal_point)
+static void write_character(uint8_t character_encoding)
+{
+    uint8_t i;
+    for(i = 0; i < SEGMENT_COUNT - 1; i++)
+    {
+        gpio_put(SEGMENT_ARRAY[i], (character_encoding >> i) & FIRST_BIT_MASK);
+    }
+}
+
+static void write_digit(uint8_t number, uint8_t decimal_point)
 { 
     zero_segments();    
 
@@ -33,15 +42,10 @@ void write_digit(uint8_t number, uint8_t decimal_point)
         gpio_put(SEGMENT_DP_PIN, 1);
     }
 
-    uint8_t number_code = DIGITS[number];
-    uint8_t i;    
-    for(i = 0; i < SEGMENT_COUNT - 1; i++)
-    {
-        gpio_put(SEGMENT_ARRAY[i], (number_code >> i) & FIRST_BIT_MASK);
-    }
+    write_character(DIGITS[number]);
 }
 
-void turn_on_digit(uint8_t digit)
+static void turn_on_digit(uint8_t digit)
 {
     turn_off_all_digits();
     switch(digit)
@@ -63,27 +67,10 @@ void turn_on_digit(uint8_t digit)
     }
 }
 
-void display_integer(uint16_t integer)
-{   
-    uint8_t i; 
-    for(i = DIGIT_COUNT; i > 0; i--)
-    {
-        int divisor = (int)pow(10, i - 1);
-        int digit = integer/divisor;
-        if(digit != 0)
-        {
-            turn_on_digit(i);
-            write_digit(digit, 0);
-        }
-        integer = integer % divisor;
-        sleep_ms(2);
-    }
-}
-
 void display_double(double number)
 {
     // snprintf stores a null terminator, so an extra space is
-    // needed in the array, also a space for decimal point.
+    // needed in the array, also a space for the decimal point.
     char double_string[DIGIT_COUNT+2];
     snprintf(double_string, DIGIT_COUNT+2, "%f", number);        
     uint8_t digit = 1;
@@ -107,6 +94,29 @@ void display_double(double number)
         turn_on_digit(digit);
         sleep_ms(1);
         digit++;
+    }
+}
+
+void display_open_circuit(void)
+{
+    zero_segments();
+    uint8_t digit;
+    for(digit = 1; digit <= DIGIT_COUNT; digit++)
+    {
+        if(digit == FIRST_MIDDLE_DIGIT || digit == SECOND_MIDDLE_DIGIT)
+        {
+            write_character(OPEN_CIRCUIT[digit-FIRST_MIDDLE_DIGIT]);
+        }
+    }
+}
+
+void display_short_circuit(void)
+{
+    zero_segments();
+    uint8_t digit;
+    for(digit = 1; digit <= DIGIT_COUNT; digit++)
+    {
+        write_character(DASH_CHARACTER);
     }
 }
 

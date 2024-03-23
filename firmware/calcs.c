@@ -75,11 +75,57 @@ double get_resistance(uint32_t adc_code, uint8_t range)
 {
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
     double diff_voltage = get_adc_diff_voltage(magnitude_adc_code);
-    double series_resistor_volt = COMPONENT_VOLTAGE_REFERENCE - diff_voltage - MEASUREMENT_BIAS;
-    double Rs = get_component_series_resistor(range);
-    double I = series_resistor_volt/Rs;
-    double calculated_resistance = (diff_voltage*Rs)/series_resistor_volt; 
-    return calculated_resistance + RESISTANCE_CALIBRATION_OFFSET;
+    //printf("%f\n", diff_voltage);
+    double range_resistor_volt = COMPONENT_VOLTAGE_REFERENCE - diff_voltage - MEASUREMENT_BIAS;
+    double range_resistor = get_component_series_resistor(range);
+    double series_resistor = parallel_resistance(RANGE_SERIES_RESISTOR, DIVIDER_UPPER_RESISTOR);
+    double I = range_resistor_volt/range_resistor;
+    double Vseries_resistor = I*series_resistor + 0.01381;
+    double calculated_resistance = (diff_voltage - Vseries_resistor)/I; 
+    //printf("diff voltage %f\n", diff_voltage);
+    //printf("Vs %f\n", Vseries_resistor);
+    //printf("I %f\n", I);
+    return fabs(calculated_resistance);
+}
+
+double scale_resistance(double resistance_reading)
+{
+    if(resistance_reading > RESISTANCE_KILO_THRESHOLD)
+    {
+        return resistance_reading/RESISTANCE_KILO_SCALE;
+    }
+    else if(resistance_reading > RESISTANCE_MEGA_THRESHOLD)
+    {
+        return resistance_reading/RESISTANCE_MEGA_SCALE;
+    }
+    else
+    {
+        return resistance_reading;
+    }
+}
+
+uint8_t out_of_range_low_condition(double resistance, uint8_t range)
+{
+    if(range)
+    {
+        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE1;
+    }
+    else
+    {
+        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE2;
+    }
+}
+
+uint8_t out_of_range_high_condition(double resistance, uint8_t range)
+{
+    if(range)
+    {
+        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE1;
+    }
+    else
+    {
+        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE2;
+    }
 }
 
 // v(t) = Vs*(1-e^(-t/T))
@@ -98,12 +144,4 @@ double get_capacitance(double *voltage_points, uint8_t range)
     return (1000*SAMPLE_PERIOD)/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*Rs);
 }
 
-uint8_t low_ohm_condition(double resistance)
-{
-    return resistance < LOW_OHM_THRESHOLD; 
-}
 
-uint8_t out_of_range_condition(double resistance)
-{
-    return resistance > OUT_OF_RANGE_THRESHOLD;
-}

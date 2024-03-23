@@ -8,6 +8,11 @@
 
 #define FIRST_BIT_MASK 0x01
 
+#define FIRST_MIDDLE_DIGIT 2
+#define SECOND_MIDDLE_DIGIT 3
+
+#define DASH_CHARACTER 0x01
+
 static uint8_t SEGMENT_ARRAY[] = {
     SEGMENT_A_PIN,
     SEGMENT_B_PIN,
@@ -31,10 +36,11 @@ static uint8_t DIGITS[] = {
     0x6F
 };
 
-void write_digit(uint8_t number, uint8_t decimal_point);
-void turn_on_digit(uint8_t digit);
+static uint8_t OPEN_CIRCUIT[] = {0x35, 0x0E};
+
 void display_double(double number);
-void display_integer(uint16_t integer);
+void display_open_circuit(void);
+void display_short_circuit(void);
 
 void negative_sign(uint8_t enabled);
 void low_ohm(uint8_t low_ohm_detected);
