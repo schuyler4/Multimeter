@@ -279,14 +279,17 @@ static void display_resistance(void)
     if(out_of_range_high_condition(resistance_reading, gpio_get(RANGE_PIN))) 
     {
         display_open_circuit();     
+        disable_aux_indicators();
     }
     else if(out_of_range_low_condition(resistance_reading, gpio_get(RANGE_PIN)))
     {
         display_short_circuit();
+        disable_aux_indicators();
     }
     else
     {
         display_double(scale_resistance(resistance_reading));
+        display_unit_prefix_resistance(resistance_reading);
         printf("%f\n", resistance_reading);
     }
 }
@@ -297,6 +300,7 @@ void display_reading(void)
     { 
         display_double(voltage_reading.magnitude);
         negative_sign(voltage_reading.sign);
+        disable_prefix_indicators();
     }
     else if(mode == Resistance)
     {
