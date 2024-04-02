@@ -290,7 +290,6 @@ static void display_resistance(void)
     {
         display_double(scale_resistance(resistance_reading));
         display_unit_prefix_resistance(resistance_reading);
-        printf("%f\n", resistance_reading);
     }
 }
 
@@ -304,12 +303,12 @@ void display_reading(void)
     }
     else if(mode == Resistance)
     {
-        negative_sign(0);
+        disable_negative_sign();
         display_resistance(); 
     }
     else if(mode == Capacitance && cap_measurement_recorded)
     {
-        negative_sign(0);
+        disable_negative_sign();
         cap_triggered();     
         double capacitance = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
         printf("%f\n", capacitance); 
@@ -317,6 +316,6 @@ void display_reading(void)
     }
     else
     {
-        negative_sign(0);
+        disable_negative_sign();
     }
 }

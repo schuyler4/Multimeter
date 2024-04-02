@@ -93,7 +93,7 @@ void display_double(double number)
             write_digit(digit_integer, 0);
         }
         turn_on_digit(digit);
-        sleep_ms(1);
+        sleep_ms(DIGIT_DELAY_MS);
         digit++;
     }
 }
@@ -107,6 +107,8 @@ void display_open_circuit(void)
         if(digit == FIRST_MIDDLE_DIGIT || digit == SECOND_MIDDLE_DIGIT)
         {
             write_character(OPEN_CIRCUIT[digit-FIRST_MIDDLE_DIGIT]);
+            turn_on_digit(digit);
+            sleep_ms(DIGIT_DELAY_MS);
         }
     }
 }
@@ -118,12 +120,19 @@ void display_short_circuit(void)
     for(digit = 1; digit <= DIGIT_COUNT; digit++)
     {
         write_character(DASH_CHARACTER);
+        turn_on_digit(digit);
+        sleep_ms(DIGIT_DELAY_MS);
     }
 }
 
 void negative_sign(uint8_t enabled)
 {
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, enabled);
+}
+
+void disable_negative_sign(void)
+{
+    negative_sign(0);
 }
 
 void low_ohm(uint8_t low_ohm_detected)

@@ -11,7 +11,8 @@
 #define FIRST_MIDDLE_DIGIT 2
 #define SECOND_MIDDLE_DIGIT 3
 
-#define DASH_CHARACTER 0x01
+#define DASH_CHARACTER 0x40
+#define DIGIT_DELAY_MS 1
 
 static uint8_t SEGMENT_ARRAY[] = {
     SEGMENT_A_PIN,
@@ -36,7 +37,7 @@ static uint8_t DIGITS[] = {
     0x6F
 };
 
-static uint8_t OPEN_CIRCUIT[] = {0x35, 0x0E};
+static uint8_t OPEN_CIRCUIT[] = {0x3F, 0x38};
 
 void display_double(double number);
 void display_open_circuit(void);
@@ -44,6 +45,7 @@ void display_short_circuit(void);
 void display_unit_prefix_resistance(double resistance_reading);
 
 void negative_sign(uint8_t enabled);
+void disable_negative_sign(void);
 void low_ohm(uint8_t low_ohm_detected);
 void cap_triggered(void);
 

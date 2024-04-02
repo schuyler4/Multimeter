@@ -59,33 +59,44 @@ static double parallel_resistance(double r1, double r2)
     return 1/((1/r1)+(1/r2));
 }
 
-double get_component_series_resistor(uint8_t range)
+static double get_range_resistor(uint8_t range)
 {
     if(range)
     {
-        return parallel_resistance(COMPONENT_SERIES_RESISTOR_RANGE1, DIVIDER_UPPER_RESISTOR);
+        return COMPONENT_SERIES_RESISTOR_RANGE1;
     }
-    else 
+    else
     {
-        return parallel_resistance(COMPONENT_SERIES_RESISTOR_RANGE2, DIVIDER_UPPER_RESISTOR);
+        return COMPONENT_SERIES_RESISTOR_RANGE2;
     }
 }
 
+// Figure Out The Resistance 
+// I = Vref-Vbias/(Rseries + Rrange + Rmeasure)
+// I = Vmeasure/(Rmeasure + Rseries)
+// Vmeasure/(Rmeasure + Rseries) = (Vref - Vbias)/(Rseries + Rrange + Rmeasure)
+// Python Code to Solve
+/***************************
+import sympy as sp
+from sympy.solvers import solve
+ 
+Rm, Rs, Rr, Vr, Vb, Vm = sp.symbols('Rm, Rs, Rr, Vr, Vb, Vm')
+solution = solve((Vm/(Rs + Rm)) - ((Vr - Vb)/(Rm + Rs +Rr)), Rm)  
+print(solution[0])
+****************************/
+// Solution: (-Rr*Vm - Rs*Vb - Rs*Vm + Rs*Vr)/(Vb + Vm - Vr)  
 double get_resistance(uint32_t adc_code, uint8_t range)
 {
+    double Rrange = get_range_resistor(range);
+    double Rseries = parallel_resistance(DIVIDER_UPPER_RESISTOR, RANGE_SERIES_RESISTOR);
+    printf("Rseries %f\n", Rseries);
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
-    double diff_voltage = get_adc_diff_voltage(magnitude_adc_code);
-    //printf("%f\n", diff_voltage);
-    double range_resistor_volt = COMPONENT_VOLTAGE_REFERENCE - diff_voltage - MEASUREMENT_BIAS;
-    double range_resistor = get_component_series_resistor(range);
-    double series_resistor = parallel_resistance(RANGE_SERIES_RESISTOR, DIVIDER_UPPER_RESISTOR);
-    double I = range_resistor_volt/range_resistor;
-    double Vseries_resistor = I*series_resistor + 0.01381;
-    double calculated_resistance = (diff_voltage - Vseries_resistor)/I; 
-    //printf("diff voltage %f\n", diff_voltage);
-    //printf("Vs %f\n", Vseries_resistor);
-    //printf("I %f\n", I);
-    return fabs(calculated_resistance);
+    double Vmeasure = get_adc_diff_voltage(magnitude_adc_code);
+    double Vbias = MEASUREMENT_BIAS;
+    double Vref = COMPONENT_VOLTAGE_REFERENCE;
+    double numerator = -Rrange*Vmeasure - Rseries*Vbias - Rseries*Vmeasure + Rseries*Vref;
+    double denominator = Vbias - Vmeasure - Vref;
+    return fabs(numerator/denominator);
 }
 
 double scale_resistance(double resistance_reading)
@@ -136,12 +147,14 @@ uint8_t out_of_range_high_condition(double resistance, uint8_t range)
 // -T*ln((-v2/Vs) + 1) + T*ln((-v1/Vs) + 1) = t2 - t1
 double get_capacitance(double *voltage_points, uint8_t range)
 {
+    /*
     double v0 = *(voltage_points + 0);
     double v1 = *(voltage_points + 1);
     double Rs = get_component_series_resistor(range);
     printf("%f\n", v0);
     printf("%f\n", v1);
     return (1000*SAMPLE_PERIOD)/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*Rs);
+    */
 }
 
 
