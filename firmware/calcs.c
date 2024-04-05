@@ -71,43 +71,27 @@ static double get_range_resistor(uint8_t range)
     }
 }
 
-// Figure Out The Resistance 
-// I = Vref-Vbias/(Rseries + Rrange + Rmeasure)
-// I = Vmeasure/(Rmeasure + Rseries)
-// Vmeasure/(Rmeasure + Rseries) = (Vref - Vbias)/(Rseries + Rrange + Rmeasure)
-// Python Code to Solve
-/***************************
-import sympy as sp
-from sympy.solvers import solve
- 
-Rm, Rs, Rr, Vr, Vb, Vm = sp.symbols('Rm, Rs, Rr, Vr, Vb, Vm')
-solution = solve((Vm/(Rs + Rm)) - ((Vr - Vb)/(Rm + Rs +Rr)), Rm)  
-print(solution[0])
-****************************/
-// Solution: (-Rr*Vm - Rs*Vb - Rs*Vm + Rs*Vr)/(Vb + Vm - Vr)  
 double get_resistance(uint32_t adc_code, uint8_t range)
 {
     double Rrange = get_range_resistor(range);
     double Rseries = parallel_resistance(DIVIDER_UPPER_RESISTOR, RANGE_SERIES_RESISTOR);
-    printf("Rseries %f\n", Rseries);
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
     double Vmeasure = get_adc_diff_voltage(magnitude_adc_code);
-    double Vbias = MEASUREMENT_BIAS;
-    double Vref = COMPONENT_VOLTAGE_REFERENCE;
-    double numerator = -Rrange*Vmeasure - Rseries*Vbias - Rseries*Vmeasure + Rseries*Vref;
-    double denominator = Vbias - Vmeasure - Vref;
-    return fabs(numerator/denominator);
+    double Vrange = COMPONENT_VOLTAGE_REFERENCE - Vmeasure - MEASUREMENT_BIAS;
+    double I = Vrange/get_range_resistor(range);
+    double Rtotal = Vmeasure/I;
+    return fabs(Rtotal - Rseries);
 }
 
 double scale_resistance(double resistance_reading)
 {
-    if(resistance_reading > RESISTANCE_KILO_THRESHOLD)
-    {
-        return resistance_reading/RESISTANCE_KILO_SCALE;
-    }
-    else if(resistance_reading > RESISTANCE_MEGA_THRESHOLD)
+    if(resistance_reading > RESISTANCE_MEGA_THRESHOLD)
     {
         return resistance_reading/RESISTANCE_MEGA_SCALE;
+    }
+    else if(resistance_reading > RESISTANCE_KILO_THRESHOLD)
+    {
+        return resistance_reading/RESISTANCE_KILO_SCALE;
     }
     else
     {
@@ -147,14 +131,16 @@ uint8_t out_of_range_high_condition(double resistance, uint8_t range)
 // -T*ln((-v2/Vs) + 1) + T*ln((-v1/Vs) + 1) = t2 - t1
 double get_capacitance(double *voltage_points, uint8_t range)
 {
-    /*
+    uint8_t i;
+    for(i = 0; i < CAPACITANCE_SAMPLE_COUNT; i++)
+    {
+        printf("%f\n", *(voltage_points + i));
+    }
     double v0 = *(voltage_points + 0);
-    double v1 = *(voltage_points + 1);
-    double Rs = get_component_series_resistor(range);
+    double v1 = *(voltage_points + CAPACITANCE_SAMPLE_COUNT - 1);
+    double Rseries = parallel_resistance(DIVIDER_UPPER_RESISTOR, RANGE_SERIES_RESISTOR);
+    double Rs = get_range_resistor(range) + Rseries;
     printf("%f\n", v0);
     printf("%f\n", v1);
     return (1000*SAMPLE_PERIOD)/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*Rs);
-    */
 }
-
-

@@ -20,6 +20,7 @@
 #include "MCP3561.h"
 #include "calcs.h"
 #include "display_driver.h"
+#include "adjustment.h"
 
 static double average_resistance_reading = 0;
 static double resistance_reading = 0;
@@ -104,7 +105,7 @@ void setup_IO(void)
     gpio_init(DIGIT3_PIN);
     gpio_init(DIGIT4_PIN);
 
-    gpio_init(PICO_PIN);
+    gpio_init(CAP_TRIGGER_PIN);
     gpio_init(NANO_PIN);
     gpio_init(MICRO_PIN);
     gpio_init(LOW_OHM_AND_NEGATIVE_PIN);
@@ -134,7 +135,7 @@ void setup_IO(void)
     gpio_set_dir(DIGIT3_PIN, GPIO_OUT);
     gpio_set_dir(DIGIT4_PIN, GPIO_OUT);
 
-    gpio_set_dir(PICO_PIN, GPIO_OUT);
+    gpio_set_dir(CAP_TRIGGER_PIN, GPIO_OUT);
     gpio_set_dir(NANO_PIN, GPIO_OUT);
     gpio_set_dir(MICRO_PIN, GPIO_OUT);
     gpio_set_dir(LOW_OHM_AND_NEGATIVE_PIN, GPIO_OUT);
@@ -173,7 +174,7 @@ void setup_IO(void)
     gpio_put(DIGIT3_PIN, 0);
     gpio_put(DIGIT4_PIN, 0);
     
-    gpio_put(PICO_PIN, 0);
+    gpio_put(CAP_TRIGGER_PIN, 0);
     gpio_put(NANO_PIN, 0);
     gpio_put(MICRO_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
@@ -276,19 +277,20 @@ void sample_capacitance(void)
 
 static void display_resistance(void)
 {
-    if(out_of_range_high_condition(resistance_reading, gpio_get(RANGE_PIN))) 
+    double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
+    if(out_of_range_high_condition(adjusted_resistance, gpio_get(RANGE_PIN))) 
     {
         display_open_circuit();     
         disable_aux_indicators();
     }
-    else if(out_of_range_low_condition(resistance_reading, gpio_get(RANGE_PIN)))
+    else if(out_of_range_low_condition(adjusted_resistance, gpio_get(RANGE_PIN)))
     {
         display_short_circuit();
         disable_aux_indicators();
     }
     else
     {
-        display_double(scale_resistance(resistance_reading));
+        display_double(scale_resistance(adjusted_resistance));
         display_unit_prefix_resistance(resistance_reading);
     }
 }
@@ -297,7 +299,7 @@ void display_reading(void)
 {
     if(mode == Voltage)
     { 
-        display_double(voltage_reading.magnitude);
+        display_double(voltage_adjustment(voltage_reading.magnitude));
         negative_sign(voltage_reading.sign);
         disable_prefix_indicators();
     }
@@ -309,10 +311,9 @@ void display_reading(void)
     else if(mode == Capacitance && cap_measurement_recorded)
     {
         disable_negative_sign();
-        cap_triggered();     
+        cap_trigger_indicator();     
         double capacitance = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
-        printf("%f\n", capacitance); 
-        cap_measurement_recorded = 0;
+        printf("Capacitance: %f\n", capacitance); 
     }
     else
     {

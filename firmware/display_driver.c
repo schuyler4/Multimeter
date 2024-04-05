@@ -140,16 +140,16 @@ void low_ohm(uint8_t low_ohm_detected)
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, low_ohm_detected);
 }
 
-void cap_triggered(void)
+void cap_trigger_indicator(void)
 {
-    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+    gpio_put(CAP_TRIGGER_PIN, 1);
 }
 
 void disable_aux_indicators(void)
 {
     gpio_put(MICRO_PIN, 0);
     gpio_put(NANO_PIN, 0);
-    gpio_put(PICO_PIN, 0);
+    gpio_put(CAP_TRIGGER_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
 }
 
@@ -157,20 +157,20 @@ void disable_prefix_indicators(void)
 {
     gpio_put(MICRO_PIN, 0);
     gpio_put(NANO_PIN, 0);
-    gpio_put(PICO_PIN, 0);
+    gpio_put(CAP_TRIGGER_PIN, 0);
 }
 
 void display_unit_prefix_resistance(double resistance_reading)
 {
-    if(resistance_reading > RESISTANCE_KILO_THRESHOLD)
-    {
-        gpio_put(NANO_PIN , 1); 
-        gpio_put(MICRO_PIN, 0);
-    }
-    else if(resistance_reading > RESISTANCE_MEGA_THRESHOLD)
+    if(resistance_reading > RESISTANCE_MEGA_THRESHOLD)
     {
         gpio_put(NANO_PIN, 0);
         gpio_put(MICRO_PIN, 1);
+    }
+    else if(resistance_reading > RESISTANCE_KILO_THRESHOLD)
+    {
+        gpio_put(NANO_PIN , 1); 
+        gpio_put(MICRO_PIN, 0);
     }
     else
     {

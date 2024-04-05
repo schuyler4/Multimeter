@@ -66,7 +66,7 @@
 
 #endif
 
-#define PICO_PIN 12
+#define CAP_TRIGGER_PIN 12
 #define NANO_PIN 11
 #define MICRO_PIN 10
 #define LOW_OHM_AND_NEGATIVE_PIN 9

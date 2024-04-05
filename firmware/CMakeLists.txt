@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME}
     MCP3561.c
     calcs.c
     display_driver.c
+    adjustment.c
 )
 # create map/bin/hex/uf2 files.
 pico_add_extra_outputs(${PROJECT_NAME})

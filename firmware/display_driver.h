@@ -47,7 +47,7 @@ void display_unit_prefix_resistance(double resistance_reading);
 void negative_sign(uint8_t enabled);
 void disable_negative_sign(void);
 void low_ohm(uint8_t low_ohm_detected);
-void cap_triggered(void);
+void cap_trigger_indicator(void);
 
 void disable_prefix_indicators(void);
 void disable_aux_indicators(void);
