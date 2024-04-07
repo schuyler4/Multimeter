@@ -43,6 +43,7 @@ void display_double(double number);
 void display_open_circuit(void);
 void display_short_circuit(void);
 void display_unit_prefix_resistance(double resistance_reading);
+void display_unit_prefix_capacitance(double capacitance_reading);
 
 void negative_sign(uint8_t enabled);
 void disable_negative_sign(void);

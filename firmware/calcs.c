@@ -99,28 +99,45 @@ double scale_resistance(double resistance_reading)
     }
 }
 
-uint8_t out_of_range_low_condition(double resistance, uint8_t range)
+double scale_capacitance(double capacitance_reading)
 {
-    if(range)
+    if(capacitance_reading > CAPACITANCE_MICRO_THRESHOLD)
     {
-        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE1;
-    }
+        return capacitance_reading*CAPACITANCE_MICRO_SCALE;
+    } 
     else
     {
-        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE2;
+        return capacitance_reading*CAPACITANCE_NANO_SCALE;
     }
 }
 
-uint8_t out_of_range_high_condition(double resistance, uint8_t range)
+uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range)
 {
     if(range)
     {
-        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE1;
+        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE1_RESISTANCE;
     }
     else
     {
-        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE2;
+        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE2_RESISTANCE;
     }
+}
+
+uint8_t out_of_range_high_condition_resistance(double resistance, uint8_t range)
+{
+    if(range)
+    {
+        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE1_RESISTANCE;
+    }
+    else
+    {
+        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE2_RESISTANCE;
+    }
+}
+
+uint8_t out_of_range_low_condition_capacitance(double capacitance)
+{
+    return capacitance < OUT_OF_RANGE_LOW_THRESHOLD_CAPACITANCE;
 }
 
 // v(t) = Vs*(1-e^(-t/T))
@@ -136,11 +153,11 @@ double get_capacitance(double *voltage_points, uint8_t range)
     {
         printf("%f\n", *(voltage_points + i));
     }
-    double v0 = *(voltage_points + 0);
-    double v1 = *(voltage_points + CAPACITANCE_SAMPLE_COUNT - 1);
+    double v0 = *(voltage_points + 1);
+    double v1 = *(voltage_points + 2);
     double Rseries = parallel_resistance(DIVIDER_UPPER_RESISTOR, RANGE_SERIES_RESISTOR);
     double Rs = get_range_resistor(range) + Rseries;
     printf("%f\n", v0);
     printf("%f\n", v1);
-    return (1000*SAMPLE_PERIOD)/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*Rs);
+    return SAMPLE_PERIOD/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*Rs);
 }

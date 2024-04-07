@@ -178,3 +178,17 @@ void display_unit_prefix_resistance(double resistance_reading)
         gpio_put(MICRO_PIN, 0);
     }
 }
+
+void display_unit_prefix_capacitance(double capacitance_reading)
+{
+    if(capacitance_reading > CAPACITANCE_MICRO_THRESHOLD)
+    {
+        gpio_put(MICRO_PIN, 1);
+        gpio_put(NANO_PIN, 0);
+    }
+    else
+    {
+        gpio_put(MICRO_PIN, 0);
+        gpio_put(NANO_PIN, 1);
+    }
+}

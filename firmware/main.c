@@ -36,6 +36,7 @@ static uint8_t capacitance_reading_count = 0;
 static uint8_t cap_measurement_triggered = 0;
 static volatile uint8_t cap_measurement_recorded;
 
+static Mode past_mode;
 static Mode mode;
 
 static uint32_t code;
@@ -195,6 +196,11 @@ void setup_IO(void)
         *adc_data_callback);
 }
 
+static void mode_change(void)
+{
+    disable_prefix_indicators();
+}
+
 void check_mode(void)
 {
     if(gpio_get(MODE_PIN))
@@ -211,6 +217,11 @@ void check_mode(void)
         {
             mode = Resistance;
         }
+    }
+    if(mode != past_mode)
+    {
+        mode_change();
+        past_mode = mode;
     }
 }
 
@@ -256,7 +267,8 @@ void sample_voltage(void)
 void sample_capacitance(void)
 {
     double voltage = get_capacitor_voltage(code);
-    if(voltage < CAPACITANCE_VOLTAGE_THRESHOLD)
+    if(voltage < CAPACITANCE_VOLTAGE_THRESHOLD_HIGH && voltage > 
+    CAPACITANCE_VOLTAGE_THRESHOLD_LOW) 
     {
         cap_measurement_triggered = 1;
         cap_measurement_recorded = 1;
@@ -278,12 +290,12 @@ void sample_capacitance(void)
 static void display_resistance(void)
 {
     double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
-    if(out_of_range_high_condition(adjusted_resistance, gpio_get(RANGE_PIN))) 
+    if(out_of_range_high_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN))) 
     {
         display_open_circuit();     
         disable_aux_indicators();
     }
-    else if(out_of_range_low_condition(adjusted_resistance, gpio_get(RANGE_PIN)))
+    else if(out_of_range_low_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN)))
     {
         display_short_circuit();
         disable_aux_indicators();
@@ -292,6 +304,21 @@ static void display_resistance(void)
     {
         display_double(scale_resistance(adjusted_resistance));
         display_unit_prefix_resistance(resistance_reading);
+    }
+}
+
+static void display_capacitance(void)
+{
+    cap_trigger_indicator();     
+    double capacitance_reading = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
+    if(out_of_range_low_condition_capacitance(capacitance_reading))
+    {
+        display_short_circuit();
+    }
+    else
+    {
+        display_unit_prefix_capacitance(capacitance_reading); 
+        display_double(scale_capacitance(capacitance_reading));
     }
 }
 
@@ -311,9 +338,7 @@ void display_reading(void)
     else if(mode == Capacitance && cap_measurement_recorded)
     {
         disable_negative_sign();
-        cap_trigger_indicator();     
-        double capacitance = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
-        printf("Capacitance: %f\n", capacitance); 
+        display_capacitance(); 
     }
     else
     {

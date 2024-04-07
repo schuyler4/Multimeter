@@ -40,11 +40,11 @@
 #define SIGN_MASK 0x800000
 #define BIT_MASK_24 0xFFFFFF
 
-#define OUT_OF_RANGE_LOW_THRESHOLD_RANGE1 30
-#define OUT_OF_RANGE_HIGH_THRESHOLD_RANGE1 20000
+#define OUT_OF_RANGE_LOW_THRESHOLD_RANGE1_RESISTANCE 30
+#define OUT_OF_RANGE_HIGH_THRESHOLD_RANGE1_RESISTANCE 20000
 
-#define OUT_OF_RANGE_LOW_THRESHOLD_RANGE2 5000
-#define OUT_OF_RANGE_HIGH_THRESHOLD_RANGE2 5000000
+#define OUT_OF_RANGE_LOW_THRESHOLD_RANGE2_RESISTANCE 5000
+#define OUT_OF_RANGE_HIGH_THRESHOLD_RANGE2_RESISTANCE 5000000
 
 #define CAPACITANCE_SAMPLE_COUNT 100
 #define CAP_VS 1.36
@@ -58,13 +58,23 @@
 #define RESISTANCE_KILO_THRESHOLD 9999
 #define RESISTANCE_MEGA_THRESHOLD 999999 
 
+#define CAPACITANCE_MICRO_THRESHOLD 0.0000009999
+#define CAPACITANCE_MICRO_SCALE 1000000
+#define CAPACITANCE_NANO_SCALE 1000000000
+
+#define OUT_OF_RANGE_LOW_THRESHOLD_CAPACITANCE 0.00000001
+
 double get_measurement_voltage(uint32_t adc_code);
+
 double get_capacitor_voltage(uint32_t adc_code);
 double get_capacitance(double *voltage_points, uint8_t range);
+double scale_capacitance(double capacitance_reading);
 
 double get_resistance(uint32_t adc_code, uint8_t range);
 double scale_resistance(double resistance_reading);
-uint8_t out_of_range_low_condition(double resistance, uint8_t range);
-uint8_t out_of_range_high_condition(double resistance, uint8_t range);
+uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range);
+uint8_t out_of_range_high_condition_resistance(double resistance, uint8_t range);
+
+uint8_t out_of_range_low_condition_capacitance(double capacitance);
 
 #endif
