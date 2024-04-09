@@ -65,6 +65,7 @@ int main(void)
         check_mode();
         display_reading(); 
 #endif
+        // DEBUG
     }
 
     // The program should never return.
@@ -199,6 +200,7 @@ void setup_IO(void)
 static void mode_change(void)
 {
     disable_prefix_indicators();
+    zero_segments();
 }
 
 void check_mode(void)

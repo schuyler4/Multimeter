@@ -15,7 +15,7 @@ static void turn_off_all_digits(void)
     gpio_put(DIGIT4_PIN, 0);
 }
 
-static void zero_segments(void)
+void zero_segments(void)
 {
     gpio_put(SEGMENT_DP_PIN, 0);
     uint8_t i;
@@ -76,7 +76,6 @@ void display_double(double number)
     snprintf(double_string, DIGIT_COUNT+2, "%f", number);        
     uint8_t digit = 1;
     uint8_t i;
-    printf("%s %f\n", double_string, number);
     for(i = 0; i < DIGIT_COUNT+2; i++)
     {
         if(double_string[i] == '.')

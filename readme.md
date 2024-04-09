@@ -20,12 +20,11 @@ with the switching circuit that I have fixed in the second revision.
 <h3>Specs</h3>
 <ul>
 <li>Max Measurement Voltage: 60V</li>
-<li>Max Measurement Resistance: 50kΩ</li>
 <li>
 Accuracy
 <ul>
-<li> Voltage: 1% </li> 
-<li> Resistance (100-40k): 10% </li>
+<li> Voltage: Relative Error < 0.5% </li> 
+<li> Resistance Range 1 (100-40k): 10% </li>
 <li> Capacitance: Order of Magnitude </li>
 </ul>
 </ul>
