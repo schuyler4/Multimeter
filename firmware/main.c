@@ -39,7 +39,54 @@ static volatile uint8_t cap_measurement_recorded;
 static Mode past_mode;
 static Mode mode;
 
+static uint8_t past_range;
+
 static uint32_t code;
+
+static void mode_change(void)
+{
+    disable_prefix_indicators();
+    zero_segments();
+    cap_measurement_triggered = 0;
+    cap_measurement_recorded = 0;
+    capacitance_reading_count = 0;
+}
+
+static void check_mode_change(void)
+{
+    if(gpio_get(MODE_PIN))
+    {
+        mode = Voltage;       
+    }
+    else
+    {
+        if(gpio_get(COMPONENT_MODE_PIN))
+        {
+            mode = Capacitance;
+        }
+        else
+        {
+            mode = Resistance;
+        }
+    }
+    if(mode != past_mode)
+    {
+        mode_change();
+        past_mode = mode;
+    }
+}
+
+static void check_range_change(void)
+{
+    if(gpio_get(RANGE_PIN) != past_range)
+    {
+        disable_prefix_indicators();
+        cap_measurement_triggered = 0;
+        cap_measurement_recorded = 0;  
+        capacitance_reading_count = 0;
+        past_range = gpio_get(RANGE_PIN);
+    }
+}
 
 int main(void)
 {
@@ -54,6 +101,8 @@ int main(void)
 
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
+
+    past_range = gpio_get(RANGE_PIN);
     
     while(1)
     {
@@ -62,7 +111,8 @@ int main(void)
         display_double(voltage_reading.magnitude);
         negative_sign(voltage_reading.sign);
 #else
-        check_mode();
+        check_mode_change();
+        check_range_change();
         display_reading(); 
 #endif
         // DEBUG
@@ -197,35 +247,7 @@ void setup_IO(void)
         *adc_data_callback);
 }
 
-static void mode_change(void)
-{
-    disable_prefix_indicators();
-    zero_segments();
-}
 
-void check_mode(void)
-{
-    if(gpio_get(MODE_PIN))
-    {
-        mode = Voltage;       
-    }
-    else
-    {
-        if(gpio_get(COMPONENT_MODE_PIN))
-        {
-            mode = Capacitance;
-        }
-        else
-        {
-            mode = Resistance;
-        }
-    }
-    if(mode != past_mode)
-    {
-        mode_change();
-        past_mode = mode;
-    }
-}
 
 void sample_resistance(void)
 {

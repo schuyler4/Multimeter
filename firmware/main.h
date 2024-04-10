@@ -94,8 +94,6 @@ typedef struct
 void setup_SPI(void);
 void setup_IO(void);
 
-void check_mode(void);
-
 void sample_resistance(void);
 void sample_voltage(void);
 void sample_capacitance(void);

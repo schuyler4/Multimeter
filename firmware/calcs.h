@@ -15,7 +15,7 @@
 #include "main.h"
 
 //#define SAMPLE_PERIOD 0.00177
-#define SAMPLE_PERIOD 0.01
+#define SAMPLE_PERIOD 0.00256
 
 #if REVISION == 1
 #define VOLTAGE_REFERENCE 2.316
