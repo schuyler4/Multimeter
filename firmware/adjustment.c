@@ -12,7 +12,7 @@ double resistance_adjustment(double resistance, uint8_t range)
 {
     if(range)
     {
-        return fabs(resistance + RESISTANCE_RANGE1_OFFSET);
+        return fabs(resistance*RESISTANCE_RANGE1_MULTIPLIER + RESISTANCE_RANGE1_OFFSET);
     }
     else
     {
