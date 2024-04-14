@@ -1,30 +1,39 @@
 <h2>Multimeter</h2>
 <p>
-This is my attempt at making a multimeter. It differs from standard multimeters in several
+This is my homebrew multimeter. It differs from standard multimeters in several
 respects. 
 </p>
 <ol>
-<li>Only the most used modes are actually included: VDC, Ohms, (Capacitance)</li>
+<li>Only the most used modes are actually included: VDC, Ohms, Capacitance</li>
 <li>Powered by a USB cable, no changing batteries.</li> 
 <li>Generally a different user interface because of 1 and 2.</li>
 </ol>
 <p align="center">
-<img src=./pictures/rev1_picture.JPG width=400></img>
+<img src=./pictures/rev2_PCB.JPG width=250></img>
 </p>
-<h3>Status</h3>
+<h3>Calibration</h3>
 <p>
-Currently I am getting somewhat accurate readings of voltage and resistance. 
-I have repurposed the first revision into just a voltmeter. There are problems
-with the switching circuit that I have fixed in the second revision. 
+Calibration is relative to my Fluke 101 Multimeter. I know that there
+is probably for some technical problems with this, as the Fluke 101 does
+not have more digits than this meter, nor is it substantially more
+ accurate, at least in
+voltage mode. However, I don't have a really nice bench top meter, so it 
+will have to do. 
 </p>
 <h3>Specs</h3>
 <ul>
-<li>Max Measurement Voltage: 60V</li>
-<li>
-Accuracy
+<li>Range</li>
 <ul>
-<li> Voltage: Relative Error < 0.5% </li> 
-<li> Resistance Range 1 (100-40k): 10% </li>
-<li> Capacitance: Order of Magnitude </li>
+<li>Voltage: +/-60V</li>
+<li>Resistance Range 1: 30Ω - 1.2kΩ</li>
+<li>Resistance Range 2: 1.2kΩ - 500kΩ</li>
+<li>Capacitance: 50nF - 47uF </li>
+</ul>
+<li>
+Relative Accuracy
+<ul>
+<li> Voltage: 0.3% </li> 
+<li> Resistance: 10% </li>
+<li> Capacitance: 5% </li>
 </ul>
 </ul>

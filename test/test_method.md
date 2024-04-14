@@ -20,5 +20,5 @@ modes are listed below</p>
 <ul>
 <li> Voltage: Adjustable Power Supply (-60V to 60V, 5V Steps + 1V and -1V)</li>
 <li> Resistance Range 1: (30Ω, 100Ω, 1kΩ, 10kΩ, 22k, 100k, 330k) </li>
-<li> Capacitor: (0.01uF, 0.1uF, 1uF, 10uF, 47uF) </li> 
+<li> Capacitor: (0.05uF, 0.1uF, 1uF, 10uF, 47uF) </li> 
 </ul>
