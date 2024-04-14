@@ -14,7 +14,7 @@ respects.
 <h3>Calibration</h3>
 <p>
 Calibration is relative to my Fluke 101 Multimeter. I know that there
-is probably for some technical problems with this, as the Fluke 101 does
+is probably some technical problems with this, as the Fluke 101 does
 not have more digits than this meter, nor is it substantially more
  accurate, at least in
 voltage mode. However, I don't have a really nice bench top meter, so it 
