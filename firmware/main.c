@@ -81,6 +81,7 @@ static void check_range_change(void)
     if(gpio_get(RANGE_PIN) != past_range)
     {
         disable_prefix_indicators();
+        zero_segments();
         cap_measurement_triggered = 0;
         cap_measurement_recorded = 0;  
         capacitance_reading_count = 0;
