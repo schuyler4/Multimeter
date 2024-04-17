@@ -7,7 +7,7 @@
 	(title_block
 		(title "Multimeter Display")
 		(date "2024-03-03")
-		(rev "1")
+		(rev "2")
 	)
 	(lib_symbols
 		(symbol "Device:LED"

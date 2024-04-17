@@ -12,7 +12,7 @@
 
 #include "calcs.h"
 
-#define REVISION 2
+#define REVISION 1
 
 #define CS_PIN 5
 #define SCK_PIN 2
@@ -38,9 +38,6 @@
 #define SEGMENT_G_PIN 15
 #define SEGMENT_DP_PIN 18
 
-#define VOLTAGE_POSITIVE_CALIBRATION_OFFSET 0.00
-#define VOLTAGE_NEGATIVE_CALIBRATION_OFFSET 0.00
-
 #else
 
 #define DIGIT1_PIN 13
@@ -49,6 +46,7 @@
 #define DIGIT4_PIN 16
 
 #define SEGMENT_A_PIN 28 
+
 #define SEGMENT_B_PIN 27
 #define SEGMENT_C_PIN 26
 #define SEGMENT_D_PIN 22

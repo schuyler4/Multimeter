@@ -54,6 +54,7 @@ static void mode_change(void)
 
 static void check_mode_change(void)
 {
+#if REVISION == 2
     if(gpio_get(MODE_PIN))
     {
         mode = Voltage;       
@@ -74,10 +75,12 @@ static void check_mode_change(void)
         mode_change();
         past_mode = mode;
     }
+#endif
 }
 
 static void check_range_change(void)
 {
+#if REVISION == 2
     if(gpio_get(RANGE_PIN) != past_range)
     {
         disable_prefix_indicators();
@@ -87,6 +90,7 @@ static void check_range_change(void)
         capacitance_reading_count = 0;
         past_range = gpio_get(RANGE_PIN);
     }
+#endif
 }
 
 int main(void)
@@ -103,7 +107,9 @@ int main(void)
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
 
+#if REVISION == 2
     past_range = gpio_get(RANGE_PIN);
+#endif
     
     while(1)
     {
@@ -252,6 +258,7 @@ void setup_IO(void)
 
 void sample_resistance(void)
 {
+#if REVISION == 2
     average_resistance_reading += get_resistance(code, gpio_get(RANGE_PIN)); 
     resistance_reading_count++; 
     if(resistance_reading_count == AVERAGE_READING_COUNT)
@@ -260,6 +267,7 @@ void sample_resistance(void)
         resistance_reading_count = 0;    
         average_resistance_reading = 0;
     }
+#endif
 }
 
 void sample_voltage(void)
@@ -270,20 +278,8 @@ void sample_voltage(void)
     {
         voltage_reading.magnitude = average_voltage_reading;
         voltage_reading.magnitude /= AVERAGE_READING_COUNT;
-        voltage_reading.sign = voltage_reading.magnitude < 0.0; 
-        // The floating point display will not work correctly if 
-        // the sign bit is not removed 
-        voltage_reading.magnitude = fabs(voltage_reading.magnitude);
-        
-        if(voltage_reading.sign)
-        {
-            voltage_reading.magnitude += VOLTAGE_NEGATIVE_CALIBRATION_OFFSET; 
-        }
-        else
-        {
-            voltage_reading.magnitude += VOLTAGE_POSITIVE_CALIBRATION_OFFSET; 
-        }
-
+        voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
+        voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
         voltage_reading_count = 0;
         average_voltage_reading = 0;
     }
@@ -314,6 +310,7 @@ void sample_capacitance(void)
 
 static void display_resistance(void)
 {
+#if REVISION == 2
     double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
     if(out_of_range_high_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN))) 
     {
@@ -330,10 +327,12 @@ static void display_resistance(void)
         display_double(scale_resistance(adjusted_resistance));
         display_unit_prefix_resistance(resistance_reading);
     }
+#endif
 }
 
 static void display_capacitance(void)
 {
+#if REVISION == 2
     cap_trigger_indicator();     
     double capacitance_reading = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
     if(out_of_range_low_condition_capacitance(capacitance_reading))
@@ -345,13 +344,14 @@ static void display_capacitance(void)
         display_unit_prefix_capacitance(capacitance_reading); 
         display_double(scale_capacitance(capacitance_reading));
     }
+#endif
 }
 
 void display_reading(void)
 {
     if(mode == Voltage)
     { 
-        display_double(voltage_adjustment(voltage_reading.magnitude));
+        display_double(voltage_reading.magnitude);
         negative_sign(voltage_reading.sign);
         disable_prefix_indicators();
     }

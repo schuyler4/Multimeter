@@ -73,6 +73,7 @@ static double get_range_resistor(uint8_t range)
 
 double get_resistance(uint32_t adc_code, uint8_t range)
 {
+#if REVISION == 2
     double Rrange = get_range_resistor(range);
     double Rseries = parallel_resistance(DIVIDER_UPPER_RESISTOR, RANGE_SERIES_RESISTOR);
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
@@ -81,6 +82,7 @@ double get_resistance(uint32_t adc_code, uint8_t range)
     double I = Vrange/get_range_resistor(range);
     double Rtotal = Vmeasure/I;
     return fabs(Rtotal - Rseries);
+#endif
 }
 
 double scale_resistance(double resistance_reading)
@@ -148,6 +150,7 @@ uint8_t out_of_range_low_condition_capacitance(double capacitance)
 // -T*ln((-v2/Vs) + 1) + T*ln((-v1/Vs) + 1) = t2 - t1
 double get_capacitance(double *voltage_points, uint8_t range)
 {
+#if REVISION == 2
     uint8_t i;
     for(i = 0; i < CAPACITANCE_SAMPLE_COUNT; i++)
     {
@@ -160,4 +163,5 @@ double get_capacitance(double *voltage_points, uint8_t range)
     printf("%f\n", v0);
     printf("%f\n", v1);
     return SAMPLE_PERIOD/((log((-v1/CAP_VS)+1) - log((-v0/CAP_VS)+1))*-1*Rs);
+#endif
 }
