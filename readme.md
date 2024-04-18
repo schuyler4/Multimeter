@@ -9,7 +9,7 @@ respects.
 <li>Generally a different user interface because of 1 and 2.</li>
 </ol>
 <p align="center">
-<img src=./pictures/rev2_PCB.JPG width=250></img>
+<img src=./pictures/rev2_picture.JPG width=400></img>
 </p>
 <h3>Calibration</h3>
 <p>
@@ -22,6 +22,7 @@ will have to do.
 </p>
 <h3>Specs</h3>
 <ul>
+<li>Input Resistance: 521kΩ </li>
 <li>Range</li>
 <ul>
 <li>Voltage: +/-60V</li>
