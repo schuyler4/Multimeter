@@ -16,7 +16,7 @@ respects.
 Calibration is relative to my Fluke 101 Multimeter. I know that there
 is probably some technical problems with this, as the Fluke 101 does
 not have more digits than this meter, nor is it substantially more
- accurate, at least in
+ accurate in
 voltage mode. However, I don't have a really nice bench top meter, so it 
 will have to do. 
 </p>
@@ -33,7 +33,7 @@ will have to do.
 <li>
 Relative Accuracy
 <ul>
-<li> Voltage: 0.3% </li> 
+<li> Voltage: 0.5% </li> 
 <li> Resistance: 10% </li>
 <li> Capacitance: 5% </li>
 </ul>
