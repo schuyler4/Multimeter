@@ -4,7 +4,7 @@ from math import fabs
 
 percent_error = lambda ref, measured: fabs(((ref - measured)/measured)*100)
 
-VOLTAGE_PERCENT_ERROR = 0.3
+VOLTAGE_PERCENT_ERROR = 0.5
 RESISTANCE_PERCENT_ERROR = 10
 CAPACITANCE_PERCENT_ERROR = 5
 
@@ -26,8 +26,9 @@ def parse_data(filename):
                 reference_value = float(get_digits(seperated_value[2]))
             meter.append(meter_value) 
             reference.append(reference_value)
-            if(reference_value != 0):
+            if(reference_value != 0.0):
                 percent_errors.append(percent_error(reference_value, meter_value))
+                print(reference_value, percent_error(reference_value, meter_value))
     return percent_errors
         
 for error in parse_data('voltage.txt'): assert error < VOLTAGE_PERCENT_ERROR

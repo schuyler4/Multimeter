@@ -24,7 +24,7 @@ pico_enable_stdio_uart(${PROJECT_NAME} 0)
 target_link_libraries(${PROJECT_NAME} pico_stdlib)
 target_link_libraries(${PROJECT_NAME} hardware_spi)
 
-option(REV1 "Compile for revision 1 hardware" OFF)
+option(REV1 "Compile for revision 1 hardware" ON)
 if(REV1)
     message("revision 1")
     add_compile_definitions(VOLTAGE_POSITIVE_CALIBRATION_OFFSET=true)
