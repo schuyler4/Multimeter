@@ -3980,7 +3980,7 @@
 		)
 		(uuid "74041e5d-4121-468d-9107-295bbe192af7")
 	)
-	(text "low Ω/Negative"
+	(text "Negative"
 		(exclude_from_sim no)
 		(at 50.292 144.272 0)
 		(effects
