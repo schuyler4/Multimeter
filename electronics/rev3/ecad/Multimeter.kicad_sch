@@ -2775,6 +2775,12 @@
 		(uuid "68b7f3a3-2866-410f-bdbe-b0cc2c7e4be0")
 	)
 	(junction
+		(at 148.59 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "75c5e380-eb0b-4abf-a20a-ffb7012ab4c3")
+	)
+	(junction
 		(at 146.05 143.51)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3066,7 +3072,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 27.94) (xy 177.8 27.94)
+			(xy 132.08 27.94) (xy 148.59 27.94)
 		)
 		(stroke
 			(width 0)
@@ -3696,6 +3702,16 @@
 	)
 	(wire
 		(pts
+			(xy 148.59 27.94) (xy 177.8 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbddfc4f-24ef-4f51-abac-70a5c3a7a208")
+	)
+	(wire
+		(pts
 			(xy 77.47 97.79) (xy 95.25 97.79)
 		)
 		(stroke
@@ -3713,6 +3729,16 @@
 			(type default)
 		)
 		(uuid "cdb3be62-151d-4122-8b93-b9063d1c23d1")
+	)
+	(wire
+		(pts
+			(xy 148.59 25.4) (xy 148.59 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d034957f-4c2a-4caf-b147-5b43ec0b6ea5")
 	)
 	(wire
 		(pts
@@ -4067,7 +4093,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 36.83 170.18 0)
 			(effects
 				(font
@@ -4422,7 +4448,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMB"
 			(at 114.3 27.94 0)
 			(effects
 				(font
@@ -4624,7 +4650,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 36.83 185.42 0)
 			(effects
 				(font
@@ -4718,7 +4744,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 132.08 33.02 0)
 			(effects
 				(font
@@ -4852,7 +4878,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SC0915:MODULE_SC0915"
+		(property "Footprint" "Multimeter:MODULE_SC0915"
 			(at 139.7 93.98 0)
 			(effects
 				(font
@@ -5329,7 +5355,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 25.4 170.18 0)
 			(effects
 				(font
@@ -5555,7 +5581,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 91.44 172.72 0)
 			(effects
 				(font
@@ -5625,7 +5651,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 25.4 185.42 0)
 			(effects
 				(font
@@ -5758,6 +5784,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 148.59 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ebd92d84-0aa1-49bc-87d9-89610cd97a4f")
+		(property "Reference" "#FLG3"
+			(at 148.59 23.495 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 148.59 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 148.59 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 148.59 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 148.59 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "90b026f8-4b4d-4e71-923b-83ed1e09930e")
+		)
+		(instances
+			(project ""
+				(path "/cb819000-1954-426e-958e-510a70bc03c7"
+					(reference "#FLG3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:USB_B")
 		(at 96.52 33.02 0)
 		(unit 1)
@@ -5783,7 +5875,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_USB:USB_B_OST_USB-B1HSxx_Horizontal"
 			(at 100.33 34.29 0)
 			(effects
 				(font
@@ -5859,7 +5951,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 81.534 165.354 90)
 			(effects
 				(font

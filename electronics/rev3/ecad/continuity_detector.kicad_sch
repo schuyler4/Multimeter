@@ -2828,7 +2828,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 95.504 94.234 90)
 			(effects
 				(font
@@ -2965,7 +2965,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LMV761MF:SOT95P284X120-6N"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 177.8 85.09 0)
 			(effects
 				(font
@@ -3177,7 +3177,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 129.286 117.094 90)
 			(effects
 				(font
