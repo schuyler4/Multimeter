@@ -1592,6 +1592,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e80c2e87-3958-4f35-b6b6-3ee957564361")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c5cd2ebc-fbae-4301-818c-ad2882b262f7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.13"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ded0033d-c728-40d0-b20a-0fa283b462cf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/146c7471-17f0-464f-af84-0aa50d0d0f57/535eb1ca-08c3-452d-a398-cd779638d435")
 		(sheetname "Current Source")
@@ -2050,6 +2089,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "BSS84CT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8d4699ed-36d0-41ff-b8d3-29861cf47c69")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "BSS84"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1e67f5dc-7136-4727-af82-57298c54b636")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.48"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7852142a-da40-4468-8534-8fa530de6313")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5072,6 +5150,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "2N7002NCT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7c03f98-7290-4e12-97d8-9ae6c44d7f25")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "2N7002"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32093087-ab24-45dd-abe5-e36440ccd847")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.45"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e1057e9d-b065-43cd-a874-dfa3d96cc743")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/2f65b3a0-78c4-4397-bcc3-bbef1262df72")
 		(sheetname "Analog Front End")
@@ -7242,6 +7359,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "RMCF0805FT1K00CT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cde2353c-df27-426c-a736-7f0dc593c18b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT1K00"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9db724f9-1424-494b-b092-1c2e14818f6c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb91c445-cadd-44ba-be66-75bbd7acc764")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -15038,6 +15194,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "RMCF0805FT1K00CT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f47230ec-19a7-44d7-8602-50bce619c7e7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT1K00"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "47c62d69-5b72-45f9-9488-f5f7ee090dce")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "da63164b-746a-4ae4-ab5a-ef5bc85000ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/7d9415fa-0a71-4581-adbf-957db3e5221f/8c0b423e-9825-41ef-a65e-97232392e6ed")
 		(sheetname "Continuity Detector")
@@ -15553,6 +15748,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "1276-1003-1-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "79ef4010-2eab-4786-b82d-7e91b349a704")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "CL21B104KBCNNNC"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f538aa00-cbc2-4caa-bf83-6bdc19b98648")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "339c8862-efe7-4485-8e5a-1f4438764abd")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -16774,6 +17008,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "1276-1003-1-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b1317692-d4d6-4661-a6c4-4a7afa204225")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "CL21B104KBCNNNC"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "30150729-f06e-4684-b14f-1d5a58d74fcd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ff3d7598-ed34-4bc9-8175-46f1a557edf9")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -18616,6 +18889,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c1a23d39-8194-47ba-9a69-c75baa66b805")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT10K0"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4dd1adba-c618-414f-9d68-3b094d51356f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4cab6e0f-536e-4a61-a287-a0d9e647bc51")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -21563,6 +21875,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "159ae73c-f31c-4a13-a5a7-ef4a57a3c687")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5fa19996-bf1f-4ffd-a986-514fb10c6956")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.13"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "62e6707a-8384-4df9-b31d-19e5cd0e3ad3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/146c7471-17f0-464f-af84-0aa50d0d0f57/c1c71b72-11e0-4811-8ae3-22c403915305")
 		(sheetname "Current Source")
@@ -22847,6 +23198,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "1276-1003-1-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32b60925-fbd2-4703-8f37-39fa26a5eec9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "CL21B104KBCNNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5f887c01-2e40-4d9c-bf51-c8748cf90cf3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3da45c44-7dab-4055-b57e-46f969adf9fc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/7d9415fa-0a71-4581-adbf-957db3e5221f/b9ac50ed-6f73-4009-9fc1-661c9682d36e")
 		(sheetname "Continuity Detector")
@@ -24040,6 +24430,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5ea23de4-f7ad-4a2b-b67f-a5d9f9c2761b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5594e491-f7a2-4993-b8e9-b1be7e8618f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.13"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4930df55-4551-44eb-b704-364d34db8acc")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -26163,6 +26592,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "RMCF0805FT1K00CT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cd3b060b-9471-436d-a7c4-802eb346606b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT1K00"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2c336687-ffa7-4e47-a3d8-9b8a3484aa79")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "16543cf6-1958-4e5a-9f94-564eed69550f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/7d9415fa-0a71-4581-adbf-957db3e5221f/af8bdad4-2230-4c24-8dfd-80e9c6e1d489")
 		(sheetname "Continuity Detector")
@@ -27122,6 +27590,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "542d33ec-09af-42ba-abda-e447205b389f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT10K0"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "454f1321-b97b-4426-aac7-975190b02847")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3992dc70-4a74-4e20-82be-cf2975b741ae")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -28366,6 +28873,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d5c17688-4c28-4bc3-854c-5925b849b5b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1b34b885-8049-48ad-8147-8c5fc1c9d4f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.13"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ccf5b4bb-c788-4e26-bf45-58c723cd0cb1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/146c7471-17f0-464f-af84-0aa50d0d0f57/ad2d2949-5f7d-47a5-ab29-9a51bfc76aa0")
 		(sheetname "Current Source")
@@ -29384,7 +29930,7 @@
 				)
 			)
 		)
-		(property "Value" "MMSZ5222BT1G"
+		(property "Value" "DDZ9684-7"
 			(at 0 2.1 90)
 			(layer "F.Fab")
 			(uuid "6f9984ea-5b09-4a12-8091-34b7865650d4")
@@ -34066,6 +34612,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8ead3c38-dd77-437b-83b6-04fa6de6fc99")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT10K0"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5a4ba306-2698-4190-9b9c-e9de71af127d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aa33f1b8-bf03-4e99-984e-fc3110c4370d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/146c7471-17f0-464f-af84-0aa50d0d0f57/660e80aa-6543-4a3f-a137-b49fb140e581")
 		(sheetname "Current Source")
@@ -34494,6 +35079,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "488143c2-005f-46a9-9516-be02a13768a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2ae3e03f-fc19-46eb-9762-275f9a33ea7e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.13"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cff37540-1920-475b-9c2f-2a9281b68391")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -35323,6 +35947,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "1276-1003-1-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7c8ac5b2-ae0e-4354-b39c-0b4a6a45e1a5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "CL21B104KBCNNNC"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d00257f6-7b02-489d-9287-808fe24993b7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "23ec85a3-7496-41a1-981a-9fda03d79b80")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/146c7471-17f0-464f-af84-0aa50d0d0f57/173b24e1-8d3c-44d9-a74f-f0963165d01c")
 		(sheetname "Current Source")
@@ -35532,6 +36195,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "RMCF0805FT1K00CT-ND"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ab831b76-f1a6-43d9-98a1-ab5861c54c40")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT1K00"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "47ffd55d-0697-4188-baba-92ae7b8b8f70")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "099d10ed-b973-4da1-8460-712fb86d882c")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -36559,6 +37261,45 @@
 				)
 			)
 		)
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e6b45849-ae03-4556-9e0c-15d7bb11b882")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT10K0"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "284906e1-1661-4959-b7f2-f3914b20cc65")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4dcde4a5-b287-415c-b78e-3c4470ca4314")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/055527a3-d8c6-47d9-8315-81e666beed9f/146c7471-17f0-464f-af84-0aa50d0d0f57/2a80be23-e2b5-4f39-9982-99cc3ae2ab7a")
 		(sheetname "Current Source")
@@ -37020,6 +37761,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Part #" "RMCF0805FT10K0CT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0bc3e876-9419-411d-9d5d-c16936d3d77b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part #" "RMCF0805FT10K0"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c3c8594b-dccd-40f3-a812-4095c40a7469")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b2e11d2-e7f6-4d13-aee1-c3798e974807")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)

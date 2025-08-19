@@ -2441,6 +2441,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "RMCF0805FT1K00CT-ND"
+			(at 55.88 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RMCF0805FT1K00"
+			(at 55.88 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 55.88 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ad40523c-6d52-4174-bfd1-5b1b97569ce0")
 		)
@@ -2632,6 +2659,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 55.88 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "RMCF0805FT1K00CT-ND"
+			(at 55.88 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RMCF0805FT1K00"
+			(at 55.88 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 55.88 97.79 0)
 			(effects
 				(font
