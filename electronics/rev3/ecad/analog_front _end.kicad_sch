@@ -4745,7 +4745,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "0.1uF"
 			(at 134.62 104.1399 0)
 			(effects
 				(font
@@ -4773,6 +4773,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 130.81 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "1276-1003-1-ND"
+			(at 130.81 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "CL21B104KBCNNNC"
+			(at 130.81 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 130.81 102.87 0)
 			(effects
 				(font
@@ -5005,6 +5032,33 @@
 			)
 		)
 		(property "Description" "Zener diode"
+			(at 133.35 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "DDZ9684-7DICT-ND"
+			(at 133.35 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "DDZ9684-7"
+			(at 133.35 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 133.35 35.56 0)
 			(effects
 				(font
@@ -5400,7 +5454,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k+/-0.1%"
+		(property "Value" "100k+/-0.1%"
 			(at 113.03 101.6 0)
 			(effects
 				(font
@@ -5790,8 +5844,8 @@
 				)
 			)
 		)
-		(property "Value" "100k"
-			(at 194.31 98.298 0)
+		(property "Value" "100k+/-0.1%"
+			(at 198.882 98.552 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5817,6 +5871,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 190.5 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 190.5 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 190.5 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.13"
 			(at 190.5 97.79 0)
 			(effects
 				(font
@@ -5857,7 +5938,7 @@
 				)
 			)
 		)
-		(property "Value" "511k+/-0.1%"
+		(property "Value" "5.11M+/-1%"
 			(at 83.82 27.94 90)
 			(effects
 				(font
@@ -5892,7 +5973,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey Part #" "P511KDACT-ND"
+		(property "Digikey Part #" "541-5.11MCCT-ND"
 			(at 83.82 30.48 0)
 			(effects
 				(font
@@ -5901,7 +5982,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part #" "ERA-6AEB5113V"
+		(property "Part #" "CRCW08055M11FKEA"
 			(at 83.82 30.48 0)
 			(effects
 				(font
@@ -5910,7 +5991,7 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" "0.13"
+		(property "Unit Price" "0.1"
 			(at 83.82 30.48 0)
 			(effects
 				(font
@@ -6015,6 +6096,33 @@
 			)
 		)
 		(property "Sim.Pins" "1=out1 2=in1- 3=in1+ 4=vcc 5=in2+ 6=in2- 7=out2 8=out3 9=in3- 10=in3+ 11=vee 12=in4+ 13=in4- 14=out4"
+			(at 161.29 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "296-53511-1-ND"
+			(at 161.29 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "OPA4388IDR"
+			(at 161.29 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "4.92"
 			(at 161.29 33.02 0)
 			(effects
 				(font
@@ -6763,6 +6871,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "296-53511-1-ND"
+			(at 109.22 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "OPA4388IDR"
+			(at 109.22 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "4.92"
+			(at 109.22 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a77a2ceb-6f01-447e-82ce-3836a06b1483")
 		)
@@ -6962,6 +7097,33 @@
 			)
 		)
 		(property "Sim.Pins" "1=out1 2=in1- 3=in1+ 4=vcc 5=in2+ 6=in2- 7=out2 8=out3 9=in3- 10=in3+ 11=vee 12=in4+ 13=in4- 14=out4"
+			(at 109.22 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "296-53511-1-ND"
+			(at 109.22 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "OPA4388IDR"
+			(at 109.22 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "4.92"
 			(at 109.22 168.91 0)
 			(effects
 				(font
@@ -7573,6 +7735,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 139.7 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "541-0.0ACT-ND"
+			(at 139.7 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "CRCW08050000Z0EA"
+			(at 139.7 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 139.7 72.39 0)
 			(effects
 				(font

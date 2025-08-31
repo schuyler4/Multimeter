@@ -4167,8 +4167,8 @@
 				)
 			)
 		)
-		(property "Value" "500"
-			(at 89.916 122.174 90)
+		(property "Value" "499+/-0.1%"
+			(at 85.598 121.92 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4194,6 +4194,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 93.98 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "RG20P499KBCT-ND"
+			(at 93.98 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RG2012P-4993-B-T5"
+			(at 93.98 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 93.98 123.19 0)
 			(effects
 				(font
@@ -4396,6 +4423,33 @@
 			)
 		)
 		(property "Sim.Pins" "1=out1 2=in1- 3=in1+ 4=vcc 5=in2+ 6=in2- 7=out2 8=out3 9=in3- 10=in3+ 11=vee 12=in4+ 13=in4- 14=out4"
+			(at 78.74 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "296-53511-1-ND"
+			(at 78.74 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "OPA4388IDR"
+			(at 78.74 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "4.92"
 			(at 78.74 66.04 0)
 			(effects
 				(font
@@ -4628,6 +4682,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "296-20700-1-ND"
+			(at 120.65 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "TS3A4751PWR"
+			(at 120.65 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "1.62"
+			(at 120.65 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -4886,8 +4967,8 @@
 				)
 			)
 		)
-		(property "Value" "500k"
-			(at 89.408 114.554 90)
+		(property "Value" "500k+/-0.1%"
+			(at 86.106 114.554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4913,6 +4994,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 93.98 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "738-RNCF0805BTE500KCT-ND"
+			(at 93.98 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "RNCF0805BTE500K"
+			(at 93.98 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.12"
 			(at 93.98 115.57 0)
 			(effects
 				(font
@@ -5415,8 +5523,8 @@
 				)
 			)
 		)
-		(property "Value" "50k"
-			(at 89.916 117.094 90)
+		(property "Value" "50k+/-0.1%"
+			(at 85.598 117.094 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5442,6 +5550,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 93.98 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "749-MCU08050D5002BP100CT-ND"
+			(at 93.98 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "MCU08050D5002BP100"
+			(at 93.98 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.57"
 			(at 93.98 118.11 0)
 			(effects
 				(font
@@ -5776,6 +5911,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "399-C0805C103K5RACTUCT-ND"
+			(at 184.15 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "C0805C103K5RACTU"
+			(at 184.15 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.08"
+			(at 184.15 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c8308b4f-24fe-4d3a-bdcf-7657dbec3c60")
 		)
@@ -5836,6 +5998,33 @@
 			)
 		)
 		(property "Description" "Schottky diode"
+			(at 217.17 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "BAT46W-7FDICT-ND"
+			(at 217.17 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "BAT46W-7-F"
+			(at 217.17 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.2"
 			(at 217.17 60.96 0)
 			(effects
 				(font
@@ -5970,8 +6159,8 @@
 				)
 			)
 		)
-		(property "Value" "5k"
-			(at 90.17 119.634 90)
+		(property "Value" "5k+/-0.1%"
+			(at 86.106 119.634 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5997,6 +6186,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 93.98 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "PNM0805-5.0KBCT-ND"
+			(at 93.98 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "PNM0805E5001BST5"
+			(at 93.98 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.8"
 			(at 93.98 120.65 0)
 			(effects
 				(font
@@ -6196,6 +6412,33 @@
 			)
 		)
 		(property "Sim.Pins" "1=out1 2=in1- 3=in1+ 4=vcc 5=in2+ 6=in2- 7=out2 8=out3 9=in3- 10=in3+ 11=vee 12=in4+ 13=in4- 14=out4"
+			(at 175.26 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "296-53511-1-ND"
+			(at 175.26 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "OPA4388IDR"
+			(at 175.26 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "4.92"
 			(at 175.26 35.56 0)
 			(effects
 				(font

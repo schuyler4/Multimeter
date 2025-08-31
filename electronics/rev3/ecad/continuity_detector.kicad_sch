@@ -1731,7 +1731,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "49k+/-0.1%"
+		(property "Value" "50k+/-0.1%"
 			(at 131.064 58.166 0)
 			(effects
 				(font
@@ -1759,6 +1759,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 146.05 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "749-MCU08050D5002BP100CT-ND"
+			(at 146.05 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "MCU08050D5002BP100"
+			(at 146.05 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.57"
 			(at 146.05 57.15 0)
 			(effects
 				(font
@@ -1966,6 +1993,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "541-1.00KCCT-ND"
+			(at 76.2 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "CRCW08051K00FKEA"
+			(at 76.2 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
+			(at 76.2 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dbcaa956-6be1-46bb-8230-27173f183fe7")
 		)
@@ -2026,6 +2080,33 @@
 			)
 		)
 		(property "Description" "Precision, Rail-to-Rail I/O Instrumentation Amplifier, MSOP-8 package"
+			(at 121.92 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "INA326EA/2K5CT-ND"
+			(at 121.92 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "INA326EA/2K5"
+			(at 121.92 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "5.05"
 			(at 121.92 92.71 0)
 			(effects
 				(font
@@ -2113,6 +2194,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 120.65 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "399-C0805C102J5GACTUCT-ND"
+			(at 120.65 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "C0805C102J5GACTU"
+			(at 120.65 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.09"
 			(at 120.65 116.84 0)
 			(effects
 				(font
@@ -2923,6 +3031,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 175.26 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 175.26 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.13"
+			(at 175.26 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e9d73c76-5ac9-4f5a-84ef-62421ce4f7a6")
 		)
@@ -2982,6 +3117,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 95.25 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "541-1.00KCCT-ND"
+			(at 95.25 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "CRCW08051K00FKEA"
+			(at 95.25 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 95.25 95.25 0)
 			(effects
 				(font
@@ -3051,6 +3213,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 146.05 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "541-1.00KCCT-ND"
+			(at 146.05 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "CRCW08051K00FKEA"
+			(at 146.05 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.1"
 			(at 146.05 67.31 0)
 			(effects
 				(font
@@ -3258,6 +3447,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey Part #" "LMV761MFCT-ND"
+			(at 177.8 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "LMV761MF"
+			(at 177.8 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "3.02"
+			(at 177.8 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "48e30bd2-aad8-4b30-b53d-7d73be9c22fe")
 		)
@@ -3331,6 +3547,33 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 128.27 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part #" "P10KDACT-ND"
+			(at 128.27 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "ERA-6AEB103V"
+			(at 128.27 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unit Price" "0.13"
 			(at 128.27 116.84 0)
 			(effects
 				(font
