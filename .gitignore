@@ -35,4 +35,7 @@ __pycache__/
 firmware/build
 firmware/bin
 
+firmware2/build
+firmware2/bin
+
 */-lm
