@@ -32,9 +32,6 @@ static void mode_change(void)
 {
     disable_prefix_indicators();
     zero_segments();
-    cap_measurement_triggered = 0;
-    cap_measurement_recorded = 0;
-    capacitance_reading_count = 0;
 }
 
 static void check_mode_change(void)
@@ -44,17 +41,12 @@ static void check_mode_change(void)
 
 static void check_range_change(void)
 {
-#if REVISION == 2
     if(gpio_get(RANGE_PIN) != past_range)
     {
         disable_prefix_indicators();
         zero_segments();
-        cap_measurement_triggered = 0;
-        cap_measurement_recorded = 0;  
-        capacitance_reading_count = 0;
         past_range = gpio_get(RANGE_PIN);
     }
-#endif
 }
 
 int main(void)
@@ -74,6 +66,7 @@ int main(void)
 
     while(1)
     {
+        display_double(1.001);
         printf("%f\n", resistance_reading);
     }
 
@@ -234,29 +227,6 @@ void sample_voltage(void)
     }
 }
 
-void sample_capacitance(void)
-{
-    double voltage = get_capacitor_voltage(code);
-    if(voltage < CAPACITANCE_VOLTAGE_THRESHOLD_HIGH && voltage > 
-    CAPACITANCE_VOLTAGE_THRESHOLD_LOW) 
-    {
-        cap_measurement_triggered = 1;
-        cap_measurement_recorded = 1;
-        printf("Sampled Capacitance %f\n", voltage);
-        printf("%d\n", cap_measurement_recorded);
-    } 
-    if(cap_measurement_triggered)
-    {
-        capacitance_samples[capacitance_reading_count] = voltage;                
-        capacitance_reading_count++;  
-        if(capacitance_reading_count >= CAPACITANCE_SAMPLE_COUNT)
-        {
-            cap_measurement_triggered = 0;
-            capacitance_reading_count = 0;
-        }
-    }
-}
-
 static void display_resistance(void)
 {
     double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
@@ -277,23 +247,6 @@ static void display_resistance(void)
     }
 }
 
-static void display_capacitance(void)
-{
-#if REVISION == 2
-    cap_trigger_indicator();     
-    double capacitance_reading = get_capacitance(capacitance_samples, gpio_get(RANGE_PIN));
-    if(out_of_range_low_condition_capacitance(capacitance_reading))
-    {
-        display_short_circuit();
-    }
-    else
-    {
-        display_unit_prefix_capacitance(capacitance_reading); 
-        display_double(scale_capacitance(capacitance_reading));
-    }
-#endif
-}
-
 void display_reading(void)
 {
     if(mode == Voltage)
@@ -306,11 +259,6 @@ void display_reading(void)
     {
         disable_negative_sign();
         display_resistance(); 
-    }
-    else if(mode == Capacitance && cap_measurement_recorded)
-    {
-        disable_negative_sign();
-        display_capacitance(); 
     }
     else
     {
