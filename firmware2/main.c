@@ -21,11 +21,6 @@ static volatile Signed_Voltage voltage_reading;
 static volatile uint8_t voltage_sign = 0;
 static volatile uint8_t voltage_reading_count = 0;
 
-static double capacitance_samples[CAPACITANCE_SAMPLE_COUNT];
-static uint8_t capacitance_reading_count = 0;
-static uint8_t cap_measurement_triggered = 0;
-static volatile uint8_t cap_measurement_recorded;
-
 static Mode past_mode;
 static Mode mode;
 
@@ -44,28 +39,7 @@ static void mode_change(void)
 
 static void check_mode_change(void)
 {
-#if REVISION == 2
-    if(gpio_get(MODE_PIN))
-    {
-        mode = Voltage;       
-    }
-    else
-    {
-        if(gpio_get(COMPONENT_MODE_PIN))
-        {
-            mode = Capacitance;
-        }
-        else
-        {
-            mode = Resistance;
-        }
-    }
-    if(mode != past_mode)
-    {
-        mode_change();
-        past_mode = mode;
-    }
-#endif
+
 }
 
 static void check_range_change(void)
@@ -96,12 +70,11 @@ int main(void)
 
     //gpio_init(25);
     //gpio_set_dir(25, GPIO_OUT);
-    gpio_put(CURRENT_RANGE1_PIN, 1);
+    gpio_put(CURRENT_RANGE4_PIN, 1);
 
     while(1)
     {
-        printf("%f\n", voltage_reading.magnitude);
-        //sample_resistance();
+        printf("%f\n", resistance_reading);
     }
 
     return 1;
@@ -286,7 +259,6 @@ void sample_capacitance(void)
 
 static void display_resistance(void)
 {
-#if REVISION == 2
     double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
     if(out_of_range_high_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN))) 
     {
@@ -303,7 +275,6 @@ static void display_resistance(void)
         display_double(scale_resistance(adjusted_resistance));
         display_unit_prefix_resistance(resistance_reading);
     }
-#endif
 }
 
 static void display_capacitance(void)

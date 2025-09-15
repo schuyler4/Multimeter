@@ -1,12 +1,3 @@
-//
-// FILENAME: main.h
-//
-// DESCRIPTION: This is the header file for main.c. Pin Definitions
-// and high level measurement function prototypes are included. 
-//
-// Written by Marek Newton
-// 
-
 #ifndef MAIN_H
 #define MAIN_H
 
@@ -65,7 +56,7 @@ typedef enum
 {
     Voltage,
     Resistance, 
-    Capacitance
+    Diode
 } Mode;
 
 typedef struct 

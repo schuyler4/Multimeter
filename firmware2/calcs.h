@@ -71,7 +71,7 @@ double get_capacitor_voltage(uint32_t adc_code);
 double get_capacitance(double *voltage_points, uint8_t range);
 double scale_capacitance(double capacitance_reading);
 
-double get_resistance(uint32_t adc_code, uint8_t range);
+double get_resistance(uint32_t adc_code);
 double scale_resistance(double resistance_reading);
 uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range);
 uint8_t out_of_range_high_condition_resistance(double resistance, uint8_t range);

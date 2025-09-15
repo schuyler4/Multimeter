@@ -73,7 +73,8 @@ static double get_range_resistor(uint8_t range)
 
 double get_resistance(uint32_t adc_code)
 {
-    return get_adc_code_magnitude(adc_code);
+    uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
+    return get_adc_diff_voltage(magnitude_adc_code);
 }
 
 double scale_resistance(double resistance_reading)
