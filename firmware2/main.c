@@ -24,6 +24,7 @@ static volatile uint8_t voltage_reading_count = 0;
 static Mode past_mode;
 static Mode mode;
 
+static uint8_t range = 0;
 static uint8_t past_range;
 
 static uint32_t code;
@@ -49,6 +50,60 @@ static void check_range_change(void)
     }
 }
 
+static void find_range(void)
+{
+    /*
+    if(resistance_reading > 0.5 && range == 0)
+    {
+        range++;
+    }
+    else
+    {
+        if(resistance_reading > RANGE_OVER_VOLTAGE && range > 0) 
+        {
+            range--;
+        }
+        if(resistance_reading < RANGE_UNDER_VOLTAGE && range < CURRENT_RANGE_COUNT-1) 
+        {
+            range++;
+        }
+    }
+    */
+    gpio_put(CURRENT_RANGE1_PIN, 1);
+    printf("%f\n", resistance_reading);
+    printf("setting range %d\n", range);
+    uint8_t i;
+    for(i=0; i < CURRENT_RANGE_COUNT; i++)
+    {
+        printf("%d\n", i == range);
+        gpio_put(CURRENT_RANGE_PINS[i], i == range);
+    }
+}
+
+static void display_resistance(void)
+{
+    /*
+    double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
+    if(out_of_range_high_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN))) 
+    {
+        display_open_circuit();     
+        disable_aux_indicators();
+    }
+    else if(out_of_range_low_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN)))
+    {
+        display_short_circuit();
+        disable_aux_indicators();
+    }
+    else
+    {
+        display_double(scale_resistance(adjusted_resistance));
+        display_unit_prefix_resistance(resistance_reading);
+    }
+    */
+    display_double(scale_resistance(resistance_reading/RANGE_CURRENTS[range]));
+    display_unit_prefix_resistance(resistance_reading/RANGE_CURRENTS[range]);
+}
+
 int main(void)
 {
     stdio_init_all();
@@ -62,12 +117,12 @@ int main(void)
 
     //gpio_init(25);
     //gpio_set_dir(25, GPIO_OUT);
-    gpio_put(CURRENT_RANGE4_PIN, 1);
+    //gpio_put(CURRENT_RANGE4_PIN, 1);
 
     while(1)
     {
-        display_double(1.001);
-        printf("%f\n", resistance_reading);
+        //printf("%f %f %d\n", resistance_reading/RANGE_CURRENTS[range], resistance_reading, range);
+        display_resistance();
     }
 
     return 1;
@@ -103,7 +158,6 @@ static void adc_data_callback(uint gpio, uint32_t events)
 
 void setup_IO(void)
 {
-    gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_init(CS_PIN);
     
     gpio_init(DIGIT1_PIN);
@@ -133,7 +187,6 @@ void setup_IO(void)
     gpio_init(CURRENT_RANGE4_PIN);
 
     gpio_set_dir(CS_PIN, GPIO_OUT);
-    gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
 
     gpio_set_dir(DIGIT1_PIN, GPIO_OUT);
     gpio_set_dir(DIGIT2_PIN, GPIO_OUT);
@@ -171,7 +224,6 @@ void setup_IO(void)
     gpio_set_drive_strength(SEGMENT_DP_PIN, GPIO_DRIVE_STRENGTH_8MA);
      
     gpio_put(CS_PIN, 1);
-    gpio_put(PICO_DEFAULT_LED_PIN, 1);    
     
     gpio_put(DIGIT1_PIN, 0);
     gpio_put(DIGIT2_PIN, 0);
@@ -209,6 +261,7 @@ void sample_resistance(void)
         resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
         resistance_reading_count = 0;    
         average_resistance_reading = 0;
+        find_range();
     }
 }
 
@@ -224,26 +277,6 @@ void sample_voltage(void)
         voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
         voltage_reading_count = 0;
         average_voltage_reading = 0;
-    }
-}
-
-static void display_resistance(void)
-{
-    double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
-    if(out_of_range_high_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN))) 
-    {
-        display_open_circuit();     
-        disable_aux_indicators();
-    }
-    else if(out_of_range_low_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN)))
-    {
-        display_short_circuit();
-        disable_aux_indicators();
-    }
-    else
-    {
-        display_double(scale_resistance(adjusted_resistance));
-        display_unit_prefix_resistance(resistance_reading);
     }
 }
 

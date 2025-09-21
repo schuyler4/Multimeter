@@ -28,6 +28,7 @@
 #define SEGMENT_G_PIN 19
 #define SEGMENT_DP_PIN 18
 
+#define CURRENT_RANGE_COUNT 4
 #define CURRENT_RANGE1_PIN 1
 #define CURRENT_RANGE2_PIN 8
 #define CURRENT_RANGE3_PIN 9
@@ -49,8 +50,8 @@
 
 #define AVERAGE_READING_COUNT 200
 
-#define CAPACITANCE_VOLTAGE_THRESHOLD_HIGH 1
-#define CAPACITANCE_VOLTAGE_THRESHOLD_LOW 0.01
+#define RANGE_OVER_VOLTAGE 1.6
+#define RANGE_UNDER_VOLTAGE 0.09
 
 typedef enum
 {
@@ -73,5 +74,7 @@ void sample_voltage(void);
 void sample_capacitance(void);
 
 void display_reading(void);
+
+static uint8_t CURRENT_RANGE_PINS[] = {CURRENT_RANGE1_PIN, CURRENT_RANGE2_PIN, CURRENT_RANGE3_PIN, CURRENT_RANGE4_PIN};
 
 #endif

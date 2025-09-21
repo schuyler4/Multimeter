@@ -1,12 +1,3 @@
-//
-// FILENAME: calcs.h
-//
-// description: This file contains constants and constructs that
-// are used in the calculations. Also function prototypes. 
-//
-// Written by Marek Newton
-//
-
 #ifndef CALCS_H
 #define CALCS_H
 
@@ -17,23 +8,16 @@
 //#define SAMPLE_PERIOD 0.00177
 #define SAMPLE_PERIOD 0.00256
 
-#if REVISION == 1
-#define VOLTAGE_REFERENCE 2.316
-#define MEASUREMENT_BIAS 1.158 
-#define DIVIDER_LOWER_RESISTOR 10001
-#define COMPONENT_VOLTAGE_REFERENCE 2.49
-#else
 #define VOLTAGE_REFERENCE 2.4
 #define MEASUREMENT_BIAS 1.162
-#define DIVIDER_LOWER_RESISTOR 10000
+#define DIVIDER_LOWER_RESISTOR 100000
 #define COMPONENT_VOLTAGE_REFERENCE 2.492
 #define RANGE_SERIES_RESISTOR 649
-#endif
 
 #define ADC_BITS 23
 #define ADC_STEPS 8388608 
 
-#define DIVIDER_UPPER_RESISTOR 511000
+#define DIVIDER_UPPER_RESISTOR 5110000
 
 #define COMPONENT_SERIES_RESISTOR_RANGE1 649
 #define COMPONENT_SERIES_RESISTOR_RANGE2 200000
@@ -59,12 +43,6 @@
 #define RESISTANCE_KILO_THRESHOLD 9999
 #define RESISTANCE_MEGA_THRESHOLD 999999 
 
-#define CAPACITANCE_MICRO_THRESHOLD 0.0000009999
-#define CAPACITANCE_MICRO_SCALE 1000000
-#define CAPACITANCE_NANO_SCALE 1000000000
-
-#define OUT_OF_RANGE_LOW_THRESHOLD_CAPACITANCE 0.00000001
-
 double get_measurement_voltage(uint32_t adc_code);
 
 double get_capacitor_voltage(uint32_t adc_code);
@@ -77,5 +55,7 @@ uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range);
 uint8_t out_of_range_high_condition_resistance(double resistance, uint8_t range);
 
 uint8_t out_of_range_low_condition_capacitance(double capacitance);
+
+static double RANGE_CURRENTS[] = {0.00000099, 0.0000099, 0.000099, 0.0010531};
 
 #endif
