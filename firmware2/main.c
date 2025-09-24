@@ -12,6 +12,8 @@
 #include "display_driver.h"
 #include "adjustment.h"
 
+#include "running_average.h"
+
 static double average_resistance_reading = 0;
 static double resistance_reading = 0;
 static uint8_t resistance_reading_count = 0;
