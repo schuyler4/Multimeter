@@ -104,15 +104,3 @@ uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range)
         return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE2_RESISTANCE;
     }
 }
-
-uint8_t out_of_range_high_condition_resistance(double resistance, uint8_t range)
-{
-    if(range)
-    {
-        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE1_RESISTANCE;
-    }
-    else
-    {
-        return resistance > OUT_OF_RANGE_HIGH_THRESHOLD_RANGE2_RESISTANCE;
-    }
-}

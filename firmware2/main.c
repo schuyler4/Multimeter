@@ -37,7 +37,14 @@ static void mode_change(void)
 
 static void check_mode_change(void)
 {
-
+    if(gpio_get(MODE_SWITCH_PIN))
+    {
+        mode = Voltage;
+    }
+    else
+    {
+        mode = Resistance;
+    }
 }
 
 static void check_range_change(void)
@@ -52,24 +59,15 @@ static void check_range_change(void)
 
 static void find_range(void)
 {
-    /*
-    if(resistance_reading > 0.5 && range == 0)
+    
+    if(resistance_reading > RANGE_OVER_VOLTAGE && range > 0) 
+    {
+        range--;
+    }
+    if(resistance_reading < RANGE_UNDER_VOLTAGE && range < CURRENT_RANGE_COUNT-1) 
     {
         range++;
     }
-    else
-    {
-        if(resistance_reading > RANGE_OVER_VOLTAGE && range > 0) 
-        {
-            range--;
-        }
-        if(resistance_reading < RANGE_UNDER_VOLTAGE && range < CURRENT_RANGE_COUNT-1) 
-        {
-            range++;
-        }
-    }
-    */
-    gpio_put(CURRENT_RANGE1_PIN, 1);
     printf("%f\n", resistance_reading);
     printf("setting range %d\n", range);
     uint8_t i;
@@ -100,8 +98,21 @@ static void display_resistance(void)
         display_unit_prefix_resistance(resistance_reading);
     }
     */
-    display_double(scale_resistance(resistance_reading/RANGE_CURRENTS[range]));
-    display_unit_prefix_resistance(resistance_reading/RANGE_CURRENTS[range]);
+    if(gpio_get(CONTINUITY_PIN)) 
+    {
+        display_short_circuit();
+        disable_aux_indicators();
+    }
+    else if(resistance_reading/RANGE_CURRENTS[range] > OVERLOAD_RESISTANCE)
+    {
+        display_open_circuit();
+        disable_aux_indicators();
+    }
+    else
+    {
+        display_double(scale_resistance(resistance_reading/RANGE_CURRENTS[range]));
+        display_unit_prefix_resistance(resistance_reading/RANGE_CURRENTS[range]);
+    }
 }
 
 int main(void)
@@ -115,14 +126,26 @@ int main(void)
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
 
+    mode = Resistance;
+
     //gpio_init(25);
     //gpio_set_dir(25, GPIO_OUT);
     //gpio_put(CURRENT_RANGE4_PIN, 1);
 
     while(1)
     {
+        check_mode_change();
         //printf("%f %f %d\n", resistance_reading/RANGE_CURRENTS[range], resistance_reading, range);
-        display_resistance();
+        if(mode == Resistance)
+        {
+            display_resistance();
+        }
+        else if(mode == Voltage)
+        {
+            display_double(voltage_reading.magnitude);
+            negative_sign(voltage_reading.sign);
+            disable_prefix_indicators();
+        }
     }
 
     return 1;
@@ -139,8 +162,6 @@ void setup_SPI(void)
 static void adc_data_callback(uint gpio, uint32_t events)
 {
     code = MCP3561_read_code();
-    sample_resistance();
-    /*
     if(mode == Resistance)
     {
         sample_resistance();        
@@ -149,11 +170,6 @@ static void adc_data_callback(uint gpio, uint32_t events)
     {
         sample_voltage();    
     }
-    else if(mode == Capacitance)
-    {
-        sample_capacitance();        
-    }
-    */
 }
 
 void setup_IO(void)
@@ -165,7 +181,6 @@ void setup_IO(void)
     gpio_init(DIGIT3_PIN);
     gpio_init(DIGIT4_PIN);
 
-    gpio_init(CAP_TRIGGER_PIN);
     gpio_init(NANO_PIN);
     gpio_init(MICRO_PIN);
     gpio_init(LOW_OHM_AND_NEGATIVE_PIN);
@@ -186,6 +201,10 @@ void setup_IO(void)
     gpio_init(CURRENT_RANGE3_PIN);
     gpio_init(CURRENT_RANGE4_PIN);
 
+    gpio_init(MODE_SWITCH_PIN);
+
+    gpio_init(CONTINUITY_PIN);
+
     gpio_set_dir(CS_PIN, GPIO_OUT);
 
     gpio_set_dir(DIGIT1_PIN, GPIO_OUT);
@@ -193,7 +212,6 @@ void setup_IO(void)
     gpio_set_dir(DIGIT3_PIN, GPIO_OUT);
     gpio_set_dir(DIGIT4_PIN, GPIO_OUT);
 
-    gpio_set_dir(CAP_TRIGGER_PIN, GPIO_OUT);
     gpio_set_dir(NANO_PIN, GPIO_OUT);
     gpio_set_dir(MICRO_PIN, GPIO_OUT);
     gpio_set_dir(LOW_OHM_AND_NEGATIVE_PIN, GPIO_OUT);
@@ -214,6 +232,10 @@ void setup_IO(void)
     gpio_set_dir(CURRENT_RANGE3_PIN, GPIO_OUT);
     gpio_set_dir(CURRENT_RANGE4_PIN, GPIO_OUT);
 
+    gpio_set_dir(MODE_SWITCH_PIN, GPIO_IN);
+
+    gpio_set_dir(CONTINUITY_PIN, GPIO_IN);
+
     gpio_set_drive_strength(SEGMENT_A_PIN, GPIO_DRIVE_STRENGTH_8MA); 
     gpio_set_drive_strength(SEGMENT_B_PIN, GPIO_DRIVE_STRENGTH_8MA); 
     gpio_set_drive_strength(SEGMENT_C_PIN, GPIO_DRIVE_STRENGTH_8MA);
@@ -230,7 +252,6 @@ void setup_IO(void)
     gpio_put(DIGIT3_PIN, 0);
     gpio_put(DIGIT4_PIN, 0);
     
-    gpio_put(CAP_TRIGGER_PIN, 0);
     gpio_put(NANO_PIN, 0);
     gpio_put(MICRO_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
