@@ -7,9 +7,11 @@
 // Written by Marek Newton
 //
 
+#include <stdio.h>
+
 #include "running_average.h"
 
-int running_average_filter_sample(Running_Average_Filter *filter)
+double running_average_filter_sample(Running_Average_Filter *filter)
 {
     if(filter->data_length < filter->length)
     {
@@ -27,12 +29,14 @@ int running_average_filter_sample(Running_Average_Filter *filter)
         }
     }
 
-    float sum = 0;
+    double sum = 0;
 
     for(i = 0; i < filter->data_length; i++)
     {
         sum += filter->data[i];
     }
 
-    return (int)(sum/filter->data_length);
+    printf("total %f\n", sum);
+
+    return (double)(sum/filter->data_length);
 }

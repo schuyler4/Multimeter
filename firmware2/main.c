@@ -30,6 +30,7 @@ static uint8_t range = 0;
 static uint8_t past_range;
 
 static uint32_t code;
+Running_Average_Filter voltage_filter; 
 
 static void mode_change(void)
 {
@@ -130,14 +131,10 @@ int main(void)
 
     mode = Resistance;
 
-    //gpio_init(25);
-    //gpio_set_dir(25, GPIO_OUT);
-    //gpio_put(CURRENT_RANGE4_PIN, 1);
-
     while(1)
     {
         check_mode_change();
-        //printf("%f %f %d\n", resistance_reading/RANGE_CURRENTS[range], resistance_reading, range);
+        //printf("%f %f %d\n", resistance_reading/RANGE_CURRENTS[range], resistance_reading, range); 
         if(mode == Resistance)
         {
             display_resistance();
@@ -204,6 +201,7 @@ void setup_IO(void)
     gpio_init(CURRENT_RANGE4_PIN);
 
     gpio_init(MODE_SWITCH_PIN);
+    gpio_init(BUTTON_PIN);
 
     gpio_init(CONTINUITY_PIN);
 
@@ -235,6 +233,7 @@ void setup_IO(void)
     gpio_set_dir(CURRENT_RANGE4_PIN, GPIO_OUT);
 
     gpio_set_dir(MODE_SWITCH_PIN, GPIO_IN);
+    gpio_set_dir(BUTTON_PIN, GPIO_IN);
 
     gpio_set_dir(CONTINUITY_PIN, GPIO_IN);
 
