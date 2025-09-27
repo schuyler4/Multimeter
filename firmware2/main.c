@@ -23,6 +23,10 @@ static volatile Signed_Voltage voltage_reading;
 static volatile uint8_t voltage_sign = 0;
 static volatile uint8_t voltage_reading_count = 0;
 
+static volatile double average_diode_voltage_reading = 0;
+static volatile double diode_voltage_reading = 0;
+static volatile uint8_t diode_voltage_reading_count = 0;
+
 static Mode past_mode;
 static Mode mode;
 
@@ -129,12 +133,17 @@ int main(void)
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
 
-    mode = Resistance;
+    mode = Diode;
 
     while(1)
     {
-        check_mode_change();
+        //check_mode_change();
         //printf("%f %f %d\n", resistance_reading/RANGE_CURRENTS[range], resistance_reading, range); 
+        if(mode == Diode)
+        {
+            gpio_put(CURRENT_RANGE4_PIN, 1);
+            display_double(diode_voltage_reading);
+        }
         if(mode == Resistance)
         {
             display_resistance();
@@ -161,7 +170,11 @@ void setup_SPI(void)
 static void adc_data_callback(uint gpio, uint32_t events)
 {
     code = MCP3561_read_code();
-    if(mode == Resistance)
+    if(mode == Diode)
+    {
+        sample_diode();
+    }
+    else if(mode == Resistance)
     {
         sample_resistance();        
     }
@@ -284,6 +297,18 @@ void sample_resistance(void)
         resistance_reading_count = 0;    
         average_resistance_reading = 0;
         find_range();
+    }
+}
+
+void sample_diode(void)
+{
+    average_diode_voltage_reading += get_diode_voltage(code);
+    diode_voltage_reading_count++;
+    if(diode_voltage_reading_count == AVERAGE_READING_COUNT)
+    {
+        diode_voltage_reading = diode_voltage_adjustment(average_diode_voltage_reading/AVERAGE_READING_COUNT);
+        diode_voltage_reading_count = 0;  
+        average_diode_voltage_reading = 0;
     }
 }
 

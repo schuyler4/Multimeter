@@ -77,7 +77,7 @@ void setup_IO(void);
 
 void sample_resistance(void);
 void sample_voltage(void);
-void sample_capacitance(void);
+void sample_diode(void);
 
 void display_reading(void);
 

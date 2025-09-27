@@ -45,7 +45,7 @@
 
 double get_measurement_voltage(uint32_t adc_code);
 
-double get_capacitor_voltage(uint32_t adc_code);
+double get_diode_voltage(uint32_t adc_code);
 double get_capacitance(double *voltage_points, uint8_t range);
 double scale_capacitance(double capacitance_reading);
 

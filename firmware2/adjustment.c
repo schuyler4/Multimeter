@@ -9,6 +9,11 @@ double voltage_adjustment(double voltage)
     return fabs(voltage*VOLTAGE_MULTIPLIER + VOLTAGE_OFFSET); 
 }
 
+double diode_voltage_adjustment(double diode_voltage)
+{
+    return fabs(diode_voltage*DIODE_VOLTAGE_MULTIPLIER);
+}
+
 double voltage_adjustment_signed(double voltage)
 {
     return voltage*VOLTAGE_MULTIPLIER + VOLTAGE_OFFSET;
@@ -16,7 +21,6 @@ double voltage_adjustment_signed(double voltage)
 
 double resistance_adjustment(double resistance, uint8_t range)
 {
-#if REVISION == 2
     if(range)
     {
         return fabs(resistance*RESISTANCE_RANGE1_MULTIPLIER + RESISTANCE_RANGE1_OFFSET);
@@ -25,5 +29,4 @@ double resistance_adjustment(double resistance, uint8_t range)
     {
         return fabs(resistance + RESISTANCE_RANGE2_OFFSET);
     }
-#endif
 }

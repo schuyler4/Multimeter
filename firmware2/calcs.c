@@ -31,12 +31,6 @@ static double get_adc_diff_voltage(uint32_t adc_code)
     return (adc_code*VOLTAGE_REFERENCE)/ADC_STEPS;
 }
 
-double get_capacitor_voltage(uint32_t adc_code)
-{
-    uint32_t adc_magnitude_code = get_adc_code_magnitude(adc_code);
-    return get_adc_diff_voltage(adc_magnitude_code);
-}
-
 double get_measurement_voltage(uint32_t adc_code)
 {
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
@@ -52,6 +46,12 @@ double get_measurement_voltage(uint32_t adc_code)
     {
         return voltage;
     } 
+}
+
+double get_diode_voltage(uint32_t adc_code)
+{
+    uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
+    return get_adc_diff_voltage(magnitude_adc_code);
 }
 
 static double parallel_resistance(double r1, double r2)
