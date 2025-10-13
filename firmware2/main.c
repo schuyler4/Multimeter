@@ -323,30 +323,18 @@ void sample_diode(void)
 
 void sample_voltage(void)
 {
-    if(zero_voltage_sample)
+    average_voltage_reading += get_measurement_voltage(code); 
+    voltage_reading_count++;
+    if(voltage_reading_count == AVERAGE_READING_COUNT)
     {
-        zero_voltage = get_measurement_voltage(code); 
-        printf("zero voltage %f\n", zero_voltage);
-        gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+        voltage_reading.magnitude = average_voltage_reading;
+        voltage_reading.magnitude /= AVERAGE_READING_COUNT;
+        voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
+        voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
+        printf("read voltage %f", voltage_reading.magnitude);
+        voltage_reading_count = 0;
+        average_voltage_reading = 0;
     }
-    else 
-    {
-        average_voltage_reading += get_measurement_voltage(code); 
-        
-        voltage_reading_count++;
-        if(voltage_reading_count == AVERAGE_READING_COUNT)
-        {
-            voltage_reading.magnitude = average_voltage_reading;
-            voltage_reading.magnitude /= AVERAGE_READING_COUNT;
-            voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
-            voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
-            printf("read voltage %f", voltage_reading.magnitude);
-            voltage_reading_count = 0;
-            average_voltage_reading = 0;
-        }
-        gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
-    }
-    zero_voltage_sample = !zero_voltage_sample;
 }
 
 void display_reading(void)
