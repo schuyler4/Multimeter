@@ -3,6 +3,7 @@
 #include <math.h>
 
 #include "pico/stdlib.h"
+#include "pico/time.h"
 
 #include "hardware/spi.h"
 
@@ -32,6 +33,9 @@ static Mode mode;
 
 static uint8_t range = 0;
 static uint8_t past_range;
+
+static volatile double zero_voltage = 0;
+static volatile uint8_t zero_voltage_sample = 0;
 
 static uint32_t code;
 Running_Average_Filter voltage_filter; 
@@ -133,7 +137,7 @@ int main(void)
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
 
-    mode = Diode;
+    mode = Voltage;
 
     while(1)
     {
@@ -151,7 +155,6 @@ int main(void)
         else if(mode == Voltage)
         {
             display_double(voltage_reading.magnitude);
-            negative_sign(voltage_reading.sign);
             disable_prefix_indicators();
         }
     }
@@ -218,6 +221,8 @@ void setup_IO(void)
 
     gpio_init(CONTINUITY_PIN);
 
+    gpio_init(PS_NOISE_SET_PIN);
+
     gpio_set_dir(CS_PIN, GPIO_OUT);
 
     gpio_set_dir(DIGIT1_PIN, GPIO_OUT);
@@ -250,6 +255,8 @@ void setup_IO(void)
 
     gpio_set_dir(CONTINUITY_PIN, GPIO_IN);
 
+    gpio_set_dir(PS_NOISE_SET_PIN, GPIO_OUT);
+
     gpio_set_drive_strength(SEGMENT_A_PIN, GPIO_DRIVE_STRENGTH_8MA); 
     gpio_set_drive_strength(SEGMENT_B_PIN, GPIO_DRIVE_STRENGTH_8MA); 
     gpio_set_drive_strength(SEGMENT_C_PIN, GPIO_DRIVE_STRENGTH_8MA);
@@ -259,6 +266,8 @@ void setup_IO(void)
     gpio_set_drive_strength(SEGMENT_G_PIN, GPIO_DRIVE_STRENGTH_8MA); 
     gpio_set_drive_strength(SEGMENT_DP_PIN, GPIO_DRIVE_STRENGTH_8MA);
      
+    gpio_put(PS_NOISE_SET_PIN, 1);
+
     gpio_put(CS_PIN, 1);
     
     gpio_put(DIGIT1_PIN, 0);
@@ -314,17 +323,30 @@ void sample_diode(void)
 
 void sample_voltage(void)
 {
-    average_voltage_reading += get_measurement_voltage(code); 
-    voltage_reading_count++;
-    if(voltage_reading_count == AVERAGE_READING_COUNT)
+    if(zero_voltage_sample)
     {
-        voltage_reading.magnitude = average_voltage_reading;
-        voltage_reading.magnitude /= AVERAGE_READING_COUNT;
-        voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
-        voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
-        voltage_reading_count = 0;
-        average_voltage_reading = 0;
+        zero_voltage = get_measurement_voltage(code); 
+        printf("zero voltage %f\n", zero_voltage);
+        gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
     }
+    else 
+    {
+        average_voltage_reading += get_measurement_voltage(code); 
+        
+        voltage_reading_count++;
+        if(voltage_reading_count == AVERAGE_READING_COUNT)
+        {
+            voltage_reading.magnitude = average_voltage_reading;
+            voltage_reading.magnitude /= AVERAGE_READING_COUNT;
+            voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
+            voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
+            printf("read voltage %f", voltage_reading.magnitude);
+            voltage_reading_count = 0;
+            average_voltage_reading = 0;
+        }
+        gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+    }
+    zero_voltage_sample = !zero_voltage_sample;
 }
 
 void display_reading(void)
@@ -332,7 +354,7 @@ void display_reading(void)
     if(mode == Voltage)
     { 
         display_double(voltage_reading.magnitude);
-        negative_sign(voltage_reading.sign);
+        //negative_sign(voltage_reading.sign);
         disable_prefix_indicators();
     }
     else if(mode == Resistance)

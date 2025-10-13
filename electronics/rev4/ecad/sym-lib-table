@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "multimeter_parts")(type "KiCad")(uri "${KIPRJMOD}/multimeter_parts.kicad_sym")(options "")(descr ""))
+  (lib (name "GF-126-0159")(type "KiCad")(uri "/home/schuyler/Downloads/GF_switches/GF-126-0159.kicad_sym")(options "")(descr ""))
+)

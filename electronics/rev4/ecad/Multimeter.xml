@@ -1,0 +1,2730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/schuyler/Documents/projects/Multimeter/ecad/Multimeter.kicad_sch</source>
+    <date>Tue 16 Jan 2024 12:06:15 AM MST</date>
+    <tool>Eeschema 7.0.9-7.0.9~ubuntu22.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Multimeter</title>
+        <company/>
+        <rev>1</rev>
+        <date/>
+        <source>Multimeter.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/">
+      <title_block>
+        <title>Multimeter Display</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>display.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/">
+      <title_block>
+        <title>Multimeter Analog Front End</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>analog_front _end.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="D5">
+      <value>B140-13-F</value>
+      <footprint>Diode_SMD:D_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">B140-FDICT-ND</field>
+        <field name="Part #">B140-13-F</field>
+        <field name="Unit Price">0.39</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="Digikey Part #" value="B140-FDICT-ND"/>
+      <property name="Part #" value="B140-13-F"/>
+      <property name="Unit Price" value="0.39"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Schottky diode"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b6451fd2-9e1b-4e7f-b8a7-0ec20de1e087</tstamps>
+    </comp>
+    <comp ref="D6">
+      <value>SMF6.0A</value>
+      <footprint>Diode_SMD:D_SOD-123F</footprint>
+      <fields>
+        <field name="Digikey Part #">F5749CT-ND</field>
+        <field name="Part #">SMF6.0A</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Device" part="D_Zener" description="Zener diode"/>
+      <property name="Digikey Part #" value="F5749CT-ND"/>
+      <property name="Part #" value="SMF6.0A"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Zener diode"/>
+      <property name="ki_keywords" value="diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>29f520d3-be5e-46b9-9acf-548b90b8bde6</tstamps>
+    </comp>
+    <comp ref="F1">
+      <value>2A</value>
+      <footprint>Diode_SMD:D_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">2315-FCC20202AATPCT-ND</field>
+        <field name="Part #">FCC20202AATP</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <property name="Digikey Part #" value="2315-FCC20202AATPCT-ND"/>
+      <property name="Part #" value="FCC20202AATP"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Fuse"/>
+      <property name="ki_keywords" value="fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bb3f8c74-34c5-4b04-a50a-cf0605cf4631</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_2.7mm_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Digikey Part #" value=""/>
+      <property name="Part #" value=""/>
+      <property name="Unit Price" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole with connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>adc74d64-9061-48f6-a62b-cfcf0ec385cb</tstamps>
+    </comp>
+    <comp ref="H2">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_2.7mm_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Digikey Part #" value=""/>
+      <property name="Part #" value=""/>
+      <property name="Unit Price" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole with connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f593df5-ebe4-47cb-be23-ab6802cfd14b</tstamps>
+    </comp>
+    <comp ref="H3">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_2.7mm_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Digikey Part #" value=""/>
+      <property name="Part #" value=""/>
+      <property name="Unit Price" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole with connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c7097906-278b-4015-afda-084bc3e715fc</tstamps>
+    </comp>
+    <comp ref="H4">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_2.7mm_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Digikey Part #" value=""/>
+      <property name="Part #" value=""/>
+      <property name="Unit Price" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole with connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>76cba928-0722-40e2-8fa6-7c00f55aeef2</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>USB_B_Micro</value>
+      <footprint>Connector_USB:USB_Micro-AB_Molex_47590-0001</footprint>
+      <fields>
+        <field name="Digikey Part #">WM17144CT-ND</field>
+        <field name="Part #">0475900001</field>
+        <field name="Unit Price">0.86</field>
+      </fields>
+      <libsource lib="Connector" part="USB_B_Micro" description="USB Micro Type B connector"/>
+      <property name="Digikey Part #" value="WM17144CT-ND"/>
+      <property name="Part #" value="0475900001"/>
+      <property name="Unit Price" value="0.86"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="USB Micro Type B connector"/>
+      <property name="ki_keywords" value="connector USB micro"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1791aff3-3881-467b-892d-24efb819dc7a</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT10K0CT-ND</field>
+        <field name="Part #">RMCF0805FT10K0</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT10K0CT-ND"/>
+      <property name="Part #" value="RMCF0805FT10K0"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f8d8c06a-95d1-434e-8cef-815a8bc979e9</tstamps>
+    </comp>
+    <comp ref="SW1">
+      <value>GF-123-0054</value>
+      <footprint>Multimeter:SW_GF-123-0054</footprint>
+      <fields>
+        <field name="Digikey Part #">CWI333-ND</field>
+        <field name="Part #">GF-123-0054</field>
+        <field name="Unit Price">1.5</field>
+      </fields>
+      <libsource lib="Switch" part="SW_SPST" description="Single Pole Single Throw (SPST) switch"/>
+      <property name="Digikey Part #" value="CWI333-ND"/>
+      <property name="Part #" value="GF-123-0054"/>
+      <property name="Unit Price" value="1.5"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="Single Pole Single Throw (SPST) switch"/>
+      <property name="ki_keywords" value="switch lever"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>edb3cbd6-8890-4b0d-a07b-bef69a75026d</tstamps>
+    </comp>
+    <comp ref="TP4">
+      <value>4952</value>
+      <footprint>TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm</footprint>
+      <fields>
+        <field name="Digikey Part #">36-4952-ND</field>
+        <field name="Part #">4952</field>
+        <field name="Unit Price">0.26</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint_Alt" description="test point (alternative shape)"/>
+      <property name="Digikey Part #" value="36-4952-ND"/>
+      <property name="Part #" value="4952"/>
+      <property name="Unit Price" value="0.26"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="test point (alternative shape)"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3bd4a288-a170-44a4-8894-c8bb25637add</tstamps>
+    </comp>
+    <comp ref="TP5">
+      <value>4952</value>
+      <footprint>TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm</footprint>
+      <fields>
+        <field name="Digikey Part #">36-4952-ND</field>
+        <field name="Part #">4952</field>
+        <field name="Unit Price">0.26</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint_Alt" description="test point (alternative shape)"/>
+      <property name="Digikey Part #" value="36-4952-ND"/>
+      <property name="Part #" value="4952"/>
+      <property name="Unit Price" value="0.26"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <property name="ki_description" value="test point (alternative shape)"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1b6e3216-3845-4250-846b-e39594a24ce9</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>SC0915</value>
+      <footprint>Multimeter:MODULE_SC0915</footprint>
+      <fields>
+        <field name="Digikey Part #">2648-SC0915CT-ND</field>
+        <field name="Part #">SC0915</field>
+        <field name="Unit Price">4.00</field>
+      </fields>
+      <libsource lib="multimeter_parts" part="SC0915" description=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey Part #" value="2648-SC0915CT-ND"/>
+      <property name="Part #" value="SC0915"/>
+      <property name="Unit Price" value="4.00"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Multimeter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5c73348b-7e36-4e74-8253-f4d2e0bfcb48</tstamps>
+    </comp>
+    <comp ref="C1">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">1276-1003-1-ND</field>
+        <field name="Part #">CL21B104KBCNNNC</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Digikey Part #" value="1276-1003-1-ND"/>
+      <property name="Part #" value="CL21B104KBCNNNC"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>7d858707-55a1-4319-95cc-7b831ff8d066</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>LTST-C170KRKT</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">160-1415-1-ND</field>
+        <field name="Part #">LTST-C170KRKT</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Digikey Part #" value="160-1415-1-ND"/>
+      <property name="Part #" value="LTST-C170KRKT"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>2874205f-3607-4017-a77c-870dccce1943</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>LTST-C170KRKT</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">160-1415-1-ND</field>
+        <field name="Part #">LTST-C170KRKT</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Digikey Part #" value="160-1415-1-ND"/>
+      <property name="Part #" value="LTST-C170KRKT"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>f886ae72-36d3-49a8-a6a1-6a3f28b77111</tstamps>
+    </comp>
+    <comp ref="D3">
+      <value>LTST-C170KRKT</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">160-1415-1-ND</field>
+        <field name="Part #">LTST-C170KRKT</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Digikey Part #" value="160-1415-1-ND"/>
+      <property name="Part #" value="LTST-C170KRKT"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>64a0c4ea-3a29-49a5-8960-172914445967</tstamps>
+    </comp>
+    <comp ref="D4">
+      <value>LTST-C170KRKT</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">160-1415-1-ND</field>
+        <field name="Part #">LTST-C170KRKT</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Digikey Part #" value="160-1415-1-ND"/>
+      <property name="Part #" value="LTST-C170KRKT"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>f57603d9-ba01-4d94-a831-af991ffc7259</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>be1db4df-bbd5-4a38-b429-3ccb41fd8848</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>29b53695-6f58-41be-9ec5-b7412366d361</tstamps>
+    </comp>
+    <comp ref="Q3">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>dac32336-d9bc-497c-afa3-dbe77808f6fa</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>22f21bb4-1136-430c-a802-be5a9ba3a03a</tstamps>
+    </comp>
+    <comp ref="Q5">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>098bf1a5-f68d-4021-bce4-d76977afcb97</tstamps>
+    </comp>
+    <comp ref="Q6">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>f538ea5b-7c13-44f5-ac3b-0df191830119</tstamps>
+    </comp>
+    <comp ref="Q7">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>f08a50a4-19eb-45bf-bb76-5d0cc4019a3c</tstamps>
+    </comp>
+    <comp ref="Q8">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>b78bd1ee-b0b5-4812-8fe0-fbbcd2e46e11</tstamps>
+    </comp>
+    <comp ref="Q9">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>3a28efe0-b1cc-42f4-a272-860e051fcff0</tstamps>
+    </comp>
+    <comp ref="Q10">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>46da04ef-70e3-422c-b5de-8af0de2c0190</tstamps>
+    </comp>
+    <comp ref="Q11">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>b887018c-ff7b-4918-bc97-c200f891a795</tstamps>
+    </comp>
+    <comp ref="Q12">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>1b349371-9eb7-4871-a623-d52465a1571e</tstamps>
+    </comp>
+    <comp ref="Q13">
+      <value>BSS84</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">4786-BSS84CT-ND</field>
+        <field name="Part #">BSS84</field>
+        <field name="Unit Price">0.15</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="4786-BSS84CT-ND"/>
+      <property name="Part #" value="BSS84"/>
+      <property name="Unit Price" value="0.15"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="P-Channel MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>3e1e3980-b215-4b53-b309-a697ca3a3640</tstamps>
+    </comp>
+    <comp ref="Q14">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>e77ae435-aeb0-41f4-abe9-18ccee01ae1f</tstamps>
+    </comp>
+    <comp ref="Q15">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>57070d17-94c0-4fed-ba15-0edcb171f4f8</tstamps>
+    </comp>
+    <comp ref="Q16">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey Part #">2N7002NCT-ND</field>
+        <field name="Part #">2N7002</field>
+        <field name="Unit Price">0.45</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Digikey Part #" value="2N7002NCT-ND"/>
+      <property name="Part #" value="2N7002"/>
+      <property name="Unit Price" value="0.45"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>c7d5e31f-b97d-409f-91da-f6a96bd5abc3</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>b73f7a53-3205-47ea-b823-2388d48a49a2</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>d8c966b7-4da4-4914-9dad-2a91cca4c383</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>02e15cb0-ebc4-43c2-8c3d-695122a2774e</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>de2319d4-b9e9-476c-abe5-7aaae546d35a</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>1311ccc1-c185-4469-9946-724dfa3886c0</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>a38eeef0-3cad-4308-b3c4-ebcf9052d28b</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>c5ed5664-ebe0-4079-8580-39c38eb11741</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>e4a476b7-fd82-424a-9240-388e0be8edef</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>a9dd7307-1b83-400b-b237-0910cbf4983e</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>027238a0-61f0-4279-9b98-5f98306ba675</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>63e034b0-0461-42fd-adcb-7394274e58d2</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>bc0ac72a-c622-4153-ab7d-586cb4924ce3</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>9447a33f-906d-4c3b-a12d-dbcdf97913d0</tstamps>
+    </comp>
+    <comp ref="R21">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>82f39796-0b59-4394-b5fc-9870b7fec941</tstamps>
+    </comp>
+    <comp ref="R22">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>a6fb4271-7a82-423a-9dc3-0c9c16d3406f</tstamps>
+    </comp>
+    <comp ref="R23">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>e1f9098e-01e5-4856-b0c3-450d462aeec7</tstamps>
+    </comp>
+    <comp ref="R24">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>dac540c5-8add-4426-9b29-037ba1f93cfb</tstamps>
+    </comp>
+    <comp ref="R25">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>6438bb11-9fb7-4775-a5ed-2002dcdbefbf</tstamps>
+    </comp>
+    <comp ref="R26">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>1f02badb-dd2e-4552-8aa1-304483623fcf</tstamps>
+    </comp>
+    <comp ref="R27">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>f23ca965-a317-4cd4-ab4b-233db3d41fad</tstamps>
+    </comp>
+    <comp ref="R28">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>aeea3cde-970f-42c9-b0a2-00f557fcfdb2</tstamps>
+    </comp>
+    <comp ref="R29">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>8bc55810-876d-4d0a-ae7f-6f2c0a7e09ce</tstamps>
+    </comp>
+    <comp ref="R30">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>5917b863-cb83-46f2-94b7-593f8eca8eb7</tstamps>
+    </comp>
+    <comp ref="R31">
+      <value>649</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT649RCT-ND</field>
+        <field name="Part #">RMCF0805FT649R</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT649RCT-ND"/>
+      <property name="Part #" value="RMCF0805FT649R"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>fa8b4742-4c0a-4e0c-8cba-b9ca7705ee53</tstamps>
+    </comp>
+    <comp ref="R32">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>5d25765c-4404-4c86-aab9-105a3a13bcd3</tstamps>
+    </comp>
+    <comp ref="R33">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>db23104c-68af-497a-aafb-229e25cda54a</tstamps>
+    </comp>
+    <comp ref="R34">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>09226ebd-0916-4eeb-a988-edeb4fd0abde</tstamps>
+    </comp>
+    <comp ref="R35">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K00CT-ND</field>
+        <field name="Part #">RMCF0805FT1K00</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K00CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K00"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>fa907827-3a9c-49da-9db4-19beb3d02fbd</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>4021</value>
+      <footprint>Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/HEF4021B.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">296-38905-1-ND</field>
+        <field name="Part #">CD4021BM96</field>
+        <field name="Unit Price">0.54</field>
+      </fields>
+      <libsource lib="4xxx" part="4021" description="8-bit static shift register"/>
+      <property name="Digikey Part #" value="296-38905-1-ND"/>
+      <property name="Part #" value="CD4021BM96"/>
+      <property name="Unit Price" value="0.54"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="8-bit static shift register"/>
+      <property name="ki_keywords" value="shift register SR PISO"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>739cbf62-a449-4659-8b3d-102ecfc6d86c</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>CC56-12SURKWA</value>
+      <footprint>Display_7Segment:CA56-12SURKWA</footprint>
+      <datasheet>http://www.kingbright.com/attachments/file/psearch/000/00/00/CC56-12SURKWA(Ver.7A).pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">754-CC56-12SURKWA-ND</field>
+        <field name="Part #">CC56-12SURKWA</field>
+        <field name="Unit Price">6.38</field>
+      </fields>
+      <libsource lib="Display_Character" part="CC56-12SURKWA" description="4 digit 7 segment hyper red LED, common cathode"/>
+      <property name="Digikey Part #" value="754-CC56-12SURKWA-ND"/>
+      <property name="Part #" value="CC56-12SURKWA"/>
+      <property name="Unit Price" value="6.38"/>
+      <property name="Sheetname" value="Display"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <property name="ki_description" value="4 digit 7 segment hyper red LED, common cathode"/>
+      <property name="ki_keywords" value="display LED 7-segment"/>
+      <sheetpath names="/Display/" tstamps="/d7ecd09d-57c9-4727-9d1c-94f2cbee46ae/"/>
+      <tstamps>1a5e1e0a-8aa3-4ee0-9e9f-51bff426ea17</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">1276-1003-1-ND</field>
+        <field name="Part #">CL21B104KBCNNNC</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Digikey Part #" value="1276-1003-1-ND"/>
+      <property name="Part #" value="CL21B104KBCNNNC"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>c09e4c6e-00e5-46d1-9c10-1d59197cda25</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">1276-1003-1-ND</field>
+        <field name="Part #">CL21B104KBCNNNC</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Digikey Part #" value="1276-1003-1-ND"/>
+      <property name="Part #" value="CL21B104KBCNNNC"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>3a9fd55e-7f16-431a-a5b6-dd988492640a</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Digikey Part #">1276-1003-1-ND</field>
+        <field name="Part #">CL21B104KBCNNNC</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Digikey Part #" value="1276-1003-1-ND"/>
+      <property name="Part #" value="CL21B104KBCNNNC"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>ce5df3a6-5f54-4158-b76e-cecf75ae7e37</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>Red  Banana Plug</value>
+      <footprint>Multimeter:KEYSTONE_575-4</footprint>
+      <fields>
+        <field name="Digikey Part #">36-575-8-ND</field>
+        <field name="Part #">575-8</field>
+        <field name="Unit Price">0.88</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Digikey Part #" value="36-575-8-ND"/>
+      <property name="Part #" value="575-8"/>
+      <property name="Unit Price" value="0.88"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>04e2fc62-44a0-48ec-a082-491e26a71bfb</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>Black Banana Plug</value>
+      <footprint>Multimeter:KEYSTONE_575-4</footprint>
+      <fields>
+        <field name="Digikey Part #">36-575-8-ND</field>
+        <field name="Part #">575-8</field>
+        <field name="Unit Price">0.88</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Digikey Part #" value="36-575-8-ND"/>
+      <property name="Part #" value="575-8"/>
+      <property name="Unit Price" value="0.88"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>ed1fe4ef-dd6d-4257-bfc7-61c91b5d6d32</tstamps>
+    </comp>
+    <comp ref="JP1">
+      <value>~</value>
+      <footprint>Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm</footprint>
+      <libsource lib="Jumper" part="SolderJumper_2_Open" description="Solder Jumper, 2-pole, open"/>
+      <property name="Digikey Part #" value=""/>
+      <property name="Part #" value=""/>
+      <property name="Unit Price" value=""/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Solder Jumper, 2-pole, open"/>
+      <property name="ki_keywords" value="solder jumper SPST"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>72351153-d99f-4fc6-94f8-62c64a2f1c74</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT10K0CT-ND</field>
+        <field name="Part #">RMCF0805FT10K0</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT10K0CT-ND"/>
+      <property name="Part #" value="RMCF0805FT10K0"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>53cf75b3-1349-4aac-ba92-ee00ee3308c5</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT10K0CT-ND</field>
+        <field name="Part #">RMCF0805FT10K0</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT10K0CT-ND"/>
+      <property name="Part #" value="RMCF0805FT10K0"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>06ab3921-da67-4e6c-a57e-c77d668bcfeb</tstamps>
+    </comp>
+    <comp ref="R36">
+      <value>1.62k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT1K62CT-ND</field>
+        <field name="Part #">RMCF0805FT1K62</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT1K62CT-ND"/>
+      <property name="Part #" value="RMCF0805FT1K62"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>87d814fb-7814-42e4-b608-dab2441c50aa</tstamps>
+    </comp>
+    <comp ref="R37">
+      <value>511k+/-0.1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">P511KDACT-ND</field>
+        <field name="Part #">ERA-6AEB5113V</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="P511KDACT-ND"/>
+      <property name="Part #" value="ERA-6AEB5113V"/>
+      <property name="Unit Price" value=""/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>74e75569-2f2e-4f40-9445-24506dd2ff02</tstamps>
+    </comp>
+    <comp ref="R38">
+      <value>1.5M+/-0.1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">408-2025-1-ND</field>
+        <field name="Part #">RG2012P-155-B-T5</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="408-2025-1-ND"/>
+      <property name="Part #" value="RG2012P-155-B-T5"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>e9416951-9edd-47af-8205-2b91435981f4</tstamps>
+    </comp>
+    <comp ref="R39">
+      <value>10k+/-0.1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">P10KDACT-ND</field>
+        <field name="Part #">ERA-6AEB103V</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="P10KDACT-ND"/>
+      <property name="Part #" value="ERA-6AEB103V"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>5e056e9c-8b49-47ee-b7b4-f342e3d77a4b</tstamps>
+    </comp>
+    <comp ref="R40">
+      <value>10k+/-0.1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">P10KDACT-ND</field>
+        <field name="Part #">ERA-6AEB103V</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="P10KDACT-ND"/>
+      <property name="Part #" value="ERA-6AEB103V"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>3c6890d2-d34b-4a9f-a528-f45445eead09</tstamps>
+    </comp>
+    <comp ref="R41">
+      <value>10k+/-0.1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">P10KDACT-ND</field>
+        <field name="Part #">ERA-6AEB103V</field>
+        <field name="Unit Price">0.32</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="P10KDACT-ND"/>
+      <property name="Part #" value="ERA-6AEB103V"/>
+      <property name="Unit Price" value="0.32"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>f30fbf88-c9d7-4441-aaf5-f67e5c8b83a0</tstamps>
+    </comp>
+    <comp ref="R42">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <fields>
+        <field name="Digikey Part #">RMCF0805FT10K0CT-ND</field>
+        <field name="Part #">RMCF0805FT10K0</field>
+        <field name="Unit Price">0.1</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Digikey Part #" value="RMCF0805FT10K0CT-ND"/>
+      <property name="Part #" value="RMCF0805FT10K0"/>
+      <property name="Unit Price" value="0.1"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>3f790cab-3e1d-4144-92a4-70f5732cc93c</tstamps>
+    </comp>
+    <comp ref="SW3">
+      <value>GF-126-0159</value>
+      <footprint>Multimeter:SW_GF-126-0159</footprint>
+      <fields>
+        <field name="Digikey Part #">SW342-ND</field>
+        <field name="Part #">GF-126-0159</field>
+        <field name="Unit Price">1.58</field>
+      </fields>
+      <libsource lib="Switch" part="SW_Push_DPDT" description="Momentary Switch, dual pole double throw"/>
+      <property name="Digikey Part #" value="SW342-ND"/>
+      <property name="Part #" value="GF-126-0159"/>
+      <property name="Unit Price" value="1.58"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Momentary Switch, dual pole double throw"/>
+      <property name="ki_keywords" value="switch dual-pole double-throw spdt ON-ON"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>37c813ca-ad40-4c8e-acb9-68732f93c625</tstamps>
+    </comp>
+    <comp ref="TP1">
+      <value>4952</value>
+      <footprint>TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm</footprint>
+      <fields>
+        <field name="Digikey Part #">36-4952-ND</field>
+        <field name="Part #">4952</field>
+        <field name="Unit Price">0.26</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint_Alt" description="test point (alternative shape)"/>
+      <property name="Digikey Part #" value="36-4952-ND"/>
+      <property name="Part #" value="4952"/>
+      <property name="Unit Price" value="0.26"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="test point (alternative shape)"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>e8e144fb-3979-4598-8e14-39fe1f989277</tstamps>
+    </comp>
+    <comp ref="TP2">
+      <value>4952</value>
+      <footprint>TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm</footprint>
+      <fields>
+        <field name="Digikey Part #">36-4952-ND</field>
+        <field name="Part #">4952</field>
+        <field name="Unit Price">0.26</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint_Alt" description="test point (alternative shape)"/>
+      <property name="Digikey Part #" value="36-4952-ND"/>
+      <property name="Part #" value="4952"/>
+      <property name="Unit Price" value="0.26"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="test point (alternative shape)"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>1027be49-2a35-4c3f-890e-dda9b7b59582</tstamps>
+    </comp>
+    <comp ref="TP3">
+      <value>4952</value>
+      <footprint>TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm</footprint>
+      <fields>
+        <field name="Digikey Part #">36-4952-ND</field>
+        <field name="Part #">4952</field>
+        <field name="Unit Price">0.26</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint_Alt" description="test point (alternative shape)"/>
+      <property name="Digikey Part #" value="36-4952-ND"/>
+      <property name="Part #" value="4952"/>
+      <property name="Unit Price" value="0.26"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="test point (alternative shape)"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>e9780dbd-743d-4a73-ac6c-c237e4ecda00</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>OPA4388IDR</value>
+      <footprint>Package_SO:SOIC-14_3.9x8.7mm_P1.27mm</footprint>
+      <fields>
+        <field name="Digikey Part #">296-53511-1-ND</field>
+        <field name="Part #">OPA4388IDR</field>
+        <field name="Unit Price">4.92</field>
+      </fields>
+      <libsource lib="Device" part="Opamp_Quad" description="Quad operational amplifier"/>
+      <property name="Digikey Part #" value="296-53511-1-ND"/>
+      <property name="Part #" value="OPA4388IDR"/>
+      <property name="Unit Price" value="4.92"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="Quad operational amplifier"/>
+      <property name="ki_keywords" value="quad opamp"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>cc9cea1e-2492-4cb2-99b3-4b77f951b0c5 c7af222d-f3a7-4824-9b89-ea7f3710c1d8 7886c432-c218-4e60-9a9e-12d9c8afbe83 7e7173db-57e6-45f3-9a79-2ef2d8d402d3 54b590ca-5151-4c8b-99a4-ad76845b416d</tstamps>
+    </comp>
+    <comp ref="U7">
+      <value>LM4030-2.5</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/lm4030.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part #">LM4030CMF-2.5/NOPBCT-ND</field>
+        <field name="Part #">LM4030CMF-2.5/NOPB</field>
+        <field name="Unit Price">1.61</field>
+      </fields>
+      <libsource lib="Reference_Voltage" part="LM4030-2.5" description="2.500V Ultra-High Precision Shunt Voltage Reference, SOT-23-5"/>
+      <property name="Digikey Part #" value="LM4030CMF-2.5/NOPBCT-ND"/>
+      <property name="Part #" value="LM4030CMF-2.5/NOPB"/>
+      <property name="Unit Price" value="1.61"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <property name="ki_description" value="2.500V Ultra-High Precision Shunt Voltage Reference, SOT-23-5"/>
+      <property name="ki_keywords" value="diode device voltage reference shunt"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>95230e60-d922-4170-823d-a5d4f8b33540</tstamps>
+    </comp>
+    <comp ref="U10">
+      <value>MCP3561</value>
+      <footprint>Package_SO:SSOP-20_4.4x6.5mm_P0.65mm</footprint>
+      <fields>
+        <field name="Digikey Part #">150-MCP3561RT-E/STCT-ND</field>
+        <field name="Part #">MCP3561RT-E/ST</field>
+        <field name="Unit Price">3.00</field>
+      </fields>
+      <libsource lib="multimeter_parts" part="MCP3561" description=""/>
+      <property name="Digikey Part #" value="150-MCP3561RT-E/STCT-ND"/>
+      <property name="Part #" value="MCP3561RT-E/ST"/>
+      <property name="Unit Price" value="3.00"/>
+      <property name="Sheetname" value="Analog Front End"/>
+      <property name="Sheetfile" value="analog_front _end.kicad_sch"/>
+      <sheetpath names="/Analog Front End/" tstamps="/055527a3-d8c6-47d9-8315-81e666beed9f/"/>
+      <tstamps>8f1da112-6a48-47ff-be8e-3cfc75447bf7</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="4xxx" part="4021">
+      <description>8-bit static shift register</description>
+      <docs>https://assets.nexperia.com/documents/data-sheet/HEF4021B.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>SOIC*3.9x9.9mm*P1.27mm*</fp>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+        <fp>SOIC*5.3x10.2mm*P1.27mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">4021</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/HEF4021B.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="D7" type="input"/>
+        <pin num="2" name="Q5" type="output"/>
+        <pin num="3" name="Q7" type="output"/>
+        <pin num="4" name="D3" type="input"/>
+        <pin num="5" name="D2" type="input"/>
+        <pin num="6" name="D1" type="input"/>
+        <pin num="7" name="D0" type="input"/>
+        <pin num="8" name="VSS" type="power_in"/>
+        <pin num="9" name="PL" type="input"/>
+        <pin num="10" name="CP" type="input"/>
+        <pin num="11" name="DS" type="input"/>
+        <pin num="12" name="Q6" type="output"/>
+        <pin num="13" name="D4" type="input"/>
+        <pin num="14" name="D5" type="input"/>
+        <pin num="15" name="D6" type="input"/>
+        <pin num="16" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="TestPoint_Alt">
+      <description>test point (alternative shape)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint_Alt</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="USB_B_Micro">
+      <description>USB Micro Type B connector</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>USB*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_B_Micro</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="power_out"/>
+        <pin num="2" name="D-" type="bidirectional"/>
+        <pin num="3" name="D+" type="bidirectional"/>
+        <pin num="4" name="ID" type="passive"/>
+        <pin num="5" name="GND" type="power_out"/>
+        <pin num="6" name="Shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Schottky">
+      <description>Schottky diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Zener">
+      <description>Zener diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Fuse">
+      <description>Fuse</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Fuse*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Opamp_Quad">
+      <description>Quad operational amplifier</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SOIC*3.9x8.7mm*P1.27mm*</fp>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+        <fp>SSOP*5.3x6.2mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">Opamp_Quad</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V+" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="" type="output"/>
+        <pin num="8" name="" type="output"/>
+        <pin num="9" name="-" type="input"/>
+        <pin num="10" name="+" type="input"/>
+        <pin num="11" name="V-" type="power_in"/>
+        <pin num="12" name="+" type="input"/>
+        <pin num="13" name="-" type="input"/>
+        <pin num="14" name="" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_US">
+      <description>Resistor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_US</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Display_Character" part="CC56-12SURKWA">
+      <description>4 digit 7 segment hyper red LED, common cathode</description>
+      <docs>http://www.kingbright.com/attachments/file/psearch/000/00/00/CC56-12SURKWA(Ver.7A).pdf</docs>
+      <footprints>
+        <fp>*CA56*12SURKWA*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">CC56-12SURKWA</field>
+        <field name="Footprint">Display_7Segment:CA56-12SURKWA</field>
+        <field name="Datasheet">http://www.kingbright.com/attachments/file/psearch/000/00/00/CC56-12SURKWA(Ver.7A).pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="e" type="input"/>
+        <pin num="2" name="d" type="input"/>
+        <pin num="3" name="DPX" type="input"/>
+        <pin num="4" name="c" type="input"/>
+        <pin num="5" name="g" type="input"/>
+        <pin num="6" name="CC4" type="input"/>
+        <pin num="7" name="b" type="input"/>
+        <pin num="8" name="CC3" type="input"/>
+        <pin num="9" name="CC2" type="input"/>
+        <pin num="10" name="f" type="input"/>
+        <pin num="11" name="a" type="input"/>
+        <pin num="12" name="CC1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Jumper" part="SolderJumper_2_Open">
+      <description>Solder Jumper, 2-pole, open</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SolderJumper*Open*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">SolderJumper_2_Open</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Reference_Voltage" part="LM4030-2.5">
+      <description>2.500V Ultra-High Precision Shunt Voltage Reference, SOT-23-5</description>
+      <docs>http://www.ti.com/lit/ds/symlink/lm4030.pdf</docs>
+      <footprints>
+        <fp>SOT?23?5*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM4030-2.5</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/lm4030.pdf</field>
+      </fields>
+      <pins>
+        <pin num="4" name="K" type="passive"/>
+        <pin num="5" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_Push_DPDT">
+      <description>Momentary Switch, dual pole double throw</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push_DPDT</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+        <pin num="4" name="A" type="passive"/>
+        <pin num="5" name="B" type="passive"/>
+        <pin num="6" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_SPST">
+      <description>Single Pole Single Throw (SPST) switch</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPST</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="2N7002">
+      <description>0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23</description>
+      <docs>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">2N7002</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="BSS84">
+      <description>-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23</description>
+      <docs>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSS84</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="multimeter_parts" part="MCP3561">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP3561</field>
+      </fields>
+      <pins>
+        <pin num="1" name="AVdd" type="input"/>
+        <pin num="2" name="AGND" type="input"/>
+        <pin num="3" name="REFIN-" type="input"/>
+        <pin num="4" name="REFIN+" type="input"/>
+        <pin num="5" name="CH0" type="input"/>
+        <pin num="6" name="CH1" type="input"/>
+        <pin num="7" name="" type="no_connect"/>
+        <pin num="8" name="" type="no_connect"/>
+        <pin num="9" name="" type="no_connect"/>
+        <pin num="10" name="" type="no_connect"/>
+        <pin num="11" name="" type="no_connect"/>
+        <pin num="12" name="" type="no_connect"/>
+        <pin num="13" name="CS" type="input"/>
+        <pin num="14" name="SCK" type="input"/>
+        <pin num="15" name="SDI" type="input"/>
+        <pin num="16" name="SDO" type="input"/>
+        <pin num="17" name="MDAT" type="input"/>
+        <pin num="18" name="MCLK" type="input"/>
+        <pin num="19" name="DGND" type="input"/>
+        <pin num="20" name="DVdd" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="multimeter_parts" part="SC0915">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SC0915</field>
+        <field name="Footprint">SC0915:MODULE_SC0915</field>
+        <field name="MF">Raspberry Pi</field>
+        <field name="Description">
+Raspberry Pi Pico Embedded Dev Module | Raspberry Pi SC0915
+</field>
+        <field name="Package">None</field>
+        <field name="Price">None</field>
+        <field name="Check_prices">https://www.snapeda.com/parts/SC0915/Raspberry+Pi/view-part/?ref=eda</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+        <field name="PARTREV">1.9</field>
+        <field name="SnapEDA_Link">https://www.snapeda.com/parts/SC0915/Raspberry+Pi/view-part/?ref=snap</field>
+        <field name="MP">SC0915</field>
+        <field name="Purchase-URL">https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=6331605&amp;manufacturer=Raspberry Pi&amp;part_name=SC0915&amp;search_term=raspberry pi pico</field>
+        <field name="MANUFACTURER">Pi Supply</field>
+        <field name="Availability">In Stock</field>
+        <field name="SNAPEDA_PN">SC0915</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GP0" type="bidirectional"/>
+        <pin num="2" name="GP1" type="bidirectional"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="GP2" type="bidirectional"/>
+        <pin num="5" name="GP3" type="bidirectional"/>
+        <pin num="6" name="GP4" type="bidirectional"/>
+        <pin num="7" name="GP5" type="bidirectional"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="GP6" type="bidirectional"/>
+        <pin num="10" name="GP7" type="bidirectional"/>
+        <pin num="11" name="GP8" type="bidirectional"/>
+        <pin num="12" name="GP9" type="bidirectional"/>
+        <pin num="13" name="GND" type="power_in"/>
+        <pin num="14" name="GP10" type="bidirectional"/>
+        <pin num="15" name="GP11" type="bidirectional"/>
+        <pin num="16" name="GP12" type="bidirectional"/>
+        <pin num="17" name="GP13" type="bidirectional"/>
+        <pin num="18" name="GND" type="power_in"/>
+        <pin num="19" name="GP14" type="bidirectional"/>
+        <pin num="20" name="GP15" type="bidirectional"/>
+        <pin num="21" name="GP16" type="bidirectional"/>
+        <pin num="22" name="GP17" type="bidirectional"/>
+        <pin num="23" name="GND" type="power_in"/>
+        <pin num="24" name="GP18" type="bidirectional"/>
+        <pin num="25" name="GP19" type="bidirectional"/>
+        <pin num="26" name="GP20" type="bidirectional"/>
+        <pin num="27" name="GP21" type="bidirectional"/>
+        <pin num="28" name="GND" type="power_in"/>
+        <pin num="29" name="GP22" type="bidirectional"/>
+        <pin num="30" name="~{RUN}" type="input"/>
+        <pin num="31" name="GP26" type="bidirectional"/>
+        <pin num="32" name="GP27" type="bidirectional"/>
+        <pin num="33" name="AGND" type="power_in"/>
+        <pin num="34" name="GP28" type="bidirectional"/>
+        <pin num="35" name="ADC_VREF" type="power_in"/>
+        <pin num="36" name="3V3_OUT" type="power_in"/>
+        <pin num="37" name="3V3_EN" type="input"/>
+        <pin num="38" name="GND" type="power_in"/>
+        <pin num="39" name="VSYS" type="power_in"/>
+        <pin num="40" name="VBUS" type="power_in"/>
+        <pin num="A" name="USB_SHIELD" type="power_in"/>
+        <pin num="B" name="USB_SHIELD" type="power_in"/>
+        <pin num="C" name="USB_SHIELD" type="power_in"/>
+        <pin num="D" name="USB_SHIELD" type="power_in"/>
+        <pin num="D1" name="SWCLK" type="input"/>
+        <pin num="D2" name="GND" type="power_in"/>
+        <pin num="D3" name="SWDIO" type="bidirectional"/>
+        <pin num="TP1" name="TP1_GND" type="power_in"/>
+        <pin num="TP2" name="TP2_USB_DM" type="bidirectional"/>
+        <pin num="TP3" name="TP3_USB_DP" type="bidirectional"/>
+        <pin num="TP4" name="TP4_GPIO23/SMPS_PS" type="no_connect"/>
+        <pin num="TP5" name="TP5_GPIO25/LED" type="output"/>
+        <pin num="TP6" name="TP6_BOOTSEL" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="4xxx">
+      <uri>/usr/share/kicad/symbols//4xxx.kicad_sym</uri>
+    </library>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/symbols//Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/symbols//Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols//Device.kicad_sym</uri>
+    </library>
+    <library logical="Display_Character">
+      <uri>/usr/share/kicad/symbols//Display_Character.kicad_sym</uri>
+    </library>
+    <library logical="Jumper">
+      <uri>/usr/share/kicad/symbols//Jumper.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>/usr/share/kicad/symbols//Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="Reference_Voltage">
+      <uri>/usr/share/kicad/symbols//Reference_Voltage.kicad_sym</uri>
+    </library>
+    <library logical="Switch">
+      <uri>/usr/share/kicad/symbols//Switch.kicad_sym</uri>
+    </library>
+    <library logical="Transistor_FET">
+      <uri>/usr/share/kicad/symbols//Transistor_FET.kicad_sym</uri>
+    </library>
+    <library logical="multimeter_parts">
+      <uri>/home/schuyler/Documents/projects/Multimeter/ecad/multimeter_parts.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3.3V">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R36" pin="1" pintype="passive"/>
+      <node ref="R42" pin="1" pintype="passive"/>
+      <node ref="U1" pin="36" pinfunction="3V3_OUT" pintype="power_in"/>
+      <node ref="U10" pin="1" pinfunction="AVdd" pintype="input"/>
+      <node ref="U10" pin="20" pinfunction="DVdd" pintype="input"/>
+      <node ref="U3" pin="4" pinfunction="V+" pintype="power_in"/>
+    </net>
+    <net code="2" name="+5V">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="F1" pin="2" pintype="passive"/>
+      <node ref="Q10" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q11" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q13" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q5" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q7" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q8" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q9" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R28" pin="1" pintype="passive"/>
+      <node ref="R29" pin="1" pintype="passive"/>
+      <node ref="R30" pin="1" pintype="passive"/>
+      <node ref="R31" pin="1" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="16" pinfunction="VDD" pintype="power_in"/>
+    </net>
+    <net code="3" name="/Analog Front End/CS">
+      <node ref="R42" pin="2" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="GP5" pintype="bidirectional"/>
+      <node ref="U10" pin="13" pinfunction="CS" pintype="input"/>
+    </net>
+    <net code="4" name="/Analog Front End/MDAT">
+      <node ref="U1" pin="9" pinfunction="GP6" pintype="bidirectional"/>
+      <node ref="U10" pin="17" pinfunction="MDAT" pintype="input"/>
+    </net>
+    <net code="5" name="/Analog Front End/SCK">
+      <node ref="U1" pin="4" pinfunction="GP2" pintype="bidirectional"/>
+      <node ref="U10" pin="14" pinfunction="SCK" pintype="input"/>
+    </net>
+    <net code="6" name="/Analog Front End/SDI">
+      <node ref="U1" pin="5" pinfunction="GP3" pintype="bidirectional"/>
+      <node ref="U10" pin="15" pinfunction="SDI" pintype="input"/>
+    </net>
+    <net code="7" name="/Analog Front End/SDO">
+      <node ref="U1" pin="6" pinfunction="GP4" pintype="bidirectional"/>
+      <node ref="U10" pin="16" pinfunction="SDO" pintype="input"/>
+    </net>
+    <net code="8" name="/Display/CLK">
+      <node ref="U1" pin="25" pinfunction="GP19" pintype="bidirectional"/>
+      <node ref="U2" pin="10" pinfunction="CP" pintype="input"/>
+    </net>
+    <net code="9" name="/Display/SD">
+      <node ref="U1" pin="26" pinfunction="GP20" pintype="bidirectional"/>
+      <node ref="U2" pin="11" pinfunction="DS" pintype="input"/>
+    </net>
+    <net code="10" name="/Display/digit1">
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="27" pinfunction="GP21" pintype="bidirectional"/>
+    </net>
+    <net code="11" name="/Display/digit2">
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="U1" pin="29" pinfunction="GP22" pintype="bidirectional"/>
+    </net>
+    <net code="12" name="/Display/digit3">
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="U1" pin="31" pinfunction="GP26" pintype="bidirectional"/>
+    </net>
+    <net code="13" name="/Display/digit4">
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="U1" pin="32" pinfunction="GP27" pintype="bidirectional"/>
+    </net>
+    <net code="14" name="/Display/low_ohm">
+      <node ref="R32" pin="1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="GP9" pintype="bidirectional"/>
+    </net>
+    <net code="15" name="/Display/micro">
+      <node ref="R35" pin="1" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="GP10" pintype="bidirectional"/>
+    </net>
+    <net code="16" name="/Display/nano">
+      <node ref="R34" pin="1" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="GP11" pintype="bidirectional"/>
+    </net>
+    <net code="17" name="/Display/pico">
+      <node ref="R33" pin="1" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="GP12" pintype="bidirectional"/>
+    </net>
+    <net code="18" name="GND">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="H1" pin="1" pinfunction="1" pintype="input"/>
+      <node ref="H2" pin="1" pinfunction="1" pintype="input"/>
+      <node ref="H3" pin="1" pinfunction="1" pintype="input"/>
+      <node ref="H4" pin="1" pinfunction="1" pintype="input"/>
+      <node ref="J1" pin="5" pinfunction="GND" pintype="power_out"/>
+      <node ref="J1" pin="6" pinfunction="Shield" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q12" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q14" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q15" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q16" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q4" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R41" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="18" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="23" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="28" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="3" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="33" pinfunction="AGND" pintype="power_in"/>
+      <node ref="U1" pin="38" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="8" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="A" pinfunction="USB_SHIELD" pintype="power_in"/>
+      <node ref="U1" pin="B" pinfunction="USB_SHIELD" pintype="power_in"/>
+      <node ref="U1" pin="C" pinfunction="USB_SHIELD" pintype="power_in"/>
+      <node ref="U1" pin="D" pinfunction="USB_SHIELD" pintype="power_in"/>
+      <node ref="U1" pin="D2" pinfunction="GND" pintype="power_in"/>
+      <node ref="U10" pin="19" pinfunction="DGND" pintype="input"/>
+      <node ref="U10" pin="2" pinfunction="AGND" pintype="input"/>
+      <node ref="U2" pin="8" pinfunction="VSS" pintype="power_in"/>
+      <node ref="U3" pin="11" pinfunction="V-" pintype="power_in"/>
+      <node ref="U7" pin="5" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="19" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R28" pin="2" pintype="passive"/>
+    </net>
+    <net code="20" name="Net-(D1-K)">
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q12" pin="3" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="21" name="Net-(D2-A)">
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R29" pin="2" pintype="passive"/>
+    </net>
+    <net code="22" name="Net-(D2-K)">
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q14" pin="3" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="23" name="Net-(D3-A)">
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R30" pin="2" pintype="passive"/>
+    </net>
+    <net code="24" name="Net-(D3-K)">
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q15" pin="3" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="25" name="Net-(D4-A)">
+      <node ref="D4" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R31" pin="2" pintype="passive"/>
+    </net>
+    <net code="26" name="Net-(D4-K)">
+      <node ref="D4" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q16" pin="3" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="27" name="Net-(D5-K)">
+      <node ref="D5" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U1" pin="39" pinfunction="VSYS" pintype="power_in"/>
+    </net>
+    <net code="28" name="Net-(J1-VBUS)">
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="VBUS" pintype="power_out"/>
+    </net>
+    <net code="29" name="Net-(J3-Pin_1)">
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R37" pin="1" pintype="passive"/>
+      <node ref="SW3" pin="6" pinfunction="C" pintype="passive"/>
+    </net>
+    <net code="30" name="Net-(J4-Pin_1)">
+      <node ref="J4" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="JP1" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="R39" pin="2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U3" pin="6" pinfunction="-" pintype="input"/>
+      <node ref="U3" pin="7" pintype="output"/>
+    </net>
+    <net code="31" name="Net-(JP1-B)">
+      <node ref="JP1" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="U10" pin="6" pinfunction="CH1" pintype="input"/>
+    </net>
+    <net code="32" name="Net-(Q1-D)">
+      <node ref="Q1" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="U4" pin="6" pinfunction="CC4" pintype="input"/>
+    </net>
+    <net code="33" name="Net-(Q1-G)">
+      <node ref="Q1" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+    </net>
+    <net code="34" name="Net-(Q2-D)">
+      <node ref="Q2" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="U4" pin="8" pinfunction="CC3" pintype="input"/>
+    </net>
+    <net code="35" name="Net-(Q2-G)">
+      <node ref="Q2" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+    </net>
+    <net code="36" name="Net-(Q3-D)">
+      <node ref="Q3" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="U4" pin="9" pinfunction="CC2" pintype="input"/>
+    </net>
+    <net code="37" name="Net-(Q3-G)">
+      <node ref="Q3" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+    </net>
+    <net code="38" name="Net-(Q4-D)">
+      <node ref="Q4" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="U4" pin="12" pinfunction="CC1" pintype="input"/>
+    </net>
+    <net code="39" name="Net-(Q4-G)">
+      <node ref="Q4" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+    </net>
+    <net code="40" name="Net-(Q5-D)">
+      <node ref="Q5" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+    </net>
+    <net code="41" name="Net-(Q5-G)">
+      <node ref="Q5" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+    </net>
+    <net code="42" name="Net-(Q6-D)">
+      <node ref="Q6" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+    </net>
+    <net code="43" name="Net-(Q6-G)">
+      <node ref="Q6" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R22" pin="2" pintype="passive"/>
+    </net>
+    <net code="44" name="Net-(Q7-D)">
+      <node ref="Q7" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+    </net>
+    <net code="45" name="Net-(Q7-G)">
+      <node ref="Q7" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+    </net>
+    <net code="46" name="Net-(Q8-D)">
+      <node ref="Q8" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="47" name="Net-(Q8-G)">
+      <node ref="Q8" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+    </net>
+    <net code="48" name="Net-(Q9-D)">
+      <node ref="Q9" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+    </net>
+    <net code="49" name="Net-(Q9-G)">
+      <node ref="Q9" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+    </net>
+    <net code="50" name="Net-(Q10-D)">
+      <node ref="Q10" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+    </net>
+    <net code="51" name="Net-(Q10-G)">
+      <node ref="Q10" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R26" pin="2" pintype="passive"/>
+    </net>
+    <net code="52" name="Net-(Q11-D)">
+      <node ref="Q11" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+    </net>
+    <net code="53" name="Net-(Q11-G)">
+      <node ref="Q11" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R27" pin="2" pintype="passive"/>
+    </net>
+    <net code="54" name="Net-(Q12-G)">
+      <node ref="Q12" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R32" pin="2" pintype="passive"/>
+    </net>
+    <net code="55" name="Net-(Q13-D)">
+      <node ref="Q13" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+    </net>
+    <net code="56" name="Net-(Q13-G)">
+      <node ref="Q13" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="57" name="Net-(Q14-G)">
+      <node ref="Q14" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R33" pin="2" pintype="passive"/>
+    </net>
+    <net code="58" name="Net-(Q15-G)">
+      <node ref="Q15" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R34" pin="2" pintype="passive"/>
+    </net>
+    <net code="59" name="Net-(Q16-G)">
+      <node ref="Q16" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R35" pin="2" pintype="passive"/>
+    </net>
+    <net code="60" name="Net-(R38-Pad2)">
+      <node ref="R38" pin="2" pintype="passive"/>
+      <node ref="SW3" pin="3" pinfunction="C" pintype="passive"/>
+    </net>
+    <net code="61" name="Net-(R39-Pad1)">
+      <node ref="R39" pin="1" pintype="passive"/>
+      <node ref="SW3" pin="1" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="62" name="Net-(SW1-B)">
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="GP1" pintype="bidirectional"/>
+    </net>
+    <net code="63" name="Net-(U2-D0)">
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U2" pin="7" pinfunction="D0" pintype="input"/>
+    </net>
+    <net code="64" name="Net-(U2-D1)">
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="D1" pintype="input"/>
+    </net>
+    <net code="65" name="Net-(U2-D2)">
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="D2" pintype="input"/>
+    </net>
+    <net code="66" name="Net-(U2-D3)">
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="D3" pintype="input"/>
+    </net>
+    <net code="67" name="Net-(U2-D4)">
+      <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="U2" pin="13" pinfunction="D4" pintype="input"/>
+    </net>
+    <net code="68" name="Net-(U2-D5)">
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="U2" pin="14" pinfunction="D5" pintype="input"/>
+    </net>
+    <net code="69" name="Net-(U2-D6)">
+      <node ref="R26" pin="1" pintype="passive"/>
+      <node ref="U2" pin="15" pinfunction="D6" pintype="input"/>
+    </net>
+    <net code="70" name="Net-(U2-D7)">
+      <node ref="R27" pin="1" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="D7" pintype="input"/>
+    </net>
+    <net code="71" name="Net-(U3A-+)">
+      <node ref="R36" pin="2" pintype="passive"/>
+      <node ref="U3" pin="3" pinfunction="+" pintype="input"/>
+      <node ref="U7" pin="4" pinfunction="K" pintype="passive"/>
+    </net>
+    <net code="72" name="Net-(U3A--)">
+      <node ref="R38" pin="1" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U3" pin="1" pintype="output"/>
+      <node ref="U3" pin="2" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="73" name="Net-(U3B-+)">
+      <node ref="R40" pin="2" pintype="passive"/>
+      <node ref="R41" pin="1" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="74" name="Net-(U3C-+)">
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U3" pin="10" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="75" name="Net-(U3C--)">
+      <node ref="U3" pin="8" pintype="output"/>
+      <node ref="U3" pin="9" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="76" name="Net-(U3D-+)">
+      <node ref="R37" pin="2" pintype="passive"/>
+      <node ref="SW3" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="SW3" pin="5" pinfunction="B" pintype="passive"/>
+      <node ref="U3" pin="12" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="77" name="Net-(U4-DPX)">
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="U4" pin="3" pinfunction="DPX" pintype="input"/>
+    </net>
+    <net code="78" name="Net-(U4-a)">
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="U4" pin="11" pinfunction="a" pintype="input"/>
+    </net>
+    <net code="79" name="Net-(U4-b)">
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="U4" pin="7" pinfunction="b" pintype="input"/>
+    </net>
+    <net code="80" name="Net-(U4-c)">
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="c" pintype="input"/>
+    </net>
+    <net code="81" name="Net-(U4-d)">
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="U4" pin="2" pinfunction="d" pintype="input"/>
+    </net>
+    <net code="82" name="Net-(U4-e)">
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="U4" pin="1" pinfunction="e" pintype="input"/>
+    </net>
+    <net code="83" name="Net-(U4-f)">
+      <node ref="R18" pin="2" pintype="passive"/>
+      <node ref="U4" pin="10" pinfunction="f" pintype="input"/>
+    </net>
+    <net code="84" name="Net-(U4-g)">
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="U4" pin="5" pinfunction="g" pintype="input"/>
+    </net>
+    <net code="85" name="Net-(U10-CH0)">
+      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U10" pin="5" pinfunction="CH0" pintype="input"/>
+      <node ref="U3" pin="13" pinfunction="-" pintype="input"/>
+      <node ref="U3" pin="14" pintype="output"/>
+    </net>
+    <net code="86" name="Net-(U10-REFIN+)">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="R40" pin="1" pintype="passive"/>
+      <node ref="U10" pin="4" pinfunction="REFIN+" pintype="input"/>
+    </net>
+    <net code="87" name="unconnected-(J1-D+-Pad3)">
+      <node ref="J1" pin="3" pinfunction="D+" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="88" name="unconnected-(J1-D--Pad2)">
+      <node ref="J1" pin="2" pinfunction="D-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="89" name="unconnected-(J1-ID-Pad4)">
+      <node ref="J1" pin="4" pinfunction="ID" pintype="passive+no_connect"/>
+    </net>
+    <net code="90" name="unconnected-(SW3-A-Pad4)">
+      <node ref="SW3" pin="4" pinfunction="A" pintype="passive+no_connect"/>
+    </net>
+    <net code="91" name="unconnected-(U1-3V3_EN-Pad37)">
+      <node ref="U1" pin="37" pinfunction="3V3_EN" pintype="input+no_connect"/>
+    </net>
+    <net code="92" name="unconnected-(U1-ADC_VREF-Pad35)">
+      <node ref="U1" pin="35" pinfunction="ADC_VREF" pintype="power_in+no_connect"/>
+    </net>
+    <net code="93" name="unconnected-(U1-GP0-Pad1)">
+      <node ref="U1" pin="1" pinfunction="GP0" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="94" name="unconnected-(U1-GP7-Pad10)">
+      <node ref="U1" pin="10" pinfunction="GP7" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="95" name="unconnected-(U1-GP8-Pad11)">
+      <node ref="U1" pin="11" pinfunction="GP8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="96" name="unconnected-(U1-GP13-Pad17)">
+      <node ref="U1" pin="17" pinfunction="GP13" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="97" name="unconnected-(U1-GP14-Pad19)">
+      <node ref="U1" pin="19" pinfunction="GP14" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="98" name="unconnected-(U1-GP15-Pad20)">
+      <node ref="U1" pin="20" pinfunction="GP15" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="99" name="unconnected-(U1-GP16-Pad21)">
+      <node ref="U1" pin="21" pinfunction="GP16" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="100" name="unconnected-(U1-GP17-Pad22)">
+      <node ref="U1" pin="22" pinfunction="GP17" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="101" name="unconnected-(U1-GP18-Pad24)">
+      <node ref="U1" pin="24" pinfunction="GP18" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="102" name="unconnected-(U1-GP28-Pad34)">
+      <node ref="U1" pin="34" pinfunction="GP28" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="103" name="unconnected-(U1-SWCLK-PadD1)">
+      <node ref="U1" pin="D1" pinfunction="SWCLK" pintype="input+no_connect"/>
+    </net>
+    <net code="104" name="unconnected-(U1-SWDIO-PadD3)">
+      <node ref="U1" pin="D3" pinfunction="SWDIO" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="105" name="unconnected-(U1-TP1_GND-PadTP1)">
+      <node ref="U1" pin="TP1" pinfunction="TP1_GND" pintype="power_in+no_connect"/>
+    </net>
+    <net code="106" name="unconnected-(U1-TP2_USB_DM-PadTP2)">
+      <node ref="U1" pin="TP2" pinfunction="TP2_USB_DM" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="107" name="unconnected-(U1-TP3_USB_DP-PadTP3)">
+      <node ref="U1" pin="TP3" pinfunction="TP3_USB_DP" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="108" name="unconnected-(U1-TP4_GPIO23{slash}SMPS_PS-PadTP4)">
+      <node ref="U1" pin="TP4" pinfunction="TP4_GPIO23/SMPS_PS" pintype="no_connect"/>
+    </net>
+    <net code="109" name="unconnected-(U1-TP5_GPIO25{slash}LED-PadTP5)">
+      <node ref="U1" pin="TP5" pinfunction="TP5_GPIO25/LED" pintype="output+no_connect"/>
+    </net>
+    <net code="110" name="unconnected-(U1-TP6_BOOTSEL-PadTP6)">
+      <node ref="U1" pin="TP6" pinfunction="TP6_BOOTSEL" pintype="input+no_connect"/>
+    </net>
+    <net code="111" name="unconnected-(U1-VBUS-Pad40)">
+      <node ref="U1" pin="40" pinfunction="VBUS" pintype="power_in+no_connect"/>
+    </net>
+    <net code="112" name="unconnected-(U1-~{RUN}-Pad30)">
+      <node ref="U1" pin="30" pinfunction="~{RUN}" pintype="input+no_connect"/>
+    </net>
+    <net code="113" name="unconnected-(U2-PL-Pad9)">
+      <node ref="U2" pin="9" pinfunction="PL" pintype="input+no_connect"/>
+    </net>
+    <net code="114" name="unconnected-(U2-Q5-Pad2)">
+      <node ref="U2" pin="2" pinfunction="Q5" pintype="output+no_connect"/>
+    </net>
+    <net code="115" name="unconnected-(U2-Q6-Pad12)">
+      <node ref="U2" pin="12" pinfunction="Q6" pintype="output+no_connect"/>
+    </net>
+    <net code="116" name="unconnected-(U2-Q7-Pad3)">
+      <node ref="U2" pin="3" pinfunction="Q7" pintype="output+no_connect"/>
+    </net>
+    <net code="117" name="unconnected-(U10-MCLK-Pad18)">
+      <node ref="U10" pin="18" pinfunction="MCLK" pintype="input+no_connect"/>
+    </net>
+    <net code="118" name="unconnected-(U10-Pad7)">
+      <node ref="U10" pin="7" pintype="no_connect"/>
+    </net>
+    <net code="119" name="unconnected-(U10-Pad8)">
+      <node ref="U10" pin="8" pintype="no_connect"/>
+    </net>
+    <net code="120" name="unconnected-(U10-Pad9)">
+      <node ref="U10" pin="9" pintype="no_connect"/>
+    </net>
+    <net code="121" name="unconnected-(U10-Pad10)">
+      <node ref="U10" pin="10" pintype="no_connect"/>
+    </net>
+    <net code="122" name="unconnected-(U10-Pad11)">
+      <node ref="U10" pin="11" pintype="no_connect"/>
+    </net>
+    <net code="123" name="unconnected-(U10-Pad12)">
+      <node ref="U10" pin="12" pintype="no_connect"/>
+    </net>
+    <net code="124" name="unconnected-(U10-REFIN--Pad3)">
+      <node ref="U10" pin="3" pinfunction="REFIN-" pintype="input+no_connect"/>
+    </net>
+  </nets>
+</export>
