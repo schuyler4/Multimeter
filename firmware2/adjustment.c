@@ -19,7 +19,7 @@ double voltage_adjustment_signed(double voltage)
     return voltage*VOLTAGE_MULTIPLIER + VOLTAGE_OFFSET;
 }
 
-double resistance_adjustment(double resistance, uint8_t range)
+double resistance_adjustment(double resistance, uint8_t range_index)
 {
     if(range)
     {

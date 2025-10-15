@@ -59,7 +59,7 @@
 
 #define BUTTON_PIN 25
 
-#define OVERLOAD_RESISTANCE 2100000
+#define OVERLOAD_RESISTANCE 2000000
 
 typedef enum
 {

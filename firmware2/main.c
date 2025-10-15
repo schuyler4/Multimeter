@@ -58,16 +58,6 @@ static void check_mode_change(void)
     }
 }
 
-static void check_range_change(void)
-{
-    if(gpio_get(RANGE_PIN) != past_range)
-    {
-        disable_prefix_indicators();
-        zero_segments();
-        past_range = gpio_get(RANGE_PIN);
-    }
-}
-
 static void find_range(void)
 {
     
@@ -91,24 +81,6 @@ static void find_range(void)
 
 static void display_resistance(void)
 {
-    /*
-    double adjusted_resistance = resistance_adjustment(resistance_reading, gpio_get(RANGE_PIN));
-    if(out_of_range_high_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN))) 
-    {
-        display_open_circuit();     
-        disable_aux_indicators();
-    }
-    else if(out_of_range_low_condition_resistance(adjusted_resistance, gpio_get(RANGE_PIN)))
-    {
-        display_short_circuit();
-        disable_aux_indicators();
-    }
-    else
-    {
-        display_double(scale_resistance(adjusted_resistance));
-        display_unit_prefix_resistance(resistance_reading);
-    }
-    */
     if(gpio_get(CONTINUITY_PIN)) 
     {
         display_short_circuit();
@@ -141,8 +113,7 @@ int main(void)
 
     while(1)
     {
-        //check_mode_change();
-        //printf("%f %f %d\n", resistance_reading/RANGE_CURRENTS[range], resistance_reading, range); 
+        check_mode_change();
         if(mode == Diode)
         {
             gpio_put(CURRENT_RANGE4_PIN, 1);
@@ -331,7 +302,6 @@ void sample_voltage(void)
         voltage_reading.magnitude /= AVERAGE_READING_COUNT;
         voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
         voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
-        printf("read voltage %f", voltage_reading.magnitude);
         voltage_reading_count = 0;
         average_voltage_reading = 0;
     }
