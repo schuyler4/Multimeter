@@ -60,6 +60,9 @@
 #define BUTTON_PIN 25
 
 #define OVERLOAD_RESISTANCE 2000000
+#define OVERLOAD_VOLTAGE 2.2
+
+#define BUTTON_HISTORY_MASK 0xFF
 
 typedef enum
 {

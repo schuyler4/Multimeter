@@ -170,3 +170,9 @@ void display_unit_prefix_resistance(double resistance_reading)
         gpio_put(MICRO_PIN, 0);
     }
 }
+
+void display_diode_mode_indicator(void)
+{
+    gpio_put(MICRO_PIN, 1);
+    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+}

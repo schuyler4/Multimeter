@@ -53,5 +53,6 @@ void cap_trigger_indicator(void);
 
 void disable_prefix_indicators(void);
 void disable_aux_indicators(void);
+void display_diode_mode_indicator(void);
 
 #endif

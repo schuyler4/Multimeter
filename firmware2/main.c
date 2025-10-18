@@ -40,6 +40,9 @@ static volatile uint8_t zero_voltage_sample = 0;
 static uint32_t code;
 Running_Average_Filter voltage_filter; 
 
+static uint8_t button_filter = 0;
+static uint8_t button_pressed = 0;
+
 static void mode_change(void)
 {
     disable_prefix_indicators();
@@ -54,7 +57,31 @@ static void check_mode_change(void)
     }
     else
     {
-        mode = Resistance;
+        if(mode == Voltage)
+            mode = Resistance;
+        button_filter <<= 1;
+        button_filter |= gpio_get(BUTTON_PIN);
+        printf("%d\n", button_filter);
+        if(button_filter == BUTTON_HISTORY_MASK)
+        {
+            button_pressed = 0;
+        }
+        else if(button_filter == 0)
+        {
+            if(!button_pressed)
+            {
+                if(mode == Resistance)
+                {
+                    printf("switching to diode");
+                    mode = Diode;
+                } 
+                else if(mode == Diode)
+                {
+                    mode = Resistance;
+                }
+            }
+            button_pressed = 1;
+        }
     }
 }
 
@@ -69,14 +96,9 @@ static void find_range(void)
     {
         range++;
     }
-    printf("%f\n", resistance_reading);
-    printf("setting range %d\n", range);
     uint8_t i;
     for(i=0; i < CURRENT_RANGE_COUNT; i++)
-    {
-        printf("%d\n", i == range);
         gpio_put(CURRENT_RANGE_PINS[i], i == range);
-    }
 }
 
 static void display_resistance(void)
@@ -98,6 +120,19 @@ static void display_resistance(void)
     }
 }
 
+static void display_diode(void)
+{
+    if(diode_voltage_reading > OVERLOAD_VOLTAGE)
+    {
+        display_open_circuit();
+    }
+    else
+    {
+        display_double(diode_voltage_reading);
+        display_diode_mode_indicator();
+    }
+}
+
 int main(void)
 {
     stdio_init_all();
@@ -109,7 +144,7 @@ int main(void)
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
 
-    mode = Voltage;
+    mode = Voltage; 
 
     while(1)
     {
@@ -117,10 +152,11 @@ int main(void)
         if(mode == Diode)
         {
             gpio_put(CURRENT_RANGE4_PIN, 1);
-            display_double(diode_voltage_reading);
+            display_diode();
         }
-        if(mode == Resistance)
+        else if(mode == Resistance)
         {
+            disable_negative_sign();
             display_resistance();
         }
         else if(mode == Voltage)
@@ -304,24 +340,5 @@ void sample_voltage(void)
         voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
         voltage_reading_count = 0;
         average_voltage_reading = 0;
-    }
-}
-
-void display_reading(void)
-{
-    if(mode == Voltage)
-    { 
-        display_double(voltage_reading.magnitude);
-        //negative_sign(voltage_reading.sign);
-        disable_prefix_indicators();
-    }
-    else if(mode == Resistance)
-    {
-        disable_negative_sign();
-        display_resistance(); 
-    }
-    else
-    {
-        disable_negative_sign();
     }
 }

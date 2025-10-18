@@ -55,6 +55,6 @@ uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range);
 
 uint8_t out_of_range_low_condition_capacitance(double capacitance);
 
-static double RANGE_CURRENTS[] = {0.00000099, 0.0000099, 0.000099, 0.0010531};
+static double RANGE_CURRENTS[] = {0.00000099, 0.0000099, 0.000099, 0.00099};
 
 #endif
