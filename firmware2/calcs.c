@@ -40,11 +40,11 @@ double get_measurement_voltage(uint32_t adc_code)
     uint8_t sign = (uint8_t)((adc_code & SIGN_MASK) >> ADC_BITS);
     if(sign)
     {
-        return voltage*-1;
+        return (voltage*-1);
     } 
     else 
     {
-        return voltage;
+        return (voltage);
     } 
 }
 

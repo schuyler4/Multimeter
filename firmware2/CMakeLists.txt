@@ -16,7 +16,7 @@ add_executable(${PROJECT_NAME}
     calcs.c
     display_driver.c
     adjustment.c
-    running_average.c
+    IIR_filter.c
 )
 # create map/bin/hex/uf2 files.
 pico_add_extra_outputs(${PROJECT_NAME})

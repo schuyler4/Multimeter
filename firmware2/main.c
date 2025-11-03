@@ -13,7 +13,7 @@
 #include "display_driver.h"
 #include "adjustment.h"
 
-#include "running_average.h"
+#include "IIR_filter.h"
 
 static double average_resistance_reading = 0;
 static double resistance_reading = 0;
@@ -28,6 +28,8 @@ static volatile double average_diode_voltage_reading = 0;
 static volatile double diode_voltage_reading = 0;
 static volatile uint8_t diode_voltage_reading_count = 0;
 
+IIR_Filter voltage_iir_filter;
+
 static Mode past_mode;
 static Mode mode;
 
@@ -38,7 +40,6 @@ static volatile double zero_voltage = 0;
 static volatile uint8_t zero_voltage_sample = 0;
 
 static uint32_t code;
-Running_Average_Filter voltage_filter; 
 
 static uint8_t button_filter = 0;
 static uint8_t button_pressed = 0;
@@ -51,34 +52,22 @@ static void mode_change(void)
 
 static void check_mode_change(void)
 {
-    if(gpio_get(MODE_SWITCH_PIN))
-    {
-        mode = Voltage;
-    }
+    if(gpio_get(MODE_SWITCH_PIN)) mode = Voltage;
     else
     {
         if(mode == Voltage)
             mode = Resistance;
         button_filter <<= 1;
         button_filter |= gpio_get(BUTTON_PIN);
-        printf("%d\n", button_filter);
-        if(button_filter == BUTTON_HISTORY_MASK)
-        {
-            button_pressed = 0;
-        }
+        if(button_filter == BUTTON_HISTORY_MASK) button_pressed = 0;
         else if(button_filter == 0)
         {
             if(!button_pressed)
             {
                 if(mode == Resistance)
-                {
-                    printf("switching to diode");
                     mode = Diode;
-                } 
                 else if(mode == Diode)
-                {
                     mode = Resistance;
-                }
             }
             button_pressed = 1;
         }
@@ -87,18 +76,9 @@ static void check_mode_change(void)
 
 static void find_range(void)
 {
-    
-    if(resistance_reading > RANGE_OVER_VOLTAGE && range > 0) 
-    {
-        range--;
-    }
-    if(resistance_reading < RANGE_UNDER_VOLTAGE && range < CURRENT_RANGE_COUNT-1) 
-    {
-        range++;
-    }
-    uint8_t i;
-    for(i=0; i < CURRENT_RANGE_COUNT; i++)
-        gpio_put(CURRENT_RANGE_PINS[i], i == range);
+    if(resistance_reading > RANGE_OVER_VOLTAGE && range > 0) range--;
+    if(resistance_reading < RANGE_UNDER_VOLTAGE && range < CURRENT_RANGE_COUNT-1) range++;
+    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], i == range);
 }
 
 static void display_resistance(void)
@@ -122,15 +102,9 @@ static void display_resistance(void)
 
 static void display_diode(void)
 {
-    if(diode_voltage_reading > OVERLOAD_VOLTAGE)
-    {
-        display_open_circuit();
-    }
-    else
-    {
-        display_double(diode_voltage_reading);
-        display_diode_mode_indicator();
-    }
+    if(diode_voltage_reading > OVERLOAD_VOLTAGE) display_open_circuit();
+    else display_double(diode_voltage_reading);
+    display_diode_mode_indicator();
 }
 
 int main(void)
@@ -140,6 +114,8 @@ int main(void)
     setup_IO();
     setup_SPI();
     setup_MCP3561();
+
+    IIR_filter_init(&voltage_iir_filter, 0.95);
 
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
@@ -162,6 +138,8 @@ int main(void)
         else if(mode == Voltage)
         {
             display_double(voltage_reading.magnitude);
+            if(voltage_reading.sign) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+            else gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
             disable_prefix_indicators();
         }
     }
@@ -180,18 +158,9 @@ void setup_SPI(void)
 static void adc_data_callback(uint gpio, uint32_t events)
 {
     code = MCP3561_read_code();
-    if(mode == Diode)
-    {
-        sample_diode();
-    }
-    else if(mode == Resistance)
-    {
-        sample_resistance();        
-    }
-    else if(mode == Voltage)
-    {
-        sample_voltage();    
-    }
+    if(mode == Diode) sample_diode();
+    else if(mode == Resistance) sample_resistance();        
+    else if(mode == Voltage) sample_voltage();    
 }
 
 void setup_IO(void)
@@ -330,7 +299,8 @@ void sample_diode(void)
 
 void sample_voltage(void)
 {
-    average_voltage_reading += get_measurement_voltage(code); 
+    float measurement_voltage = get_measurement_voltage(code);
+    average_voltage_reading += measurement_voltage; 
     voltage_reading_count++;
     if(voltage_reading_count == AVERAGE_READING_COUNT)
     {
