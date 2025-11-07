@@ -176,3 +176,17 @@ void display_diode_mode_indicator(void)
     gpio_put(MICRO_PIN, 1);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
 }
+
+void display_continuity_mode_indicator(void)
+{
+    gpio_put(MICRO_PIN, 1);
+    gpio_put(NANO_PIN, 1);
+    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+}
+
+void reset_indicators(void)
+{
+    gpio_put(MICRO_PIN, 0);
+    gpio_put(NANO_PIN, 0);
+    gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+}

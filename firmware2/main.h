@@ -46,8 +46,8 @@
 #define VOLTAGE_POSITIVE_CALIBRATION_OFFSET 0.00
 #define VOLTAGE_NEGATIVE_CALIBRATION_OFFSET 0.00
 
-#define NANO_PIN 11
-#define MICRO_PIN 17
+#define MICRO_PIN 11
+#define NANO_PIN 17
 #define LOW_OHM_AND_NEGATIVE_PIN 12
 
 #define SPI_SCK_FREQ 2000000
@@ -69,7 +69,8 @@ typedef enum
 {
     Voltage,
     Resistance, 
-    Diode
+    Diode,
+    Continuity
 } Mode;
 
 typedef struct 

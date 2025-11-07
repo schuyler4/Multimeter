@@ -64,7 +64,10 @@ static void check_mode_change(void)
         {
             if(!button_pressed)
             {
+                reset_indicators();
                 if(mode == Resistance)
+                    mode = Continuity;
+                else if(mode == Continuity)
                     mode = Diode;
                 else if(mode == Diode)
                     mode = Resistance;
@@ -83,12 +86,8 @@ static void find_range(void)
 
 static void display_resistance(void)
 {
-    if(gpio_get(CONTINUITY_PIN)) 
-    {
-        display_short_circuit();
-        disable_aux_indicators();
-    }
-    else if(resistance_reading/RANGE_CURRENTS[range] > OVERLOAD_RESISTANCE)
+    
+    if(resistance_reading/RANGE_CURRENTS[range] > OVERLOAD_RESISTANCE)
     {
         display_open_circuit();
         disable_aux_indicators();
@@ -105,6 +104,16 @@ static void display_diode(void)
     if(diode_voltage_reading > OVERLOAD_VOLTAGE) display_open_circuit();
     else display_double(diode_voltage_reading);
     display_diode_mode_indicator();
+}
+
+static void display_continuity(void)
+{
+    if(gpio_get(CONTINUITY_PIN)) 
+    {
+        display_short_circuit();
+        disable_aux_indicators();
+    }
+    display_continuity_mode_indicator();
 }
 
 int main(void)
@@ -141,6 +150,10 @@ int main(void)
             if(voltage_reading.sign) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
             else gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
             disable_prefix_indicators();
+        }
+        else if(mode == Continuity)
+        {
+            display_continuity();
         }
     }
 
@@ -274,6 +287,7 @@ void setup_IO(void)
 
 void sample_resistance(void)
 {
+    
     average_resistance_reading += get_resistance(code);
     resistance_reading_count += 1;
     if(resistance_reading_count == AVERAGE_READING_COUNT)
@@ -281,12 +295,18 @@ void sample_resistance(void)
         resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
         resistance_reading_count = 0;    
         average_resistance_reading = 0;
-        find_range();
+        if(mode == Resistance)
+            find_range();
+        else if(mode == Continuity)
+            for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
+                gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);   
     }
 }
 
 void sample_diode(void)
 {
+    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
+        gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);
     average_diode_voltage_reading += get_diode_voltage(code);
     diode_voltage_reading_count++;
     if(diode_voltage_reading_count == AVERAGE_READING_COUNT)
