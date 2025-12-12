@@ -28,7 +28,8 @@ static uint32_t get_adc_code_magnitude(uint32_t adc_code)
 
 static double get_adc_diff_voltage(uint32_t adc_code)
 {
-    return (adc_code*VOLTAGE_REFERENCE)/ADC_STEPS;
+    //return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS)/8;
+    return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS);
 }
 
 double get_measurement_voltage(uint32_t adc_code)

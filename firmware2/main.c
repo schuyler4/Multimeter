@@ -66,7 +66,10 @@ static void check_mode_change(void)
             {
                 reset_indicators();
                 if(mode == Resistance)
+                {
                     mode = Continuity;
+                    range = CURRENT_RANGE_COUNT-1;
+                }
                 else if(mode == Continuity)
                     mode = Diode;
                 else if(mode == Diode)
@@ -108,11 +111,10 @@ static void display_diode(void)
 
 static void display_continuity(void)
 {
-    if(gpio_get(CONTINUITY_PIN)) 
-    {
-        display_short_circuit();
-        disable_aux_indicators();
-    }
+    if(gpio_get(CONTINUITY_PIN)) display_short_circuit();
+    else if(resistance_reading/RANGE_CURRENTS[range] <= OVERLOAD_VOLTAGE/RANGE_CURRENTS[range])
+        display_double(scale_resistance(resistance_reading/RANGE_CURRENTS[range]));
+    else display_open_circuit();
     display_continuity_mode_indicator();
 }
 
@@ -123,8 +125,6 @@ int main(void)
     setup_IO();
     setup_SPI();
     setup_MCP3561();
-
-    IIR_filter_init(&voltage_iir_filter, 0.95);
 
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
@@ -172,7 +172,7 @@ static void adc_data_callback(uint gpio, uint32_t events)
 {
     code = MCP3561_read_code();
     if(mode == Diode) sample_diode();
-    else if(mode == Resistance) sample_resistance();        
+    else if(mode == Resistance || mode == Continuity) sample_resistance();        
     else if(mode == Voltage) sample_voltage();    
 }
 

@@ -62,7 +62,6 @@ void dump_registers(void)
 
 void setup_MCP3561(void) 
 { 
-    printf("made it here\n");
     // Configure CONFIG 0 Register
     uint8_t command = CONFIG0_WRITE;
     // Put the ADC into conversion mode
@@ -100,6 +99,11 @@ void setup_MCP3561(void)
     MCP3561_write(&command, &register_data);
     
     dump_registers();
+}
+
+void set_MCP3561_gain(void)
+{
+
 }
 
 void sample_MCP3561(void)
