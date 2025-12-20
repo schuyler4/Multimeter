@@ -17,6 +17,7 @@ add_executable(${PROJECT_NAME}
     display_driver.c
     adjustment.c
     IIR_filter.c
+    hysteresis_display.c
 )
 # create map/bin/hex/uf2 files.
 pico_add_extra_outputs(${PROJECT_NAME})

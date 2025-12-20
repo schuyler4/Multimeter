@@ -12,6 +12,7 @@
 #include "calcs.h"
 #include "display_driver.h"
 #include "adjustment.h"
+#include "hysteresis_display.h"
 
 #include "IIR_filter.h"
 
@@ -22,7 +23,7 @@ static uint8_t resistance_reading_count = 0;
 static volatile double average_voltage_reading = 0;
 static volatile Signed_Voltage voltage_reading;
 static volatile uint8_t voltage_sign = 0;
-static volatile uint8_t voltage_reading_count = 0;
+static volatile uint16_t voltage_reading_count = 0;
 
 static volatile double average_diode_voltage_reading = 0;
 static volatile double diode_voltage_reading = 0;
@@ -36,6 +37,8 @@ static Mode mode;
 static uint8_t range = 0;
 static uint8_t past_range;
 
+static uint8_t voltage_range = 1;
+
 static volatile double zero_voltage = 0;
 static volatile uint8_t zero_voltage_sample = 0;
 
@@ -43,6 +46,9 @@ static uint32_t code;
 
 static uint8_t button_filter = 0;
 static uint8_t button_pressed = 0;
+static uint8_t gain;
+
+static float display_value_voltage = 0;
 
 static void mode_change(void)
 {
@@ -80,11 +86,16 @@ static void check_mode_change(void)
     }
 }
 
-static void find_range(void)
+static void find_range_resistance(void)
 {
     if(resistance_reading > RANGE_OVER_VOLTAGE && range > 0) range--;
     if(resistance_reading < RANGE_UNDER_VOLTAGE && range < CURRENT_RANGE_COUNT-1) range++;
     for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], i == range);
+}
+
+static void find_range_voltage(void)
+{
+
 }
 
 static void display_resistance(void)
@@ -126,10 +137,14 @@ int main(void)
     setup_SPI();
     setup_MCP3561();
 
+    IIR_filter_init(&voltage_iir_filter, 0.998);
+
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
 
     mode = Voltage; 
+    gain = pow(2, DEFAULT_GAIN_SETTING);
+    printf("\n");
 
     while(1)
     {
@@ -146,7 +161,7 @@ int main(void)
         }
         else if(mode == Voltage)
         {
-            display_double(voltage_reading.magnitude);
+            display_double(display_hysteresis(voltage_reading.magnitude));
             if(voltage_reading.sign) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
             else gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
             disable_prefix_indicators();
@@ -296,7 +311,7 @@ void sample_resistance(void)
         resistance_reading_count = 0;    
         average_resistance_reading = 0;
         if(mode == Resistance)
-            find_range();
+            find_range_resistance();
         else if(mode == Continuity)
             for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
                 gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);   
@@ -319,16 +334,24 @@ void sample_diode(void)
 
 void sample_voltage(void)
 {
-    float measurement_voltage = get_measurement_voltage(code);
+    double measurement_voltage = get_measurement_voltage(code, 1);
+    voltage_reading.magnitude = voltage_adjustment(IIR_filter_sample(&voltage_iir_filter, measurement_voltage));
+    voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
+    printf("%f\n", voltage_reading.magnitude);
+    /*
     average_voltage_reading += measurement_voltage; 
     voltage_reading_count++;
     if(voltage_reading_count == AVERAGE_READING_COUNT)
     {
         voltage_reading.magnitude = average_voltage_reading;
         voltage_reading.magnitude /= AVERAGE_READING_COUNT;
+        //printf("%f\n", voltage_reading.magnitude);
+        // FOR CALIBRATION
+        printf("%f\n", voltage_reading.magnitude);
         voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
         voltage_reading.magnitude = voltage_adjustment(voltage_reading.magnitude);
         voltage_reading_count = 0;
         average_voltage_reading = 0;
     }
+    */
 }

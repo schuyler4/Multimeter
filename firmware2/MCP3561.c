@@ -66,7 +66,7 @@ void setup_MCP3561(void)
     uint8_t command = CONFIG0_WRITE;
     // Put the ADC into conversion mode
     // Enable the internal reference and clock.
-    uint8_t register_data = (3 << ADC_MODE) | (2 << CLK_SEL) | (1 << VREF_SEL);
+    uint8_t register_data = (3 << ADC_MODE) | (3 << CLK_SEL) | (1 << VREF_SEL);
     MCP3561_write(&command, &register_data);
 
     // Configure CONFIG 1 Register
@@ -74,7 +74,7 @@ void setup_MCP3561(void)
     uint8_t read_result; 
     MCP3561_read(&read_command, &read_result);
     command = CONFIG1_WRITE;
-    register_data = (1 << PRE) | read_result; 
+    register_data = read_result; 
     MCP3561_write(&command, &register_data);
 
     // Configure CONFIG 2 Register
@@ -83,19 +83,23 @@ void setup_MCP3561(void)
     register_data |= (1 << AZ_MUX);
     register_data &= ~(3 << BOOST);
     register_data |= (1 << GAIN);
+    register_data |= (1 << AZ_REF);
     MCP3561_write(&command, &register_data);
 
     // Configure CONFIG 3 Register
     command = CONFIG3_WRITE;
     register_data = (3 << CONV_MODE);
-    register_data |= (1 << EN_OFFCAL);
+    //register_data |= (1 << EN_OFFCAL);
+    //register_data |= (1 << EN_GAINCAL);
     MCP3561_write(&command, &register_data);
 
     // Configure IRQ Register
     read_command = IRQ_READ_COMMAND;
     MCP3561_read(&read_command, &read_result); 
     command = IRQ_WRITE;
-    register_data = (1 << IRQ_MODE) | read_result;
+    register_data = read_result;
+    register_data &= ~(1 << EN_STP); 
+    register_data &= ~(1 << EN_FASTCMD);
     MCP3561_write(&command, &register_data);
     
     dump_registers();

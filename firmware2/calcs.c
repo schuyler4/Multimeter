@@ -1,7 +1,7 @@
 //
 // FILENAME: calcs.c
 //
-// DESCRIPTION: This file contains all the calculations necissary to resolve a voltage
+// DESCRIPTION: This file contains all the calculations necessary to resolve a voltage
 // or resistance reading from an ADC code.
 //
 // Written by Marek Newton
@@ -26,13 +26,13 @@ static uint32_t get_adc_code_magnitude(uint32_t adc_code)
     }
 }
 
-static double get_adc_diff_voltage(uint32_t adc_code)
+double get_adc_diff_voltage(uint32_t adc_code)
 {
     //return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS)/8;
     return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS);
 }
 
-double get_measurement_voltage(uint32_t adc_code)
+double get_measurement_voltage(uint32_t adc_code, uint8_t gain)
 {
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
     double diff_voltage = get_adc_diff_voltage(magnitude_adc_code);
@@ -41,11 +41,11 @@ double get_measurement_voltage(uint32_t adc_code)
     uint8_t sign = (uint8_t)((adc_code & SIGN_MASK) >> ADC_BITS);
     if(sign)
     {
-        return (voltage*-1);
+        return (voltage*-1)/gain;
     } 
     else 
     {
-        return (voltage);
+        return voltage/gain;
     } 
 }
 
