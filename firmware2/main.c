@@ -51,10 +51,17 @@ static void mode_change(void)
     zero_segments();
 }
 
+static void set_test_range(void)
+{
+
+    range = CURRENT_RANGE_COUNT-1;
+    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);
+}
+
 static void check_mode_change(void)
 {
-    if(gpio_get(MODE_SWITCH_PIN)) mode = Voltage;
-    else
+if(gpio_get(MODE_SWITCH_PIN)) mode = Voltage;
+else
     {
         if(mode == Voltage)
             mode = Resistance;
@@ -68,13 +75,14 @@ static void check_mode_change(void)
                 reset_indicators();
                 if(mode == Resistance)
                 {
+                    set_test_range();
                     mode = Continuity;
-                    range = CURRENT_RANGE_COUNT-1;
-                    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
-                        gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);
                 }
                 else if(mode == Continuity)
+                {
+                    set_test_range();
                     mode = Diode;
+                }
                 else if(mode == Diode)
                     mode = Resistance;
             }
@@ -90,11 +98,6 @@ static void find_range_resistance(void)
     for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], i == range);
 }
 
-static void find_range_voltage(void)
-{
-
-}
-
 static void display_resistance(void)
 {
     
@@ -105,9 +108,9 @@ static void display_resistance(void)
     }
     else
     {
-        double adjusted_resistance = resistance_adjustment(resistance_reading/RANGE_CURRENTS[range], range);
-        display_double(scale_resistance(adjusted_resistance));
-        display_unit_prefix_resistance(adjusted_resistance);
+        double my_dis_R = display_hysteresis_resistance(resistance_adjustment(resistance_reading/RANGE_CURRENTS[range], range), range);
+        display_double(scale_resistance(my_dis_R));
+        display_unit_prefix_resistance(my_dis_R);
     }
 }
 
@@ -122,15 +125,22 @@ static void display_continuity(void)
 {
     if(gpio_get(CONTINUITY_PIN)) display_short_circuit();
     else if(resistance_reading/RANGE_CURRENTS[range] <= OVERLOAD_VOLTAGE/RANGE_CURRENTS[range])
-        display_double(scale_resistance(resistance_adjustment(resistance_reading/RANGE_CURRENTS[range], range)));
+        display_double(scale_resistance(display_hysteresis_resistance(resistance_adjustment(resistance_reading/RANGE_CURRENTS[range], range), range)));
     else display_open_circuit();
     display_continuity_mode_indicator();
+}
+
+static void display_voltage(void)
+{
+    display_double(display_hysteresis_voltage(voltage_reading.magnitude));
+    if(display_hysteresis_sign_voltage()) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+    else gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
 }
 
 int main(void)
 {
     stdio_init_all();
-    
+
     setup_IO();
     setup_SPI();
     setup_MCP3561();
@@ -158,9 +168,7 @@ int main(void)
         }
         else if(mode == Voltage)
         {
-            display_double(display_hysteresis_voltage(voltage_reading.magnitude));
-            if(display_hysteresis_sign_voltage()) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
-            else gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
+            display_voltage();
             disable_prefix_indicators();
         }
         else if(mode == Continuity)

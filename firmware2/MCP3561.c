@@ -105,11 +105,6 @@ void setup_MCP3561(void)
     dump_registers();
 }
 
-void set_MCP3561_gain(void)
-{
-
-}
-
 void sample_MCP3561(void)
 {
     uint8_t command = SAMPLE_COMMAND;

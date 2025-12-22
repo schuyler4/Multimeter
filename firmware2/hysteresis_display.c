@@ -3,7 +3,7 @@
 #include <math.h>
 
 static double last_display_value = 0;
-static double RESISTANCE_HYSTERESIS[] = {0, 0, 0.1, 0.01};
+static double RESISTANCE_HYSTERESIS[] = {10, 1, 0.1, 0.01};
 
 double display_hysteresis_voltage(double new_value)
 {
