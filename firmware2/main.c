@@ -30,6 +30,7 @@ static volatile double diode_voltage_reading = 0;
 static volatile uint8_t diode_voltage_reading_count = 0;
 
 IIR_Filter voltage_iir_filter;
+IIR_Filter resistance_iir_filter;
 
 static Mode past_mode;
 static Mode mode;
@@ -69,6 +70,8 @@ static void check_mode_change(void)
                 {
                     mode = Continuity;
                     range = CURRENT_RANGE_COUNT-1;
+                    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
+                        gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);
                 }
                 else if(mode == Continuity)
                     mode = Diode;
@@ -133,6 +136,7 @@ int main(void)
     setup_MCP3561();
 
     IIR_filter_init(&voltage_iir_filter, 0.993);
+    IIR_filter_init(&resistance_iir_filter, 0.993);
 
     voltage_reading.magnitude = 0;
     voltage_reading.sign = 0;
@@ -154,15 +158,13 @@ int main(void)
         }
         else if(mode == Voltage)
         {
-            display_double(display_hysteresis(voltage_reading.magnitude));
-            if(display_hysteresis_sign()) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
+            display_double(display_hysteresis_voltage(voltage_reading.magnitude));
+            if(display_hysteresis_sign_voltage()) gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 1);
             else gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
             disable_prefix_indicators();
         }
         else if(mode == Continuity)
-        {
             display_continuity();
-        }
     }
 
     return 1;
@@ -295,20 +297,14 @@ void setup_IO(void)
 
 void sample_resistance(void)
 {
-    
-    average_resistance_reading += get_resistance(code);
+    resistance_reading = IIR_filter_sample(&resistance_iir_filter, get_resistance(code));
     resistance_reading_count += 1;
+    // Need to wait for the IIR filter for a little before auto range
     if(resistance_reading_count == AVERAGE_READING_COUNT)
     {
-        resistance_reading = average_resistance_reading/AVERAGE_READING_COUNT;
-        resistance_reading_count = 0;    
-        average_resistance_reading = 0;
         printf("%d\n", range);
-        if(mode == Resistance)
-            find_range_resistance();
-        else if(mode == Continuity)
-            for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
-                gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);   
+        find_range_resistance();
+        resistance_reading_count = 0;
     }
 }
 
@@ -321,7 +317,7 @@ void sample_diode(void)
     if(diode_voltage_reading_count == AVERAGE_READING_COUNT)
     {
         diode_voltage_reading = diode_voltage_adjustment(average_diode_voltage_reading/AVERAGE_READING_COUNT);
-        diode_voltage_reading_count = 0;  
+        diode_voltage_reading_count = 0;
         average_diode_voltage_reading = 0;
     }
 }

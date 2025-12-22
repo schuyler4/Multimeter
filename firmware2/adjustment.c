@@ -5,7 +5,7 @@
 #include "main.h"
 
 static double RESISTANCE_MULTIPLIERS[] = {1, 1, 1, 1};
-static double RESISTANCE_OFFSET[] = {0, 68, 10.8, 0.28};
+static double RESISTANCE_OFFSET[] = {700, 68, 10.8, 0.28};
 
 double voltage_adjustment(double voltage)
 {
