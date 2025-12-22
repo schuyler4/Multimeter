@@ -28,7 +28,6 @@ static uint32_t get_adc_code_magnitude(uint32_t adc_code)
 
 double get_adc_diff_voltage(uint32_t adc_code)
 {
-    //return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS)/8;
     return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS);
 }
 
@@ -55,23 +54,6 @@ double get_diode_voltage(uint32_t adc_code)
     return get_adc_diff_voltage(magnitude_adc_code);
 }
 
-static double parallel_resistance(double r1, double r2)
-{
-    return 1/((1/r1)+(1/r2));
-}
-
-static double get_range_resistor(uint8_t range)
-{
-    if(range)
-    {
-        return COMPONENT_SERIES_RESISTOR_RANGE1;
-    }
-    else
-    {
-        return COMPONENT_SERIES_RESISTOR_RANGE2;
-    }
-}
-
 double get_resistance(uint32_t adc_code)
 {
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
@@ -91,17 +73,5 @@ double scale_resistance(double resistance_reading)
     else
     {
         return resistance_reading;
-    }
-}
-
-uint8_t out_of_range_low_condition_resistance(double resistance, uint8_t range)
-{
-    if(range)
-    {
-        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE1_RESISTANCE;
-    }
-    else
-    {
-        return resistance < OUT_OF_RANGE_LOW_THRESHOLD_RANGE2_RESISTANCE;
     }
 }
