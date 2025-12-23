@@ -18,15 +18,8 @@
 #define DIGIT3_PIN 15
 #define DIGIT4_PIN 16
 
-#define SEGMENT_A_PIN 28 
-
-#define SEGMENT_B_PIN 27
-#define SEGMENT_C_PIN 26
-#define SEGMENT_D_PIN 22
-#define SEGMENT_E_PIN 21
-#define SEGMENT_F_PIN 20
-#define SEGMENT_G_PIN 19
 #define SEGMENT_DP_PIN 18
+static uint8_t SEGMENT_ARRAY[] = {28, 27, 26, 22, 21, 20, 19, 18};
 
 #define CURRENT_RANGE_COUNT 4
 #define CURRENT_RANGE1_PIN 1

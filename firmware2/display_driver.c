@@ -18,31 +18,18 @@ static void turn_off_all_digits(void)
 void zero_segments(void)
 {
     gpio_put(SEGMENT_DP_PIN, 0);
-    uint8_t i;
-    for(i = 0; i < SEGMENT_COUNT - 1; i++)
-    {
-        gpio_put(SEGMENT_ARRAY[i], 0);
-    }
+    for(uint8_t i = 0; i < SEGMENT_COUNT - 1; i++) gpio_put(SEGMENT_ARRAY[i], 0);
 }
 
 static void write_character(uint8_t character_encoding)
 {
-    uint8_t i;
-    for(i = 0; i < SEGMENT_COUNT - 1; i++)
-    {
-        gpio_put(SEGMENT_ARRAY[i], (character_encoding >> i) & FIRST_BIT_MASK);
-    }
+    for(uint8_t i = 0; i < SEGMENT_COUNT - 1; i++) gpio_put(SEGMENT_ARRAY[i], (character_encoding >> i) & FIRST_BIT_MASK);
 }
 
 static void write_digit(uint8_t number, uint8_t decimal_point)
 { 
     zero_segments();    
-
-    if(decimal_point)
-    {
-        gpio_put(SEGMENT_DP_PIN, 1);
-    }
-
+    if(decimal_point) gpio_put(SEGMENT_DP_PIN, 1);
     write_character(DIGITS[number]);
 }
 
@@ -78,19 +65,10 @@ void display_double(double number)
     uint8_t i;
     for(i = 0; i < DIGIT_COUNT+2; i++)
     {
-        if(double_string[i] == '.')
-        {
-            continue;
-        }
+        if(double_string[i] == '.') continue;
         uint8_t digit_integer = double_string[i] - '0';
-        if(double_string[i+1] == '.')
-        {
-            write_digit(digit_integer, 1); 
-        }    
-        else
-        {
-            write_digit(digit_integer, 0);
-        }
+        if(double_string[i+1] == '.') write_digit(digit_integer, 1); 
+        else write_digit(digit_integer, 0);
         turn_on_digit(digit);
         sleep_ms(DIGIT_DELAY_MS);
         digit++;
@@ -100,8 +78,7 @@ void display_double(double number)
 void display_open_circuit(void)
 {
     zero_segments();
-    uint8_t digit;
-    for(digit = 1; digit <= DIGIT_COUNT; digit++)
+    for(uint8_t digit = 1; digit <= DIGIT_COUNT; digit++)
     {
         if(digit == FIRST_MIDDLE_DIGIT || digit == SECOND_MIDDLE_DIGIT)
         {
@@ -115,8 +92,7 @@ void display_open_circuit(void)
 void display_short_circuit(void)
 {
     zero_segments();
-    uint8_t digit;
-    for(digit = 1; digit <= DIGIT_COUNT; digit++)
+    for(uint8_t digit = 1; digit <= DIGIT_COUNT; digit++)
     {
         write_character(DASH_CHARACTER);
         turn_on_digit(digit);

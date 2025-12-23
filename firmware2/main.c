@@ -16,14 +16,10 @@
 
 #include "IIR_filter.h"
 
-static double average_resistance_reading = 0;
 static double resistance_reading = 0;
 static uint8_t resistance_reading_count = 0;
 
-static volatile double average_voltage_reading = 0;
 static volatile Signed_Voltage voltage_reading;
-static volatile uint8_t voltage_sign = 0;
-static volatile uint16_t voltage_reading_count = 0;
 
 static volatile double average_diode_voltage_reading = 0;
 static volatile double diode_voltage_reading = 0;
@@ -60,11 +56,10 @@ static void set_test_range(void)
 
 static void check_mode_change(void)
 {
-if(gpio_get(MODE_SWITCH_PIN)) mode = Voltage;
-else
+    if(gpio_get(MODE_SWITCH_PIN)) mode = Voltage;
+    else
     {
-        if(mode == Voltage)
-            mode = Resistance;
+        if(mode == Voltage) mode = Resistance;
         button_filter <<= 1;
         button_filter |= gpio_get(BUTTON_PIN);
         if(button_filter == BUTTON_HISTORY_MASK) button_pressed = 0;
@@ -83,8 +78,7 @@ else
                     set_test_range();
                     mode = Diode;
                 }
-                else if(mode == Diode)
-                    mode = Resistance;
+                else if(mode == Diode) mode = Resistance;
             }
             button_pressed = 1;
         }
@@ -209,14 +203,7 @@ void setup_IO(void)
 
     gpio_init(DATA_INTERUPT_PIN);
 
-    gpio_init(SEGMENT_A_PIN);
-    gpio_init(SEGMENT_B_PIN);
-    gpio_init(SEGMENT_C_PIN);
-    gpio_init(SEGMENT_D_PIN);
-    gpio_init(SEGMENT_E_PIN);
-    gpio_init(SEGMENT_F_PIN);
-    gpio_init(SEGMENT_G_PIN);
-    gpio_init(SEGMENT_DP_PIN);
+    for(uint8_t i; i < 7+1; i++) gpio_init(SEGMENT_ARRAY[i]);
 
     gpio_init(CURRENT_RANGE1_PIN);
     gpio_init(CURRENT_RANGE2_PIN);
@@ -243,14 +230,7 @@ void setup_IO(void)
 
     gpio_set_dir(DATA_INTERUPT_PIN, GPIO_IN);
 
-    gpio_set_dir(SEGMENT_A_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_B_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_C_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_D_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_E_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_F_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_G_PIN, GPIO_OUT);
-    gpio_set_dir(SEGMENT_DP_PIN, GPIO_OUT);
+    for(uint8_t i; i < 7+1; i++) gpio_set_dir(SEGMENT_ARRAY[i], GPIO_OUT);
 
     gpio_set_dir(CURRENT_RANGE1_PIN, GPIO_OUT);
     gpio_set_dir(CURRENT_RANGE2_PIN, GPIO_OUT);
@@ -264,15 +244,8 @@ void setup_IO(void)
 
     gpio_set_dir(PS_NOISE_SET_PIN, GPIO_OUT);
 
-    gpio_set_drive_strength(SEGMENT_A_PIN, GPIO_DRIVE_STRENGTH_8MA); 
-    gpio_set_drive_strength(SEGMENT_B_PIN, GPIO_DRIVE_STRENGTH_8MA); 
-    gpio_set_drive_strength(SEGMENT_C_PIN, GPIO_DRIVE_STRENGTH_8MA);
-    gpio_set_drive_strength(SEGMENT_D_PIN, GPIO_DRIVE_STRENGTH_8MA); 
-    gpio_set_drive_strength(SEGMENT_E_PIN, GPIO_DRIVE_STRENGTH_8MA);
-    gpio_set_drive_strength(SEGMENT_F_PIN, GPIO_DRIVE_STRENGTH_8MA);
-    gpio_set_drive_strength(SEGMENT_G_PIN, GPIO_DRIVE_STRENGTH_8MA); 
-    gpio_set_drive_strength(SEGMENT_DP_PIN, GPIO_DRIVE_STRENGTH_8MA);
-     
+    for(uint8_t i; i < 7+1; i++) gpio_set_drive_strength(SEGMENT_ARRAY[i], GPIO_DRIVE_STRENGTH_8MA);
+
     gpio_put(PS_NOISE_SET_PIN, 1);
 
     gpio_put(CS_PIN, 1);
@@ -286,14 +259,7 @@ void setup_IO(void)
     gpio_put(MICRO_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
     
-    gpio_put(SEGMENT_A_PIN, 0);
-    gpio_put(SEGMENT_B_PIN, 0);
-    gpio_put(SEGMENT_C_PIN, 0);
-    gpio_put(SEGMENT_D_PIN, 0);
-    gpio_put(SEGMENT_E_PIN, 0);
-    gpio_put(SEGMENT_F_PIN, 0);
-    gpio_put(SEGMENT_G_PIN, 0);
-    gpio_put(SEGMENT_DP_PIN, 0);
+    for(uint8_t i; i < 7+1; i++) gpio_put(SEGMENT_ARRAY[i], 0);
 
     gpio_put(CURRENT_RANGE1_PIN, 0);
     gpio_put(CURRENT_RANGE2_PIN, 0);
@@ -307,10 +273,8 @@ void sample_resistance(void)
 {
     resistance_reading = IIR_filter_sample(&resistance_iir_filter, get_resistance(code));
     resistance_reading_count += 1;
-    // Need to wait for the IIR filter for a little before auto range
-    if(resistance_reading_count == AVERAGE_READING_COUNT)
+    if(resistance_reading_count == AVERAGE_READING_COUNT) // Need to wait for the IIR filter for a little before auto range
     {
-        printf("%d\n", range);
         find_range_resistance();
         resistance_reading_count = 0;
     }
@@ -318,8 +282,7 @@ void sample_resistance(void)
 
 void sample_diode(void)
 {
-    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) 
-        gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);
+    for(uint8_t i=0; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], i == CURRENT_RANGE_COUNT-1);
     average_diode_voltage_reading += get_diode_voltage(code);
     diode_voltage_reading_count++;
     if(diode_voltage_reading_count == AVERAGE_READING_COUNT)
@@ -332,7 +295,6 @@ void sample_diode(void)
 
 void sample_voltage(void)
 {
-    double measurement_voltage = get_measurement_voltage(code, 1);
-    voltage_reading.magnitude = voltage_adjustment(IIR_filter_sample(&voltage_iir_filter, measurement_voltage));
+    voltage_reading.magnitude = voltage_adjustment(IIR_filter_sample(&voltage_iir_filter, get_measurement_voltage(code)));
     voltage_reading.sign = voltage_adjustment_signed(voltage_reading.magnitude) < 0.0; 
 }

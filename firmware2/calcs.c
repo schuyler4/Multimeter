@@ -31,21 +31,15 @@ double get_adc_diff_voltage(uint32_t adc_code)
     return ((adc_code*VOLTAGE_REFERENCE)/ADC_STEPS);
 }
 
-double get_measurement_voltage(uint32_t adc_code, uint8_t gain)
+double get_measurement_voltage(uint32_t adc_code)
 {
     uint32_t magnitude_adc_code = get_adc_code_magnitude(adc_code);
     double diff_voltage = get_adc_diff_voltage(magnitude_adc_code);
     double I = diff_voltage/DIVIDER_LOWER_RESISTOR;
     double voltage = I*(DIVIDER_UPPER_RESISTOR+DIVIDER_LOWER_RESISTOR);
     uint8_t sign = (uint8_t)((adc_code & SIGN_MASK) >> ADC_BITS);
-    if(sign)
-    {
-        return (voltage*-1)/gain;
-    } 
-    else 
-    {
-        return voltage/gain;
-    } 
+    if(sign) return (voltage*-1);
+    else return voltage;
 }
 
 double get_diode_voltage(uint32_t adc_code)

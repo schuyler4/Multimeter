@@ -28,7 +28,7 @@
 #define RESISTANCE_KILO_THRESHOLD 9999
 #define RESISTANCE_MEGA_THRESHOLD 999999 
 
-double get_measurement_voltage(uint32_t adc_code, uint8_t gain);
+double get_measurement_voltage(uint32_t adc_code);
 double get_adc_diff_voltage(uint32_t adc_code);
 
 double get_diode_voltage(uint32_t adc_code);
