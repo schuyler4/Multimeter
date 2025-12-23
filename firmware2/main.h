@@ -13,16 +13,13 @@
 
 #define DATA_INTERUPT_PIN 6
 
-#define DIGIT1_PIN 13
-#define DIGIT2_PIN 14
-#define DIGIT3_PIN 15
-#define DIGIT4_PIN 16
+#define DIGIT_COUNT 4
+static uint8_t DIGIT_PINS[DIGIT_COUNT] = {13, 14, 15, 16};
 
 #define SEGMENT_DP_PIN 18
 static uint8_t SEGMENT_ARRAY[] = {28, 27, 26, 22, 21, 20, 19, 18};
 
 #define CURRENT_RANGE_COUNT 4
-
 
 #define MODE_SWITCH_PIN 7
 #define MODE_BUTTON_PIN 25

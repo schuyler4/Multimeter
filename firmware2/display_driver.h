@@ -3,7 +3,6 @@
 
 #include "main.h"
 
-#define DIGIT_COUNT 4
 #define SEGMENT_COUNT 8
 
 #define FIRST_BIT_MASK 0x01

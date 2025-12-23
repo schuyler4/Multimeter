@@ -9,10 +9,7 @@
 
 static void turn_off_all_digits(void)
 {
-    gpio_put(DIGIT1_PIN, 0);
-    gpio_put(DIGIT2_PIN, 0);
-    gpio_put(DIGIT3_PIN, 0);
-    gpio_put(DIGIT4_PIN, 0);
+    for(uint8_t i = 0; i < DIGIT_COUNT; i++) gpio_put(DIGIT_PINS[i], 0);
 }
 
 void zero_segments(void)
@@ -36,23 +33,7 @@ static void write_digit(uint8_t number, uint8_t decimal_point)
 static void turn_on_digit(uint8_t digit)
 {
     turn_off_all_digits();
-    switch(digit)
-    {
-        case 1:
-            gpio_put(DIGIT1_PIN, 1);
-            break;
-        case 2:
-            gpio_put(DIGIT2_PIN, 1);
-            break;
-        case 3:
-            gpio_put(DIGIT3_PIN, 1);
-            break;
-        case 4:     
-            gpio_put(DIGIT4_PIN, 1);
-            break;
-        default:
-            break;
-    }
+    gpio_put(DIGIT_PINS[digit-1], 1);
 }
 
 void display_double(double number)

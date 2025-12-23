@@ -186,11 +186,6 @@ static void adc_data_callback(uint gpio, uint32_t events)
 void setup_IO(void)
 {
     gpio_init(CS_PIN);
-    
-    gpio_init(DIGIT1_PIN);
-    gpio_init(DIGIT2_PIN);
-    gpio_init(DIGIT3_PIN);
-    gpio_init(DIGIT4_PIN);
 
     gpio_init(NANO_PIN);
     gpio_init(MICRO_PIN);
@@ -198,8 +193,8 @@ void setup_IO(void)
 
     gpio_init(DATA_INTERUPT_PIN);
 
+    for(uint8_t i; i < DIGIT_COUNT; i++) gpio_init(DIGIT_PINS[i]);
     for(uint8_t i; i < 7+1; i++) gpio_init(SEGMENT_ARRAY[i]);
-
     for(uint8_t i; i < CURRENT_RANGE_COUNT; i++) gpio_init(CURRENT_RANGE_PINS[i]);
 
     gpio_init(MODE_SWITCH_PIN);
@@ -211,19 +206,14 @@ void setup_IO(void)
 
     gpio_set_dir(CS_PIN, GPIO_OUT);
 
-    gpio_set_dir(DIGIT1_PIN, GPIO_OUT);
-    gpio_set_dir(DIGIT2_PIN, GPIO_OUT);
-    gpio_set_dir(DIGIT3_PIN, GPIO_OUT);
-    gpio_set_dir(DIGIT4_PIN, GPIO_OUT);
-
     gpio_set_dir(NANO_PIN, GPIO_OUT);
     gpio_set_dir(MICRO_PIN, GPIO_OUT);
     gpio_set_dir(LOW_OHM_AND_NEGATIVE_PIN, GPIO_OUT);
 
     gpio_set_dir(DATA_INTERUPT_PIN, GPIO_IN);
 
+    for(uint8_t i; i < DIGIT_COUNT; i++) gpio_set_dir(DIGIT_PINS[i], GPIO_OUT);
     for(uint8_t i; i < 7+1; i++) gpio_set_dir(SEGMENT_ARRAY[i], GPIO_OUT);
-
     for(uint8_t i; i < CURRENT_RANGE_COUNT; i++) gpio_set_dir(CURRENT_RANGE_PINS[i], GPIO_OUT);
 
     gpio_set_dir(MODE_SWITCH_PIN, GPIO_IN);
@@ -239,17 +229,13 @@ void setup_IO(void)
 
     gpio_put(CS_PIN, 1);
     
-    gpio_put(DIGIT1_PIN, 0);
-    gpio_put(DIGIT2_PIN, 0);
-    gpio_put(DIGIT3_PIN, 0);
-    gpio_put(DIGIT4_PIN, 0);
     
     gpio_put(NANO_PIN, 0);
     gpio_put(MICRO_PIN, 0);
     gpio_put(LOW_OHM_AND_NEGATIVE_PIN, 0);
     
     for(uint8_t i; i < 7+1; i++) gpio_put(SEGMENT_ARRAY[i], 0);
-
+    for(uint8_t i; i < DIGIT_COUNT; i++) gpio_put(DIGIT_PINS[i], 0);
     for(uint8_t i; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], 0);
 
     gpio_set_irq_enabled_with_callback(DATA_INTERUPT_PIN, GPIO_IRQ_EDGE_FALL, true, *adc_data_callback);
