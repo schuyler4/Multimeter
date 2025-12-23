@@ -39,4 +39,4 @@ firmware2/build
 firmware2/bin
 
 */-lm
-./mech
+mech
