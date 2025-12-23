@@ -150,11 +150,7 @@ int main(void)
     while(1)
     {
         check_mode_change();
-        if(mode == Diode)
-        {
-            gpio_put(CURRENT_RANGE4_PIN, 1);
-            display_diode();
-        }
+        if(mode == Diode) display_diode();
         else if(mode == Resistance)
         {
             disable_negative_sign();
@@ -165,8 +161,7 @@ int main(void)
             display_voltage();
             disable_prefix_indicators();
         }
-        else if(mode == Continuity)
-            display_continuity();
+        else if(mode == Continuity) display_continuity();
     }
 
     return 1;
@@ -205,10 +200,7 @@ void setup_IO(void)
 
     for(uint8_t i; i < 7+1; i++) gpio_init(SEGMENT_ARRAY[i]);
 
-    gpio_init(CURRENT_RANGE1_PIN);
-    gpio_init(CURRENT_RANGE2_PIN);
-    gpio_init(CURRENT_RANGE3_PIN);
-    gpio_init(CURRENT_RANGE4_PIN);
+    for(uint8_t i; i < CURRENT_RANGE_COUNT; i++) gpio_init(CURRENT_RANGE_PINS[i]);
 
     gpio_init(MODE_SWITCH_PIN);
     gpio_init(BUTTON_PIN);
@@ -232,10 +224,7 @@ void setup_IO(void)
 
     for(uint8_t i; i < 7+1; i++) gpio_set_dir(SEGMENT_ARRAY[i], GPIO_OUT);
 
-    gpio_set_dir(CURRENT_RANGE1_PIN, GPIO_OUT);
-    gpio_set_dir(CURRENT_RANGE2_PIN, GPIO_OUT);
-    gpio_set_dir(CURRENT_RANGE3_PIN, GPIO_OUT);
-    gpio_set_dir(CURRENT_RANGE4_PIN, GPIO_OUT);
+    for(uint8_t i; i < CURRENT_RANGE_COUNT; i++) gpio_set_dir(CURRENT_RANGE_PINS[i], GPIO_OUT);
 
     gpio_set_dir(MODE_SWITCH_PIN, GPIO_IN);
     gpio_set_dir(BUTTON_PIN, GPIO_IN);
@@ -261,10 +250,7 @@ void setup_IO(void)
     
     for(uint8_t i; i < 7+1; i++) gpio_put(SEGMENT_ARRAY[i], 0);
 
-    gpio_put(CURRENT_RANGE1_PIN, 0);
-    gpio_put(CURRENT_RANGE2_PIN, 0);
-    gpio_put(CURRENT_RANGE3_PIN, 0);
-    gpio_put(CURRENT_RANGE4_PIN, 0);
+    for(uint8_t i; i < CURRENT_RANGE_COUNT; i++) gpio_put(CURRENT_RANGE_PINS[i], 0);
 
     gpio_set_irq_enabled_with_callback(DATA_INTERUPT_PIN, GPIO_IRQ_EDGE_FALL, true, *adc_data_callback);
 }

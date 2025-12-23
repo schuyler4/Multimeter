@@ -22,10 +22,7 @@
 static uint8_t SEGMENT_ARRAY[] = {28, 27, 26, 22, 21, 20, 19, 18};
 
 #define CURRENT_RANGE_COUNT 4
-#define CURRENT_RANGE1_PIN 1
-#define CURRENT_RANGE2_PIN 8
-#define CURRENT_RANGE3_PIN 9
-#define CURRENT_RANGE4_PIN 10
+
 
 #define MODE_SWITCH_PIN 7
 #define MODE_BUTTON_PIN 25
@@ -82,6 +79,6 @@ void sample_diode(void);
 
 void display_reading(void);
 
-static uint8_t CURRENT_RANGE_PINS[] = {CURRENT_RANGE1_PIN, CURRENT_RANGE2_PIN, CURRENT_RANGE3_PIN, CURRENT_RANGE4_PIN};
+static uint8_t CURRENT_RANGE_PINS[] = {1, 8, 9, 10};
 
 #endif
