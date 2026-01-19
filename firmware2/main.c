@@ -247,7 +247,8 @@ void sample_resistance(void)
     resistance_reading_count += 1;
     if(resistance_reading_count == AVERAGE_READING_COUNT) // Need to wait for the IIR filter for a little before auto range
     {
-        find_range_resistance();
+        if(mode == Resistance)
+            find_range_resistance();
         resistance_reading_count = 0;
     }
 }

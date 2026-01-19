@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define HYSTERESIS_VOLTAGE 0.001
+#define HYSTERESIS_VOLTAGE 0.00125
 
 double display_hysteresis_voltage(double new_value);
 uint8_t display_hysteresis_sign_voltage(void);
